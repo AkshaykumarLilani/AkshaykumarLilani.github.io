@@ -1,46 +1,3 @@
-<<<<<<< Updated upstream
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --primary-color: #231955;
-  --secondary-color: #1f4690;
-  --tertiary-color: #e8aa42;
-  --quaternary-color: #ffe584;
-}
-
-h1 {
-  color: var(--quaternary-color);
-  position: relative;
-}
-body {
-  height: 100vh;
-}
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 30vh;
-  background-color: var(--primary-color);
-  background-image: url("");
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
-  background-position: 50% 50%;
-}
-
-#particle-js svg {
-  display: inline-block;
-}
-/* #pakodo {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 100%;
-} */
-=======
 * {
   box-sizing: border-box;
   margin: 0;
@@ -73,13 +30,13 @@ body {
   background-position: 50% 50%;
 }
 svg {
-    display : block;
-    height:15vh;
-    position: absolute;
-    padding:0px;
-    margin:0px;
-    top:24vh;
-    width:100vw;
+  display: block;
+  height: 15vh;
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  top: 24vh;
+  width: 100vw;
 }
 /* #pakodo {
   position: absolute;
@@ -87,4 +44,3 @@ svg {
   height: 100vh;
   top: 100%;
 } */
->>>>>>> Stashed changes
