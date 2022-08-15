@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 particlesJS("particles-js", {
   particles: {
     number: {
