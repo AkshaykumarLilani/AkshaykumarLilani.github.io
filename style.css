@@ -12,16 +12,16 @@
 }
 
 h1 {
-  color: var(--primary-color);
-  position: relative;
+  color: var(--tertiary-color);
+  position: absolute;
 }
 body {
   height: 100vh;
 }
 #particles-js {
   position: absolute;
-  width: 100%;
-  height: 30vh;
+  width: 45vw;
+  height: 100vh;
   background-color: var(--primary-color);
   background-image: url("");
   background-repeat: no-repeat;
@@ -29,18 +29,65 @@ body {
   overflow: hidden;
   background-position: 50% 50%;
 }
-svg {
-  display: block;
-  height: 15vh;
+
+#profile-photo {
   position: absolute;
-  padding: 0px;
-  margin: 0px;
-  top: 24vh;
-  width: 100vw;
+  top: 10vh;
+  left: 10vw;
 }
-/* #pakodo {
+#profile-photo img {
+  width: 25vw;
+  border-radius: 20px;
+}
+#connect {
+  width: 15%;
+  height: 5%;
+  background-color: var(--quaternary-color);
   position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 100%;
-} */
+  bottom: 2%;
+  left: 15%;
+  border-radius: 10px;
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(10%, auto);
+  gap: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+#github-icon,
+#instagram-icon,
+#linkedin-icon {
+  width: 90%;
+}
+
+@media only screen and (max-width: 768px) {
+  #particles-js {
+    width: 100vw;
+    height: 100vh;
+  }
+  #profile-photo {
+    top: 13vh;
+    left: 20vw;
+  }
+  #profile-photo img {
+    width: 60vw;
+  }
+  h1 {
+    top: 3vh;
+    left: 20vw;
+  }
+  #connect {
+    width: 80%;
+    left: 10%;
+    height: 7%;
+  }
+  #github-icon,
+  #instagram-icon,
+  #linkedin-icon {
+    width: 36%;
+    height: 4%;
+    justify-items: center;
+  }
+}
