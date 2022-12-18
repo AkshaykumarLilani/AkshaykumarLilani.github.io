@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,8 +15,12 @@
   position: relative;
   height: 100vh;
 }
-.home h1 {
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Serif', serif;
+}
+.home{
   color: var(--quaternary-color);
+  font-size: 12px;
 }
 body {
   height: 100vh;
@@ -29,4 +34,64 @@ body {
   background-size: cover;
   overflow: hidden;
   background-position: 50% 50%;
+}
+.curve{
+  z-index: -1;
+  border-radius: inherit;
+
+}
+.profile-photo{
+  max-width: 60%;
+  background: radial-gradient(circle, rgba(76,68,209,0.4) 0%, rgba(37,37,172,0.3) 23%, rgba(0,212,255,0) 64%);
+  z-index: 2;
+}
+.info-card{
+  height: 600px;
+  width: 335px;
+  padding: 10px;
+  /* background: rgba(255,255,255, 0.1); */
+  background: linear-gradient(135deg,rgba(255,255,255, 0.1) 30%, rgba(255,255,255, 0.05) 60%, rgba(255,255,255, 0.1) 100%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px whitesmoke;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+a:hover{
+  text-decoration: none;
+  color: inherit;
+}
+.name{
+  font-size: 2.3em;
+}
+.sub-heading{
+  font-size: 1.4em;
+}
+.bio{
+  font-size: 1.2em;
+}
+.disclaimer{
+  font-size: 1em;
+  margin-bottom: 0px;
+}
+.disclaimer span{
+  text-decoration: underline;
+}
+.social-icons img{
+  width: 27px;
+  margin-left: 16px;
+}
+.social-icons svg{
+  margin-left: 16px;
+  color: white;
+}
+.bio p span{
+  text-decoration: underline;
+}
+.tradingview{
+  width: 38px !important;
+  margin-left: 0px !important;
 }
