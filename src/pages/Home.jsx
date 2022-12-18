@@ -37,8 +37,8 @@ const Home = () => {
           <div className="text-center bio">
             <p className="mb-0">
               Building web applications using
-              <br /> <span> ReactJS</span>,<span> Mongodb</span>,{" "}
-              <span> Redux</span> & <span> ExpressJS</span>.
+              <br /> <span> ReactJS</span>, <span>Mongodb</span>,{" "}
+              <span>Redux</span> & <span>ExpressJS</span>.
             </p>
             <p className="mb-0">
               <br /> I also have hands-on experience with <span>Elasticsearch</span>, <span>MySQL</span>,
