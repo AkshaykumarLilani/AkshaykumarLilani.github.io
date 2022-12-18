@@ -9,7 +9,7 @@
   --primary-color: #231955;
   --secondary-color: #1f4690;
   --tertiary-color: #e8aa42;
-  --quaternary-color: #ffe584;
+  --quaternary-color: #FFC525;
 }
 .home{
   position: relative;
@@ -94,4 +94,17 @@ a:hover{
 .tradingview{
   width: 38px !important;
   margin-left: 0px !important;
+}
+
+@media (max-width:576px){
+  .info-card{
+    width: 80% !important;
+    height: 90% !important;
+  }
+}
+
+@media (min-height:700px){
+  .info-card{
+    height: 600px !important;
+  }
 }
