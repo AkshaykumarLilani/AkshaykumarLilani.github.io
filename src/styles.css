@@ -9,7 +9,7 @@
   --primary-color: #231955;
   --secondary-color: #1f4690;
   --tertiary-color: #e8aa42;
-  --quaternary-color: #FFC525;
+  --quaternary-color: #FFF155;
 }
 #root{
   max-height: 100vh;
@@ -45,20 +45,29 @@ body {
 
 }
 .profile-photo{
-  max-width: 60%;
-  background: radial-gradient(circle, rgba(76,68,209,0.4) 0%, rgba(37,37,172,0.3) 23%, rgba(0,212,255,0) 64%);
+  max-width: 57%;
+  background: radial-gradient(circle, rgb(13 0 164 / 40%) 0%, rgb(255 255 255 / 25%) 23%, rgb(16 190 225 / 0%) 64%);
   z-index: 2;
+  left: 50%;
+  transform: translate(-50%);
+  clip-path: circle(48%);
+}
+.top-picture{
+  height: 190px;
+  overflow: hidden;
+  border-radius: inherit;
 }
 .info-card{
   height: 600px;
   width: 335px;
-  padding: 10px;
+  /* padding: 10px; */
   /* background: rgba(255,255,255, 0.1); */
-  background: linear-gradient(135deg,rgba(255,255,255, 0.1) 30%, rgba(255,255,255, 0.05) 60%, rgba(255,255,255, 0.1) 100%);
+  background: linear-gradient(45deg,rgba(255,255,255, 0.1) 10%, rgba(255,255,255, 0.0) 80%, rgba(255,255,255, 0.1) 100%);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   border-radius: 10px;
   box-shadow: 0px 0px 2px whitesmoke;
+  
 }
 a{
   text-decoration: none;
