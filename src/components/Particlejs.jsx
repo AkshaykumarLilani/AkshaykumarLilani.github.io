@@ -21,114 +21,64 @@ const Particlesjs = () =>{
         init={particlesInit}
         loaded={particlesLoaded}
         options={{
-          background: {
-            color: {
-              value: "#231955",
-            },
-          },
           fpsLimit: 120,
           interactivity: {
-            detect_on: "canvas",
             events: {
-              onhover: {
-                enable: true,
-                mode: "grab",
-              },
-              onclick: {
-                enable: true,
-                mode: "repulse",
-              },
-              resize: true,
+                onClick: {
+                    enable: true,
+                    mode: "push",
+                },
+                onHover: {
+                    enable: true,
+                    mode: "repulse",
+                },
+                resize: true,
             },
             modes: {
-              grab: {
-                distance: 80,
-                line_linked: {
-                  opacity: 1,
+                push: {
+                    quantity: 40,
                 },
-              },
-              bubble: {
-                distance: 100,
-                size: 30,
-                duration: 2,
-                opacity: 8,
-                speed: 0,
-              },
-              repulse: {
-                distance: 200,
-                duration: 0.4,
-              },
-              push: {
-                particles_nb: 4,
-              },
-              remove: {
-                particles_nb: 2,
-              },
+                repulse: {
+                    distance: 100,
+                    duration: 0.4,
+                },
             },
-          },
+        },
           particles: {
-            number: {
-              value: 250,
-              density: {
-                enable: true,
-                value_area: 800,
-              },
-            },
             color: {
-              value: "#fff",
+                value: "#ffffff",
             },
-            shape: {
-              type: "star",
-              stroke: {
-                width: 0,
-                color: "#000000",
-              },
-              polygon: {
-                nb_sides: 5,
-              },
-            },
-            opacity: {
-              value: 0.4,
-              random: false,
-              anim: {
-                enable: false,
-                speed: 1,
-                opacity_min: 0.1,
-                sync: false,
-              },
-            },
-            size: {
-              value: 1,
-              random: true,
-              anim: {
-                enable: false,
-                speed: 10,
-                size_min: 0.1,
-                sync: false,
-              },
-            },
-            line_linked: {
-              enable: false,
-              distance: 150,
-              color: "#fff",
-              opacity: 0.4,
-              width: 1,
+            
+            collisions: {
+                enable: true,
             },
             move: {
-              enable: true,
-              speed: 1,
-              direction: "none",
-              random: false,
-              straight: false,
-              out_mode: "out",
-              bounce: false,
-              attract: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 1200,
-              },
+                directions: "none",
+                enable: true,
+                outModes: {
+                    default: "bounce",
+                },
+                random: false,
+                speed: 1,
+                straight: true,
             },
-          },
+            number: {
+                density: {
+                    enable: true,
+                    area: 5000,
+                },
+                value: 800,
+            },
+            opacity: {
+                value: 0.5,
+            },
+            shape: {
+                type: "star",
+            },
+            size: {
+                value: { min: 1, max: 1 },
+            },
+        },
           detectRetina: true,
         }}
       />
