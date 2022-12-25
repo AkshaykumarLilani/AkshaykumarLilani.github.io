@@ -20,7 +20,7 @@ const Home = () => {
     <>
       <Particlesjs />
       <div className="home d-flex justify-content-center align-items-center">
-        <div className="info-card">
+        <div className="info-card d-flex flex-column">
           <div className="position-relative top-picture">
             <img
               src={profile}
@@ -33,7 +33,10 @@ const Home = () => {
               className="position-absolute top-0 w-100 curve left-0"
             />
           </div>
-          <div className="p-2 d-flex flex-column justify-content-between">
+          <div
+            className="p-2 d-flex flex-column justify-content-between"
+            style={{ flex: 1 }}
+          >
             <div>
               <h1 className="name mb-0 text-center">Akshaykumar Lilani</h1>
               <h3 className="sub-heading text-center">
@@ -73,8 +76,12 @@ const Home = () => {
                 </a>
               </div>
               <p className="text-center disclaimer">
-                Please visit my <span>linkedin</span> to see my experience and
-                projects, I will be updating this site soon.
+                Please visit my{" "}
+                <a href="https://www.linkedin.com/in/akshay-lilani">
+                  <span>linkedin</span>
+                </a>{" "}
+                to see my experience and projects, I will be updating this site
+                soon.
               </p>
             </div>
           </div>
