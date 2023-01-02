@@ -1,9 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Home from "./pages/Home";
-import REACTGA from "react-ga";
-const TRACKING_ID = "347907347";
-REACTGA.initialize(TRACKING_ID);
+import TagManager from "react-gtm-module";
+
+const tagManagerArgs = {
+  gtmId: "G-HT8SXNYQYC",
+};
+
+TagManager.initialize(tagManagerArgs);
 
 function App() {
   return <Home />;
