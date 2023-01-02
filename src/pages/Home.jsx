@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { profile, tradingview, curve } from "../assets";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { SiUpwork } from "react-icons/si";
@@ -6,6 +6,7 @@ import { FaGithubSquare } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import Particlesjs from "../components/Particlejs";
 import { useSpring, animated } from "react-spring";
+import REACTGA from "react-ga";
 
 const Home = () => {
   const scaleUp = useSpring({
@@ -15,6 +16,10 @@ const Home = () => {
   });
 
   const [linkedinHover, setLikendinHover] = useState(false);
+
+  useEffect(()=>{
+    REACTGA.pageview(window.location.pathname)
+  })
 
   return (
     <>
