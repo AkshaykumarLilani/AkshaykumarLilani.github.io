@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/AkshaykumarLilani.github.io/static/css/main.98f22bcf.css",
-    "main.js": "/AkshaykumarLilani.github.io/static/js/main.e922d158.js",
-    "static/js/787.1f11dfe9.chunk.js": "/AkshaykumarLilani.github.io/static/js/787.1f11dfe9.chunk.js",
-    "static/media/profile.png": "/AkshaykumarLilani.github.io/static/media/profile.6de03d83d7118f955367.png",
-    "static/media/logo.svg": "/AkshaykumarLilani.github.io/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "static/media/github.svg": "/AkshaykumarLilani.github.io/static/media/github.dd0cf2fc03ccf2c3a6cdd9d3f486340f.svg",
-    "static/media/upwork.svg": "/AkshaykumarLilani.github.io/static/media/upwork.f7b23352ede6ea3570124dcd8e3f7038.svg",
-    "index.html": "/AkshaykumarLilani.github.io/index.html",
-    "static/media/tradingview.svg": "/AkshaykumarLilani.github.io/static/media/tradingview.96dbbd6f4479dda60969e26576e602a9.svg",
-    "static/media/curve.svg": "/AkshaykumarLilani.github.io/static/media/curve.a112643156dd5d6506b51bf7ae7ed32a.svg",
-    "main.98f22bcf.css.map": "/AkshaykumarLilani.github.io/static/css/main.98f22bcf.css.map",
-    "main.e922d158.js.map": "/AkshaykumarLilani.github.io/static/js/main.e922d158.js.map",
-    "787.1f11dfe9.chunk.js.map": "/AkshaykumarLilani.github.io/static/js/787.1f11dfe9.chunk.js.map"
+    "main.css": "/static/css/main.98f22bcf.css",
+    "main.js": "/static/js/main.0c141dc0.js",
+    "static/js/787.1f11dfe9.chunk.js": "/static/js/787.1f11dfe9.chunk.js",
+    "static/media/profile.png": "/static/media/profile.6de03d83d7118f955367.png",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/github.svg": "/static/media/github.dd0cf2fc03ccf2c3a6cdd9d3f486340f.svg",
+    "static/media/upwork.svg": "/static/media/upwork.f7b23352ede6ea3570124dcd8e3f7038.svg",
+    "index.html": "/index.html",
+    "static/media/tradingview.svg": "/static/media/tradingview.96dbbd6f4479dda60969e26576e602a9.svg",
+    "static/media/curve.svg": "/static/media/curve.a112643156dd5d6506b51bf7ae7ed32a.svg",
+    "main.98f22bcf.css.map": "/static/css/main.98f22bcf.css.map",
+    "main.0c141dc0.js.map": "/static/js/main.0c141dc0.js.map",
+    "787.1f11dfe9.chunk.js.map": "/static/js/787.1f11dfe9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.98f22bcf.css",
-    "static/js/main.e922d158.js"
+    "static/js/main.0c141dc0.js"
   ]
 }
