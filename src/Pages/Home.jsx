@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <div>
-        <NavBar />
+        {/* <NavBar /> */}
         <GlassCard />
       </div>
     </>
