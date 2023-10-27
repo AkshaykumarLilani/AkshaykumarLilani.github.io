@@ -1,10 +1,10 @@
 import React from "react";
-import { profile, tradingview, curve } from "../assets";
+import { profile, tradingview, curve } from "../../assets";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { SiUpwork } from "react-icons/si";
 import { FaGithubSquare } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
-import Particlesjs from "../Components/Particlejs";
+import Particlesjs from "./Particlejs";
 // import { useSpring, animated } from "react-spring";
 import css from "./GlassCard.module.css";
 
