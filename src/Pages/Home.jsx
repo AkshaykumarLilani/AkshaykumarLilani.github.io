@@ -4,6 +4,7 @@ import ContactSection from "../Components/HomePage/ContactSection";
 import ProjectsSection from "../Components/HomePage/ProjectsSection";
 import SkillsSection from "../Components/HomePage/SkillsSection";
 import Footer from "../Components/Footer";
+import HeroSection from "../Components/HomePage/HeroSection";
 
 const Home = () => {
 
@@ -11,10 +12,11 @@ const Home = () => {
     <>
       <div>
         <NavBar />
+        <HeroSection />
         <AboutSection />
-        <ContactSection />
-        <ProjectsSection />
         <SkillsSection />
+        <ProjectsSection />
+        <ContactSection />
         <Footer />
       </div>
     </>
