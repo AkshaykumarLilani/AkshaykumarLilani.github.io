@@ -1,0 +1,22 @@
+.skills-card-row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 520px) {
+    .skills-card-row{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .skills-card-row{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1366px) {
+    .skills-card-row{
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
