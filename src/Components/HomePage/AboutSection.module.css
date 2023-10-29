@@ -1,0 +1,9 @@
+.about-content {
+    width: 90%;
+}
+
+@media (min-width: 992px) {
+    .about-content {
+        width: 60%;
+    }
+}

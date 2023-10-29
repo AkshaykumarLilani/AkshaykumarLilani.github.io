@@ -28,6 +28,7 @@ const Footer = () => {
                     <BsInstagram size={25 + "px"} />
                 </a>
             </div>
+            <p className="text-muted">Last Updated: October 2023</p>
         </footer>
     );
 }

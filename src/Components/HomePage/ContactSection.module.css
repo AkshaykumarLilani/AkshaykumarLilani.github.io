@@ -1,0 +1,9 @@
+.divider {
+    transform: rotate(90deg);
+}
+
+@media (min-width: 992px) {
+    .divider {
+        transform: rotate(0deg);
+    }
+} 
