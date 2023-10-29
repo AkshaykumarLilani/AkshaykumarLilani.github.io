@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.c5b6b10f.css",
-    "main.js": "/static/js/main.d23910ae.js",
+    "main.css": "/static/css/main.4757ef7d.css",
+    "main.js": "/static/js/main.d23e3d45.js",
     "static/js/787.1f11dfe9.chunk.js": "/static/js/787.1f11dfe9.chunk.js",
     "static/media/OnlineBicycleShop.png": "/static/media/OnlineBicycleShop.b58a240d840faa3e2356.png",
     "static/media/profile.png": "/static/media/profile.ad918362317d4683e59a.png",
@@ -24,12 +24,12 @@
     "static/media/tradingview.svg": "/static/media/tradingview.96dbbd6f4479dda60969e26576e602a9.svg",
     "static/media/elasticsearch.svg": "/static/media/elasticsearch.5d14042dede0f20b526987ecade72694.svg",
     "static/media/curve.svg": "/static/media/curve.a112643156dd5d6506b51bf7ae7ed32a.svg",
-    "main.c5b6b10f.css.map": "/static/css/main.c5b6b10f.css.map",
-    "main.d23910ae.js.map": "/static/js/main.d23910ae.js.map",
+    "main.4757ef7d.css.map": "/static/css/main.4757ef7d.css.map",
+    "main.d23e3d45.js.map": "/static/js/main.d23e3d45.js.map",
     "787.1f11dfe9.chunk.js.map": "/static/js/787.1f11dfe9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c5b6b10f.css",
-    "static/js/main.d23910ae.js"
+    "static/css/main.4757ef7d.css",
+    "static/js/main.d23e3d45.js"
   ]
 }
