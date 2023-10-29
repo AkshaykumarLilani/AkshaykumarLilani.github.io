@@ -1,5 +1,6 @@
-import { BsDownload } from "react-icons/bs";
+import { MdDownload } from "react-icons/md";
 import css from "./AboutSection.module.css";
+import { downloadResume } from "../../Utilities/downloadResumeEventListener";
 
 const AboutSection = () => {
 
@@ -14,10 +15,10 @@ const AboutSection = () => {
                     I am a creative problem-solver who is committed to staying up-to-date with emerging technologies and industry trends. With a strong focus on delivering high-quality work, I strive to exceed client expectations and drive business success.
                 </p>
             </div>
-            <a id="resume-link-2" href="/Resume.pdf" target="_blank" className="p-2nav-link resume d-flex align-items-center gap-2  text-white p-2" style={{backgroundColor:"#7844E9", borderRadius: 10, textDecoration: "none"}}>
-                <BsDownload />
+            <div id="resume-button-2" className="p-2nav-link resume d-flex align-items-center gap-2 text-white p-2 cursor-pointer" onClick={downloadResume} style={{backgroundColor:"#7844E9", borderRadius: 10, textDecoration: "none"}}>
+                <MdDownload size={20}/>
                 <span>Resume</span>
-            </a>
+            </div>
         </section>
     );
 }
