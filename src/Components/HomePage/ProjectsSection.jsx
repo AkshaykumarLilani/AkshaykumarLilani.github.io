@@ -28,12 +28,13 @@ const ProjectsSection = () => {
 }
 
 const ProjectCard = ({ title, img, description, techStack, git, deployedLink }) => {
+    
 
     return (
-        <div className="p-2" style={{border: "1px solid gray"}}>
-            <div style={{maxWidth: 300}}>
+        <div className="p-2 project-card" style={{border: "1px solid gray"}}>
+            <a href={deployedLink} style={{maxWidth: 300, display: "block"}}>
                 <img className="w-100 cursor-pointer" src={img} alt={title} />
-            </div>
+            </a>
             <h5 className="project-title my-1">{title}</h5>
             <p className="project-description my-1">{description}</p>
             <div className="project-tech-stack">

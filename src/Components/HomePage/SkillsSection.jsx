@@ -18,7 +18,7 @@ const SkillsSection = () => {
     return (
         <section id="skills" className="d-flex flex-column justify-content-center align-items-center gap-5 py-3">
             <h3 className="m-0">Skills</h3>
-            <div className={"gap-3 "+css["skills-card-row"]}>
+            <div className={"gap-3 justify-content-center   "+css["skills-card-row"]}>
                 {
                     skillsTop?.map((skill, index) => {
                         return <SkillCard key={index} img={skill.img} name={skill.name} />
@@ -33,7 +33,7 @@ const SkillCard = ({ img, name }) => {
     return (
         <div 
             style={{ border: "2px solid black", borderRadius: 10, maxWidth: 100 }} 
-            className="d-flex flex-column justify-content-around gap-2 p-3 skills-card">
+            className={"d-flex flex-column justify-content-around gap-2 p-3 skills-card "+css["skill"]}>
             <div>
                 <img className="skills-card-img w-100" src={img} alt="" />
             </div>

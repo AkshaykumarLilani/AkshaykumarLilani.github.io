@@ -8,7 +8,7 @@ const HeroSection = () => {
             <h3>Hello, I am</h3>
             <h1 id="user-detail-name">Akshaykumar Lilani</h1>
             <h4>Software Engineer at Teson LLP</h4>
-            <p id="user-detail-intro">Building web applications using <br />
+            <p>Building web applications using <br />
                 ReactJS, Mongodb, Redux & ExpressJS.</p>
         </div>
         <div>

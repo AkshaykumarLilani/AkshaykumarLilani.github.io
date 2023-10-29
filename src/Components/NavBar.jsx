@@ -13,20 +13,20 @@ const NavBar = () => {
                 <Navbar.Offcanvas
                     id={`offcanvasNavbar-expand-${expand}`}
                     aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-                    placement="end"
+                    placement="bottom"
                 >
                     <Offcanvas.Header closeButton>
-                        <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                        <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} className="text-center flex-grow-1">
                             Akshaykumar Lilani
                         </Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
-                        <Nav className="justify-content-end flex-grow-1 pe-3 gap-5">
+                        <Nav className="justify-content-center justify-content-md-end flex-row flex-grow-1 pe-3 gap-2 gap-md-5 flex-wrap flex-md-nowrap">
                             <Nav.Link className="p-2 nav-link about" href="#about">About</Nav.Link>
                             <Nav.Link className="p-2 nav-link skills" href="#skills">Skills</Nav.Link>
                             <Nav.Link className="p-2 nav-link projects" href="#projects">Projects</Nav.Link>
                             <Nav.Link className="p-2 nav-link contact" href="#contact">Contact</Nav.Link>
-                            <Nav.Link id="resume-link-1" href="/Resume.pdf" target="_blank" className="nav-link resume d-flex align-items-center gap-2 text-white" style={{backgroundColor:"#7844E9", borderRadius: 10}}>
+                            <Nav.Link id="resume-link-1" href="/Resume.pdf" target="_blank" className="nav-link resume d-flex align-items-center gap-2 text-white p-2" style={{backgroundColor:"#7844E9", borderRadius: 10, maxWidth: 98}}>
                                 <BsDownload />
                                 <span>Resume</span>
                             </Nav.Link>
