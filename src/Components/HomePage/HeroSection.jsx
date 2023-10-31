@@ -10,7 +10,7 @@ const HeroSection = () => {
         <div className="text-light text-center text-md-start">
             <h3>Hello, I am</h3>
             <h1 id="user-detail-name">Akshaykumar Lilani</h1>
-            <h4>Software Engineer at Teson LLP</h4>
+            <h5>Software Engineer at Teson LLP</h5>
             <p>Building web applications using <br />
                 ReactJS, Mongodb, Redux & ExpressJS.</p>
         </div>
