@@ -1,4 +1,4 @@
-import profile from "./profile.png"
+import profile from "./profile.webp"
 import github from "./github.svg"
 import upwork from "./upwork.svg"
 import tradingview from "./tradingview.svg"
