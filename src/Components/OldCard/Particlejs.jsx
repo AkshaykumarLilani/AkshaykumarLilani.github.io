@@ -2,8 +2,13 @@ import React, { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import css from "./GlassCard.module.css";
+import { useThemeContext } from "../../Context/ThemeContext";
+import { particleJsOption } from "./particleJsOption";
 
-const Particlesjs = () => {
+const Particlesjs = ({ asBackground }) => {
+    const { theme } = useThemeContext();
+    console.log({ theme });
+
     const particlesInit = useCallback(async (engine) => {
         console.log(engine);
         // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
@@ -18,70 +23,13 @@ const Particlesjs = () => {
 
     return (
         <Particles
-            id={css["tsparticles"]}
+            id={asBackground ? css["tsparticles-background"] : css["tsparticles"]}
             init={particlesInit}
             loaded={particlesLoaded}
-            options={{
-                fpsLimit: 120,
-                interactivity: {
-                    events: {
-                        onClick: {
-                            enable: false,
-                            mode: "push",
-                        },
-                        onHover: {
-                            enable: false,
-                            mode: "repulse",
-                        },
-                        resize: true,
-                    },
-                    modes: {
-                        push: {
-                            quantity: 40,
-                        },
-                        repulse: {
-                            distance: 100,
-                            duration: 0.4,
-                        },
-                    },
-                },
-                particles: {
-                    color: {
-                        value: "#ffffff",
-                    },
-
-                    collisions: {
-                        enable: true,
-                    },
-                    move: {
-                        directions: "none",
-                        enable: true,
-                        outModes: {
-                            default: "bounce",
-                        },
-                        random: false,
-                        speed: 1,
-                        straight: true,
-                    },
-                    number: {
-                        density: {
-                            enable: true,
-                            area: 5000,
-                        },
-                        value: 800,
-                    },
-                    opacity: {
-                        value: 0.5,
-                    },
-                    shape: {
-                        type: "star",
-                    },
-                    size: {
-                        value: { min: 1, max: 1 },
-                    },
-                },
-                detectRetina: true,
+            style={{
+                borderRadius:"inherit"
             }}
+            options={particleJsOption}
         />
     )
 }

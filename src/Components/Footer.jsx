@@ -9,7 +9,7 @@ const Footer = () => {
 
 
     return (
-        <footer className="d-flex justify-content-center align-items-center flex-column bg-dark mt-5">
+        <footer className="d-flex justify-content-center align-items-center flex-column bg-dark">
             <h6 className="text-white my-1">Available at</h6>
             <div className={glassCardCss["social-icons"] + " d-flex flex-row align-items-center justify-content-center w-100"}>
                 <a target="_blank" rel="noreferrer" href="https://in.tradingview.com/u/S_Codes/#published-scripts">

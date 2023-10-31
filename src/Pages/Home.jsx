@@ -13,12 +13,14 @@ const Home = () => {
     <>
       <div>
         <NavBar />
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <GithubStatsSection />
-        <ContactSection />
+        <div id="all-sections">
+          <HeroSection />
+          <AboutSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <GithubStatsSection />
+          <ContactSection />
+        </div>
         <Footer />
       </div>
     </>
