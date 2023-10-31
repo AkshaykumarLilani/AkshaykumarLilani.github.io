@@ -7,8 +7,8 @@ const NavBar = () => {
     const expand = 'md';
 
     return (
-        <Navbar key={expand} expand={expand} sticky="top" className="bg-body-tertiary mb-3" id="nav-menu">
-            <Container fluid>
+        <Navbar key={expand} expand={expand} sticky="top" className="bg-body-tertiary" id="nav-menu">
+            <Container fluid id="nav-content">
                 <Navbar.Brand href="#" className="nav-link home">Akshaykumar Lilani</Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                 <Navbar.Offcanvas
@@ -22,7 +22,7 @@ const NavBar = () => {
                         </Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
-                        <Nav className="justify-content-center justify-content-md-end flex-row flex-grow-1 pe-3 gap-2 gap-md-5 flex-wrap flex-md-nowrap">
+                        <Nav className="justify-content-center justify-content-md-end flex-row flex-grow-1 gap-2 gap-md-5 flex-wrap flex-md-nowrap">
                             <Nav.Link className="p-2 nav-link about" href="#about">About</Nav.Link>
                             <Nav.Link className="p-2 nav-link skills" href="#skills">Skills</Nav.Link>
                             <Nav.Link className="p-2 nav-link projects" href="#projects">Projects</Nav.Link>

@@ -1,6 +1,7 @@
 import { FaGithubSquare } from "react-icons/fa";
 import { AiOutlineLinkedin, AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 import css from "./ContactSection.module.css";
+import Particlesjs from "../OldCard/Particlejs";
 
 const ContactSection = () => {
 

@@ -1,10 +1,13 @@
 import { profile } from "../../assets";
+import Particlesjs from "../OldCard/Particlejs";
 
 
 const HeroSection = () => {
 
-    return (<section id="home" className="d-flex flex-column-reverse gap-md-5 flex-md-row justify-content-center align-items-center">
-        <div>
+    return (
+    <section id="home" className="d-flex flex-column-reverse gap-md-5 flex-md-row justify-content-center align-items-center position-relative">
+        <Particlesjs asBackground={true} />
+        <div className="text-light text-center text-md-start">
             <h3>Hello, I am</h3>
             <h1 id="user-detail-name">Akshaykumar Lilani</h1>
             <h4>Software Engineer at Teson LLP</h4>
