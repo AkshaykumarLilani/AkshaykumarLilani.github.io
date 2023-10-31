@@ -3,7 +3,7 @@ import { profile } from "../../assets";
 
 const HeroSection = () => {
 
-    return (<section id="home" className="d-flex flex-column-reverse flex-md-row justify-content-center align-items-center">
+    return (<section id="home" className="d-flex flex-column-reverse gap-md-5 flex-md-row justify-content-center align-items-center">
         <div>
             <h3>Hello, I am</h3>
             <h1 id="user-detail-name">Akshaykumar Lilani</h1>
