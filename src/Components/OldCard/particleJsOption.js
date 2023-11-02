@@ -67,7 +67,7 @@ const hollowknight = {
                 enable: false,
             },
             limit: 0,
-            value: 100,
+            value: 200,
         },
         opacity: {
             animation: {

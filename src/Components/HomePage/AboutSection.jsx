@@ -15,7 +15,7 @@ const AboutSection = () => {
                     I am a creative problem-solver who is committed to staying up-to-date with emerging technologies and industry trends. With a strong focus on delivering high-quality work, I strive to exceed client expectations and drive business success.
                 </p>
             </div>
-            <div id="resume-button-2" className="p-2nav-link resume d-flex align-items-center gap-2 text-white p-2 cursor-pointer" onClick={downloadResume} style={{backgroundColor:"#3F2B96", borderRadius: 10, textDecoration: "none"}}>
+            <div id="resume-button-2" className="p-2nav-link resume d-flex align-items-center gap-2 text-white p-2 cursor-pointer" onClick={downloadResume}>
                 <MdDownload size={20}/>
                 <span>Resume</span>
             </div>

@@ -27,7 +27,7 @@ const NavBar = () => {
                             <Nav.Link className="p-2 nav-link skills" href="#skills">Skills</Nav.Link>
                             <Nav.Link className="p-2 nav-link projects" href="#projects">Projects</Nav.Link>
                             <Nav.Link className="p-2 nav-link contact" href="#contact">Contact</Nav.Link>
-                            <div id="resume-button-1" onClick={downloadResume} className="nav-link resume d-flex align-items-center gap-2 text-white p-2 cursor-pointer" style={{ backgroundColor: "#3F2B96", borderRadius: 10, maxWidth: 98 }}>
+                            <div id="resume-button-1" onClick={downloadResume} className="nav-link resume d-flex align-items-center gap-2 text-white p-2 cursor-pointer">
                                 <MdDownload size={20}/>
                                 <span>Resume</span>
                             </div>
