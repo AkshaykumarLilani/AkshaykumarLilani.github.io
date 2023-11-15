@@ -1,0 +1,49 @@
+@import url("../node_modules/bootstrap/scss/bootstrap.scss");
+
+// Colors
+$accent-color: #0077D4;
+$design-max-width-desktop: 1120px;
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+#resume-button-1,
+#resume-button-2 {
+    background-color: $accent-color;
+    opacity: 1;
+}
+
+#resume-button-1:hover,
+#resume-button-2:hover {
+    opacity: 0.7;
+}
+
+.br-10{
+    border-radius: 10px;
+}
+
+.nav-link.active {
+    color: $accent-color
+}
+
+// #nav-menu{
+//     max-width: $design-max-width-desktop;
+// }
+
+.max-width-desktop {
+    max-width: $design-max-width-desktop;
+}
+
+.color-accent{
+    color: $accent-color;
+}
+
+.min-height-section{
+    min-height: 60vh;
+}
