@@ -1,6 +1,12 @@
 import profile from "./profile.webp";
 import underline from "./underline.svg";
 
+import github_logo from "./github.svg";
+import linkedin_logo from "./linkedin.svg";
+import tradingview_logo from "./tradingview.svg";
+import email_logo from "./email.svg";
+import phone_logo from "./phone.svg";
+
 import tech_aws from "./technologies/aws.svg";
 import tech_bootstrap from "./technologies/bootstrap.svg";
 import tech_css from "./technologies/css.svg";
@@ -20,9 +26,21 @@ import tech_redux from "./technologies/redux.svg";
 import tech_s3 from "./technologies/s3.svg";
 import tech_ubuntu from "./technologies/ubuntu.svg";
 
+import project_OnlineBiCycleShop from "./projects/OnlineBiCycleShop.png";
+import project_LetsCamp from "./projects/LetsCamp.png";
+
+import project_githubLogo from "./projects/github_logo.svg";
+import project_gotoLink from "./projects/gotoLink.svg";
+
 export {
     profile,
     underline,
+
+    github_logo,
+    linkedin_logo,
+    tradingview_logo,
+    email_logo,
+    phone_logo,
 
     tech_aws,
     tech_bootstrap,
@@ -42,4 +60,10 @@ export {
     tech_redux,
     tech_s3,
     tech_ubuntu,
+
+    project_OnlineBiCycleShop,
+    project_LetsCamp,
+
+    project_githubLogo,
+    project_gotoLink
 }
