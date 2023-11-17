@@ -5,8 +5,8 @@ import ResumeButton from '../Common/ResumeButton'
 
 function AboutSection() {
     return (
-        <section className='max-width-desktop mx-auto d-flex justify-content-start align-items-start py-2'>
-            <div className='d-flex gap-5'>
+        <section className='max-width-desktop min-height-section mx-auto d-flex justify-content-start align-items-center py-2' id='about'>
+            <div className='d-flex flex-column-reverse flex-md-row gap-5'>
                 <div className='d-flex flex-column gap-4'>
                     <SectionTitle title={`About`} />
                     <div >
