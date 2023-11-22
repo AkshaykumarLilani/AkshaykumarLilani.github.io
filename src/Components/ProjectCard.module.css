@@ -7,7 +7,8 @@
   background: #f2f2f2;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.19);
   padding: 15px;
-  width: 497px;
+  /* width: 497px; */
+  width: 100%;
   margin-bottom: 20px;
   break-inside: avoid;
 }
