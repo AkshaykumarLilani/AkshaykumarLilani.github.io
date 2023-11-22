@@ -1,4 +1,11 @@
 .projects-container{
-    column-count: 2;
+    column-count: 1;
     column-gap: 20px !important;
+}
+
+@media (min-width: 1120px) {
+    .projects-container{
+        column-count: 2;
+        column-gap: 20px !important;
+    }
 }
