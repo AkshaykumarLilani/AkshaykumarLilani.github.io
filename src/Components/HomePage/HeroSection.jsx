@@ -1,7 +1,11 @@
 import React from 'react'
 import { github_logo, linkedin_logo } from '../../assets'
+import { useCurrentWidth } from 'react-socks'
 
 function HeroSection() {
+    const currentWidth = useCurrentWidth();
+
+
     return (
         <section className='max-width-desktop mx-auto d-flex justify-content-start align-items-center min-height-section'>
             <div className='d-flex gap-2'>

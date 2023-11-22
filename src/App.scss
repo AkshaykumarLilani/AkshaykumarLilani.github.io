@@ -3,10 +3,12 @@
 // Colors
 $accent-color: #0077D4;
 $design-max-width-desktop: 1120px;
+$body-color: #202020;
 
 body{
     margin: 0px;
     padding: 0px;
+    color: $body-color;
 }
 
 .cursor-pointer{
@@ -38,6 +40,8 @@ body{
 
 .max-width-desktop {
     max-width: $design-max-width-desktop;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .color-accent{

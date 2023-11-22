@@ -138,3 +138,146 @@ export const allTechs = {
         backgroundColor: 'rgba(239, 174, 198, 0.46)'
     }
 }
+
+const sameColorBorderColor = 'gray';
+const sameColorBgColor = 'rgba(192, 192, 192, 0.46)';
+
+const getMyBg = (title) => {
+    return allTechs[title].backgroundColor
+}
+
+export const allTechsSameColor = {
+    aws: {
+        title: "AWS EC2",
+        img: tech_aws,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("aws"),
+    },
+    bootstrap: {
+        title: 'Bootstrap',
+        img: tech_bootstrap,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("bootstrap"),
+    },
+    css: {
+        title: 'CSS',
+        img: tech_css,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("css"),
+    },
+    django_rest: {
+        title: 'Django Rest',
+        img: tech_django_rest,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("django_rest"),
+    },
+    docker: {
+        title: 'Docker',
+        img: tech_docker,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("docker"),
+    },
+    express: {
+        title: 'Express',
+        img: tech_express,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("express"),
+    },
+    git: {
+        title: 'Git',
+        img: tech_git,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("git"),
+    },
+    html: {
+        title: 'HTML',
+        img: tech_html,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("html"),
+    },
+    javascript: {
+        title: 'JavaScript',
+        img: tech_javascript,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("javascript"),
+    },
+    mongodb: {
+        title: 'MongoDB',
+        img: tech_mongodb,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("mongodb"),
+    },
+    netlify: {
+        title: 'Netlify',
+        img: tech_netlify,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("netlify"),
+    },
+    nodejs: {
+        title: 'NodeJs',
+        img: tech_nodejs,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("nodejs"),
+    },
+    postgres: {
+        title: 'Postgres',
+        img: tech_postgres,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("postgres"),
+    },
+    python: {
+        title: 'Python',
+        img: tech_python,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("python"),
+    },
+    react: {
+        title: 'React',
+        img: tech_react,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("react"),
+    },
+    redux: {
+        title: 'Redux',
+        img: tech_redux,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("redux"),
+    },
+    s3: {
+        title: 'Amazon S3',
+        img: tech_s3,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("s3"),
+    },
+    ubuntu: {
+        title: 'Ubuntu',
+        img: tech_ubuntu,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("ubuntu"),
+    },
+    ejs: {
+        title: 'EJS',
+        img: false,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("ejs"),
+    }
+}
