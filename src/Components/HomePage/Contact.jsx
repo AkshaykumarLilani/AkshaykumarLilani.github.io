@@ -2,6 +2,7 @@ import React from 'react';
 import SectionTitle from '../Common/SectionTitle';
 import styles from "./Contact.module.css";
 import { linkedin_logo, github_logo, tradingview_logo, email_logo, phone_logo } from '../../assets';
+import { useCurrentWidth } from 'react-socks';
 
 const myContacts = [
     [
@@ -37,7 +38,7 @@ const myContacts = [
 
 function Contact() {
     return (
-        <section className='max-width-desktop mx-auto d-flex flex-column justify-content-start gap-5 align-items-start py-2' id='contact'>
+        <section className='max-width-desktop pt-5  mx-auto d-flex flex-column justify-content-center gap-5 align-items-start py-2' id='contact'>
             <div>
                 <SectionTitle title={`Connect with me`} />
             </div>
@@ -55,9 +56,10 @@ function Contact() {
 }
 
 const IndividualContactCard = ({ img, text, link }) => {
+    const currentWidth = useCurrentWidth();
 
     return <a href={link} target='_blank' rel='noreferrer' className={styles['contact-card'] + ' '}>
-        <img width={35} src={img} alt="" />
+        <img width={currentWidth < 1120 ? 25 : 35} src={img} alt="" />
         <span>{text}</span>
     </a>
 }
