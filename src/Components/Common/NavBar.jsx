@@ -26,6 +26,7 @@ function NavBar() {
                     border: "1px solid #FFF",
                     borderRadius: "10px",
                     backdropFilter: "blur(5px)",
+                    minWidth: 350,
                     width: "80%",
                     fontSize: 14
                 }}>

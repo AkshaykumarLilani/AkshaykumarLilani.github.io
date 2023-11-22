@@ -3,7 +3,7 @@
     column-gap: 20px !important;
 }
 
-@media (min-width: 1120px) {
+@media (min-width: 720px) {
     .projects-container{
         column-count: 2;
         column-gap: 20px !important;
