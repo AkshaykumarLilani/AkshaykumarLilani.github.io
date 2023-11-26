@@ -1,9 +1,11 @@
 import React from 'react'
 import SectionTitle from '../Common/SectionTitle'
-import { allTechs } from '../../Utilities/allTechs'
+import { allTechsSameColor } from '../../Utilities/allTechs'
 import ProjectCard from '../ProjectCard'
-import { project_LetsCamp, project_OnlineBiCycleShop } from '../../assets'
+import { project_BigBasketClone, project_LetsCamp, project_OnlineBiCycleShop } from '../../assets'
 import styles from "./ProjectSection.module.css";
+
+const allTechs = allTechsSameColor;
 
 const projects = [
     {
@@ -32,12 +34,12 @@ const projects = [
         image: project_OnlineBiCycleShop
     },
     {
-        title: "OnlineBiCycleShop",
-        description: "BiCycle Shopping website built using HTML, CSS, JavaScript on Frontend and JSON Server as Backend.",
+        title: "Big Basket Clone",
+        description: "FrontEnd Clone of a popular grocery shopping website: BigBasket. Built using HTML, CSS & Javascript.",
         techStack: [allTechs.javascript, allTechs.html, allTechs.css],
-        githubRepositoryLink: "https://github.com/AkshaykumarLilani/OnlineBicycleShop",
-        deployedLink: "https://phenomenal-crisp-d9f0f8.netlify.app",
-        image: project_OnlineBiCycleShop
+        githubRepositoryLink: "https://github.com/AkshaykumarLilani/big-basket-clone",
+        deployedLink: "https://visionary-smakager-639150.netlify.app/",
+        image: project_BigBasketClone
     },
 ]
 

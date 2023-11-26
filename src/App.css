@@ -12,12 +12,6 @@ body {
 #resume-button-1,
 #resume-button-2 {
   background-color: #0077D4;
-  opacity: 1;
-}
-
-#resume-button-1:hover,
-#resume-button-2:hover {
-  opacity: 0.7;
 }
 
 .br-10 {

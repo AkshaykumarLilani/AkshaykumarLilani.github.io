@@ -37,7 +37,7 @@ export const allTechs = {
         img: tech_css,
         // borderColor: '#F0DB4F',
         borderColor: '#000',
-        backgroundColor: 'rgba(240, 219, 79, 0.46)'
+        backgroundColor: 'rgba(186, 224, 255, 0.46)'
     },
     django_rest: {
         title: 'Django Rest',
@@ -68,7 +68,7 @@ export const allTechs = {
         img: tech_html,
         // borderColor: '#F0DB4F',
         borderColor: '#000',
-        backgroundColor: 'rgba(240, 219, 79, 0.46)'
+        backgroundColor: 'rgba(255, 195, 179, 0.46)'
     },
     javascript: {
         title: 'JavaScript',
@@ -120,7 +120,7 @@ export const allTechs = {
         backgroundColor: 'rgba(215, 189, 255, 0.46)'
     },
     s3: {
-        title: 'Amazon S3',
+        title: 'AWS S3',
         img: tech_s3,
         borderColor: 'rgba(94, 31, 24, 0.67)',
         backgroundColor: 'rgba(255, 184, 176, 0.46)'
@@ -141,6 +141,7 @@ export const allTechs = {
 
 const sameColorBorderColor = 'gray';
 const sameColorBgColor = 'rgba(192, 192, 192, 0.46)';
+// const sameColorBgColor = 'linear-gradient(90deg, rgba(247,247,250,1) 10%, rgba(238,238,238,1) 62%, rgba(231,232,232,0.7357317927170868) 100%)';
 
 const getMyBg = (title) => {
     return allTechs[title].backgroundColor
@@ -169,7 +170,7 @@ export const allTechsSameColor = {
         onAnimationBackgroundColor: getMyBg("css"),
     },
     django_rest: {
-        title: 'Django Rest',
+        title: 'DRF',
         img: tech_django_rest,
         borderColor: sameColorBorderColor,
         backgroundColor: sameColorBgColor,

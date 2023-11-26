@@ -1,11 +1,17 @@
 .projects-container{
-    column-count: 1;
-    column-gap: 20px !important;
+    /* column-count: 1;
+    column-gap: 20px !important; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 @media (min-width: 720px) {
     .projects-container{
-        column-count: 2;
-        column-gap: 20px !important;
+        /* column-count: 3;
+        column-gap: 20px !important; */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 }
