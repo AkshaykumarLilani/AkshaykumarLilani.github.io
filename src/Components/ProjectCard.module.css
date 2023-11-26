@@ -4,13 +4,13 @@
 
 .project-card {
   border-radius: var(--project-card-border-radius);
-  background: #f2f2f2;
+  background: rgba(186, 224, 255, 0.46);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.19);
   padding: 15px;
   /* width: 497px; */
   width: 100%;
-  margin-bottom: 20px;
-  break-inside: avoid;
+  /* margin-bottom: 20px; */
+  /* break-inside: avoid; */
 }
 
 .project-img {
@@ -21,8 +21,13 @@
 
 .github-deploy-link {
   border-radius: 10px;
-  background: #d9d9d9;
+  background: #fff;
   padding: 5px 8px;
   text-decoration: none;
   color: black;
+}
+
+.github-deploy-link:hover {
+  /* background: #fff; */
+  color: #0077D4;
 }

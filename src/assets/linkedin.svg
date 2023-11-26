@@ -1,13 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="44" height="45" viewBox="0 0 44 45" fill="none">
-  <g clipPath="url(#clip0_30_50)">
-    <path d="M44 41.3929C44 42.9109 42.768 44.1429 41.25 44.1429H2.75C1.232 44.1429 0 42.9109 0 41.3929V2.89286C0 1.37486 1.232 0.142857 2.75 0.142857H41.25C42.768 0.142857 44 1.37486 44 2.89286V41.3929Z" fill="#007BB5" />
-    <path d="M15.125 15.2679H9.625V34.5179H15.125V15.2679Z" fill="white" />
-    <path d="M28.1861 15.2679C24.3485 15.2679 23.6885 16.6676 23.375 18.0179V15.2679H17.875V34.5179H23.375V23.5179C23.375 21.7345 24.3416 20.7679 26.125 20.7679C27.8658 20.7679 28.875 21.7139 28.875 23.5179V34.5179H34.375V24.8929C34.375 19.3929 33.6586 15.2679 28.1861 15.2679Z" fill="white" />
-    <path d="M12.375 13.8929C13.8938 13.8929 15.125 12.6616 15.125 11.1429C15.125 9.62407 13.8938 8.39286 12.375 8.39286C10.8562 8.39286 9.625 9.62407 9.625 11.1429C9.625 12.6616 10.8562 13.8929 12.375 13.8929Z" fill="white" />
-  </g>
-  <defs>
-    <clipPath id="clip0_30_50">
-      <rect width="44" height="44" fill="white" transform="translate(0 0.142857)" />
-    </clipPath>
-  </defs>
-</svg>
+<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg xmlns="http://www.w3.org/2000/svg"
+aria-label="LinkedIn" role="img"
+viewBox="0 0 512 512"
+fill="#ffffff"><rect
+width="512" height="512"
+rx="15%"
+fill="#0077b5"/><circle cx="142" cy="138" r="37"/><path stroke="#ffffff" stroke-width="66" d="M244 194v198M142 194v198"/><path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32"/></svg>

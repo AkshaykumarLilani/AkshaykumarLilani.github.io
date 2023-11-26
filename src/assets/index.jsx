@@ -28,6 +28,7 @@ import tech_ubuntu from "./technologies/ubuntu.svg";
 
 import project_OnlineBiCycleShop from "./projects/OnlineBiCycleShop.png";
 import project_LetsCamp from "./projects/LetsCamp.png";
+import project_BigBasketClone from "./projects/BigBasketClone.png";
 
 import project_githubLogo from "./projects/github_logo.svg";
 import project_gotoLink from "./projects/gotoLink.svg";
@@ -63,6 +64,7 @@ export {
 
     project_OnlineBiCycleShop,
     project_LetsCamp,
+    project_BigBasketClone,
 
     project_githubLogo,
     project_gotoLink

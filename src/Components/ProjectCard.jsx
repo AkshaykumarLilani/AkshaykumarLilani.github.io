@@ -42,15 +42,15 @@ function ProjectCard({ title, description, techStack, githubRepositoryLink, depl
     }
 
     return (
-        <div className={styles['project-card'] + " " + "d-flex flex-column gap-3"}>
+        <div className={styles['project-card'] + " " + "d-flex flex-column justify-content-around gap-3"}>
             <div>
                 <img src={image} alt="" className={styles['project-img'] + " "} />
             </div>
-            <h5 className='mb-0'>{title}</h5>
+            <h5 className='mb-0 color-accent'>{title}</h5>
             <p className='mb-0'>{description}</p>
             <div className='d-flex gap-2 flex-wrap'>
                 {
-                    Array.isArray(techStack) && techStack.map((tech, index) => <TechnologyBox key={index} {...tech} />)
+                    Array.isArray(techStack) && techStack.map((tech, index) => <TechnologyBox key={index} {...tech} backgroundColor={"white"} fontSize={14} />)
                 }
             </div>
             <div className='d-flex justify-content-between align-items-center w-100'>
