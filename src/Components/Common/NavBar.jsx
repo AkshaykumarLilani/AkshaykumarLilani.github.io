@@ -2,12 +2,17 @@ import { Breakpoint, useCurrentWidth } from "react-socks";
 import ResumeButton from "./ResumeButton";
 import ThemeChangerButton from "./ThemeChangerButton";
 import { useSpring, animated } from "@react-spring/web";
+import { useState, useEffect } from "react";
+
+const links = ["about", "skills", "projects", "contact"]
 
 function NavBar() {
     const currentWidth = useCurrentWidth();
 
+    const [active, setActive] = useState("about");
+
     const scaleIn = useSpring({
-        from:{
+        from: {
             y: 1000,
             opacity: 0,
         },
@@ -15,11 +20,71 @@ function NavBar() {
             y: 0,
             opacity: 1
         }
-    })
+    });
+
+    const scrollTo = (e, sectionName) => {
+        e.preventDefault();
+        // console.log(e.target.hash, e);
+        let x = document.querySelector(`#${sectionName}`);
+        setActive(sectionName);
+        if (x) {
+            let rect = x.getBoundingClientRect();
+            let distanceFromTop = rect.top;
+            let scrollToY = window.scrollY + distanceFromTop - 100;
+            // console.log({ rect, y: rect.top });
+            // x.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+            window.scrollTo({
+                top: scrollToY,
+                behavior: 'smooth' // Optional smooth scrolling
+            });
+        }
+    }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            // Assuming each section has a class 'section'
+            const sections = document.querySelectorAll('section');
+
+            for (let i = 0; i < sections.length; i++) {
+                const rect = sections[i].getBoundingClientRect();
+                const sectionTop = rect.top + window.scrollY - 100;
+                const sectionBottom = sectionTop + rect.height - 100;
+                // console.table({h: sections[i].id, top: sectionTop, bot: sectionBottom, scrollY})
+
+                if (scrollY >= sectionTop && scrollY <= sectionBottom) {
+                    // You can do something specific for this section here
+                    if (sections[i].id) {
+                        setActive(sections[i].id);
+                    }
+                    // console.dir(sections[i]);
+                    break;
+                } else {
+                    setActive("about");
+                }
+            }
+        };
+        let timer = null;
+        // Attach the scroll event listener
+        const efficientScrollHandler = () => {
+            if (timer) {
+                clearTimeout(timer);
+            }
+            setTimeout(() => {
+                handleScroll();
+            }, 100);
+        }
+        window.addEventListener('scroll', efficientScrollHandler);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            window.removeEventListener('scroll', efficientScrollHandler);
+        };
+    }, []);
 
     if (currentWidth <= 1119) {
         return (
-            <animated.nav className="d-flex justify-content-center py-4 w-100" id="nav-menu" style={{ position: "fixed", bottom: 0, ...scaleIn }}>
+            <animated.nav className="d-flex justify-content-center py-4 w-100" id="nav-menu" style={{ position: "fixed", bottom: 0, ...scaleIn, zIndex: 999 }}>
                 <div className="d-flex justify-content-between align-items-center py-2 px-2 mx-auto" style={{
                     background: "linear-gradient(90deg, rgba(249, 248, 248, 0.96) 0.92%, rgba(249, 248, 248, 0.96) 99.95%)",
                     boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
@@ -29,19 +94,27 @@ function NavBar() {
                     minWidth: 350,
                     width: "80%",
                     fontSize: 14,
-                    zIndex: 999
+
                 }}>
                     {/* <div className="nav-link home">
                             <h5 className="mb-0 cursor-pointer">Akshaykumar Lilani</h5>
                         </div> */}
                     <div className="d-flex justify-content-around align-items-center" style={{ flex: 1 }}>
-                        <a href="#about" className="cursor-pointer nav-link about active">About</a>
-                        <div className="nav-separator"></div>
-                        <a href="#skills" className="cursor-pointer nav-link skills">Skills</a>
-                        <div className="nav-separator"></div>
-                        <a href="#projects" className="cursor-pointer nav-link projects">Projects</a>
-                        <div className="nav-separator"></div>
-                        <a href="#contact" className="cursor-pointer nav-link contact">Contact</a>
+                        {
+                            links?.map((link, i) => <>
+                                <a
+                                    href={`#${link}`}
+                                    className={`cursor-pointer nav-link ${link} ${link === active ? "active" : ""}`}
+                                    onClick={(e) => scrollTo(e, link)}
+                                    style={{ scrollMargin: 20 }}
+                                >
+                                    {link[0].toUpperCase() + link.slice(1)}
+                                </a>
+                                {
+                                    (i <= links.length - 2) ? <div className="nav-separator"></div> : <></>
+                                }
+                            </>)
+                        }
                         <ResumeButton id={`resume-button-1`} />
                         {/* <ThemeChangerButton size={24} /> */}
                     </div>
@@ -58,14 +131,21 @@ function NavBar() {
                     borderRadius: "10px",
                     backdropFilter: "blur(5px)",
                 }}>
-                    <div className="nav-link home">
+                    <div onClick={(e)=>scrollTo(e, 'hero')} className="nav-link home">
                         <h5 className="mb-0 cursor-pointer">Akshaykumar Lilani</h5>
                     </div>
                     <div className="d-flex justify-content-center align-items-center gap-4">
-                        <a href="#about" className="cursor-pointer nav-link about active">About</a>
-                        <a href="#skills" className="cursor-pointer nav-link skills">Skills</a>
-                        <a href="#projects" className="cursor-pointer nav-link projects">Projects</a>
-                        <a href="#contact" className="cursor-pointer nav-link contact">Contact</a>
+                        {
+                            links?.map((link, i) => <a
+                                key={`desktop-${i}`}
+                                href={`#${link}`}
+                                className={`cursor-pointer nav-link ${link} ${link === active ? "active" : ""}`}
+                                onClick={(e) => scrollTo(e, link)}
+                                style={{ scrollMargin: 20 }}
+                            >
+                                {link[0].toUpperCase() + link.slice(1)}
+                            </a>)
+                        }
                         <ResumeButton id={`resume-button-1`} />
                         {/* <ThemeChangerButton size={24} /> */}
                     </div>

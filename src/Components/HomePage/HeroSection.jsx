@@ -42,13 +42,14 @@ function HeroSection() {
 
 
     return (
-        <section className='max-width-desktop mx-auto d-flex justify-content-start align-items-start min-height-section p-3 p-md-0  pt-md-5'>
+        <section className='max-width-desktop mx-auto d-flex justify-content-start align-items-start min-height-section p-3 p-md-0 py-md-5' id='hero'>
             <div className='d-flex gap-2'
                 style={{
                     flex: 1,
                     backgroundColor: "rgba(186, 224, 255, 0.46)",
                     borderRadius: 20,
                     padding: "30px 10px",
+                    margin: "0px 10px"
                 }}
             >
                 <animated.div className='d-none d-md-block' style={{ fontSize: 48, marginTop: -15, ...waveAnimation }}>👋🏼</animated.div>

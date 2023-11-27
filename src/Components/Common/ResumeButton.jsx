@@ -3,16 +3,16 @@ import { useSpring, animated } from "@react-spring/web"
 function ResumeButton({ id }) {
 
     const [springs, api] = useSpring(() => ({
-        from: { boxShadow: "0px solid black" },
+        from: { scale: 1 },
     }));
 
     const startAnimation = () => {
         api.start({
             from: {
-                boxShadow: "0px solid black"
+                scale: 1
             },
             to: {
-                boxShadow: "1px solid black"
+                scale: 1.1
             },
         })
     }
@@ -20,10 +20,10 @@ function ResumeButton({ id }) {
     const stopAnimation = () => {
         api.start({
             from: {
-                boxShadow: "1px solid black"
+                scale: 1.1
             },
             to: {
-                boxShadow: "0px solid black"
+                scale: 1
             },
         })
     }
@@ -33,7 +33,7 @@ function ResumeButton({ id }) {
             className="cursor-pointer d-flex justify-content-center align-items-center p-2 br-10 gap-2"
             onMouseEnter={startAnimation}
             onMouseLeave={stopAnimation}
-            onClick={() => window.open("/Resume.pdf", "_blank")}
+            onClick={() => window.open("https://drive.google.com/file/d/1TtynQWfVblIlMRToPpeiD1zzWoHfgxtk/view?usp=sharing", "_blank")}
             id={id}
             style={{ width: "fit-content", ...springs }}
         >

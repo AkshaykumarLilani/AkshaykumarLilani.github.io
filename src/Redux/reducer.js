@@ -7,10 +7,10 @@ let initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_THEME:
-            console.log("CHANGE_THEME REQUEST RECEIVED, Payload: ", action.payload);
+            // console.log("CHANGE_THEME REQUEST RECEIVED, Payload: ", action.payload);
             return { ...state, theme: action.payload };
         default:
-            console.log("Default Reducer: ", { state, action });
+            // console.log("Default Reducer: ", { state, action });
             return state;
     }
 }

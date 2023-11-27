@@ -54,7 +54,7 @@ function SkillsSection() {
     }, [currentWidth]);
 
     return (
-        <section className='max-width-desktop min-height-section mx-auto d-flex flex-column gap-3 justify-content-center align-items-start py-2 my-5' id='skills'>
+        <section className='max-width-desktop min-height-section mx-auto d-flex flex-column gap-3 justify-content-center align-items-start py-2 pb-5 my-5' id='skills'>
             <div>
                 <SectionTitle title={`Technologies I have used`} />
             </div>

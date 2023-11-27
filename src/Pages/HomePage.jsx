@@ -9,6 +9,7 @@ import Footer from '../Components/Common/Footer';
 import Contact from '../Components/HomePage/Contact';
 
 function HomePage() {
+
   return (
     <>
       <NavBar />
