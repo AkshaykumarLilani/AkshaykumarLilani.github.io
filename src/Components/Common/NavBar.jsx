@@ -30,7 +30,12 @@ function NavBar() {
         if (x) {
             let rect = x.getBoundingClientRect();
             let distanceFromTop = rect.top;
-            let scrollToY = window.scrollY + distanceFromTop - 100;
+            let scrollToY = window.scrollY + distanceFromTop;
+            if (currentWidth <= 1119){
+                scrollToY -= 30;
+            } else {
+                scrollToY -= 100;
+            }
             // console.log({ rect, y: rect.top });
             // x.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
             window.scrollTo({
@@ -86,7 +91,8 @@ function NavBar() {
         return (
             <animated.nav className="d-flex justify-content-center py-4 w-100" id="nav-menu" style={{ position: "fixed", bottom: 0, ...scaleIn, zIndex: 999 }}>
                 <div className="d-flex justify-content-between align-items-center py-2 px-2 mx-auto" style={{
-                    background: "linear-gradient(90deg, rgba(249, 248, 248, 0.96) 0.92%, rgba(249, 248, 248, 0.96) 99.95%)",
+                    // background: "linear-gradient(90deg, rgba(249, 248, 248, 0.96) 0.92%, rgba(249, 248, 248, 0.96) 99.95%)",
+                    backgroundColor: "rgba(255, 255, 255, 0.78)",
                     boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
                     border: "1px solid #FFF",
                     borderRadius: "10px",
@@ -101,19 +107,20 @@ function NavBar() {
                         </div> */}
                     <div className="d-flex justify-content-around align-items-center" style={{ flex: 1 }}>
                         {
-                            links?.map((link, i) => <>
+                            links?.map((link, i) => <div className="d-flex justify-content-between" key={i+"mobnav"}>
                                 <a
+                                    
                                     href={`#${link}`}
                                     className={`cursor-pointer nav-link ${link} ${link === active ? "active" : ""}`}
                                     onClick={(e) => scrollTo(e, link)}
-                                    style={{ scrollMargin: 20 }}
+                                    style={{ scrollMargin: 20, flex: 1 }}
                                 >
                                     {link[0].toUpperCase() + link.slice(1)}
                                 </a>
                                 {
                                     (i <= links.length - 2) ? <div className="nav-separator"></div> : <></>
                                 }
-                            </>)
+                            </div>)
                         }
                         <ResumeButton id={`resume-button-1`} />
                         {/* <ThemeChangerButton size={24} /> */}
@@ -125,7 +132,8 @@ function NavBar() {
         return (
             <nav className="d-flex justify-content-center py-4 mx-auto max-width-desktop" id="nav-menu" style={{ position: "sticky", top: 0, zIndex: 999 }}>
                 <div className="d-flex justify-content-between align-items-center py-2 px-2 w-100" style={{
-                    background: "linear-gradient(90deg, rgba(249, 248, 248, 0.96) 0.92%, rgba(212, 212, 212, 0.00) 99.95%)",
+                    // background: "linear-gradient(90deg, rgba(249, 248, 248, 0.96) 0.92%, rgba(212, 212, 212, 0.00) 99.95%)",
+                    backgroundColor: "rgba(255, 255, 255, 0.78)",
                     boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
                     border: "1px solid #FFF",
                     borderRadius: "10px",

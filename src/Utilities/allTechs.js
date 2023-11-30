@@ -52,7 +52,7 @@ export const allTechs = {
         backgroundColor: 'rgba(154, 188, 255, 0.46)'
     },
     express: {
-        title: 'Express',
+        title: 'ExpressJs',
         img: tech_express,
         borderColor: '#000',
         backgroundColor: 'rgba(192, 192, 192, 0.46)',
@@ -145,7 +145,7 @@ const sameColorBgColor = 'rgba(192, 192, 192, 0.46)';
 // const sameColorBgColor = 'linear-gradient(90deg, rgba(247,247,250,1) 10%, rgba(238,238,238,1) 62%, rgba(231,232,232,0.7357317927170868) 100%)';
 
 const getMyBg = (title) => {
-    if (title === "express"){
+    if (title.includes("express")){
         return allTechs[title].backgroundColorHover;
     }
     return allTechs[title].backgroundColor
@@ -188,7 +188,7 @@ export const allTechsSameColor = {
         onAnimationBackgroundColor: getMyBg("docker"),
     },
     express: {
-        title: 'Express',
+        title: 'ExpressJs',
         img: tech_express,
         borderColor: sameColorBorderColor,
         backgroundColor: sameColorBgColor,

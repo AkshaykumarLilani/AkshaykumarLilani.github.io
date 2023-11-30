@@ -3,9 +3,8 @@ import { useSpring, animated } from '@react-spring/web'
 import { useCurrentWidth } from 'react-socks';
 
 function TechnologyBox({ img, title, borderColor, backgroundColor, inSkillsSection, onAnimationBackgroundColor, fontSize }) {
-    const spanTwoTechTitles = ["React", "Express", "MongoDB", "NodeJs", "Postgres",  "Git"];
+    const spanTwoTechTitles = ["React", "ExpressJs", "MongoDB", "NodeJs", "Postgres", "Git"];
     const currentWidth = useCurrentWidth();
-    
 
     const [springs, api] = useSpring(() => ({
         from: { backgroundColor: backgroundColor, scale: 1 },
@@ -43,11 +42,12 @@ function TechnologyBox({ img, title, borderColor, backgroundColor, inSkillsSecti
             if (title === "EJS") {
                 return <div
                     className='d-flex gap-2 p-1 px-2'
-                    style={{ 
-                        borderRadius: 10, 
+                    style={{
+                        borderRadius: 10,
                         // border: `2px solid ${borderColor}`, 
-                        backgroundColor: `${backgroundColor}`, 
-                        fontSize: fontSize }}
+                        backgroundColor: `${backgroundColor}`,
+                        fontSize: fontSize
+                    }}
                 >
                     <div style={{ color: borderColor }}><strong>{"<%= "}{title}{" %>"}</strong></div>
                 </div>;
@@ -57,11 +57,12 @@ function TechnologyBox({ img, title, borderColor, backgroundColor, inSkillsSecti
         return (
             <div
                 className='d-flex gap-2 p-1 px-2'
-                style={{ 
-                    borderRadius: 10, 
+                style={{
+                    borderRadius: 10,
                     // border: `2px solid ${borderColor}`, 
-                    backgroundColor: `${backgroundColor}`, 
-                    fontSize: fontSize }}
+                    backgroundColor: `${backgroundColor}`,
+                    fontSize: fontSize
+                }}
             >
                 <img src={img} alt={title} style={{ fill: borderColor, width: fontSize }} />
                 <div style={{ color: borderColor }}><strong>{title}</strong></div>
@@ -80,6 +81,19 @@ function TechnologyBox({ img, title, borderColor, backgroundColor, inSkillsSecti
             }
         }
 
+        const getGridSpan = (t) => {
+            let containsTitle = spanTwoTechTitles.includes(t);
+            if (containsTitle) {
+                if (currentWidth < 992) {
+                    return "span 1";
+                } else {
+                    return "span 2";
+                }
+            } else {
+                return "span 1";
+            }
+        }
+
         return (
             <animated.div
                 className='d-flex flex-column justify-content-center align-items-center gap-2 p-3'
@@ -91,18 +105,22 @@ function TechnologyBox({ img, title, borderColor, backgroundColor, inSkillsSecti
                     backgroundColor: `${backgroundColor}`,
                     fontSize: fontSize,
                     opacity: 0.8,
-                    gridColumn: spanTwoTechTitles.includes(title) ? currentWidth < 1120 ? "span 1" : "span 2" : "span 1",
+                    gridColumn: getGridSpan(title),
                     ...springs
                 }}
             >
-                <img src={img} alt={title} style={{ 
-                    fill: borderColor, 
-                    width: spanTwoTechTitles.includes(title) ? 80 : 70 }} />
-                {
+                <img src={img} alt={title} style={{
+                    fill: borderColor,
+                    width: spanTwoTechTitles.includes(title) ? 80 : 70
+                }} />
+                {/* {
                     spanTwoTechTitles.includes(title) ? null : <div style={{ color: borderColor }}>
                         <strong>{title}</strong>
                     </div>
-                }
+                } */}
+                <div style={{ color: borderColor }}>
+                    <strong>{title}</strong>
+                </div>
 
             </animated.div>
         )

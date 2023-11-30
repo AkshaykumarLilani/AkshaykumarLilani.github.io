@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { github_logo, linkedin_logo } from '../../assets'
 import { useCurrentWidth } from 'react-socks'
-import { animated, useSpring } from '@react-spring/web';
+import { animated, easings, useSpring } from '@react-spring/web';
 
 function HeroSection() {
     const [wave, setWave] = useState(true);
@@ -9,7 +9,7 @@ function HeroSection() {
     useEffect(() => {
         const timer = setInterval(() => {
             setWave(false);
-        }, 1000); // Adjust the interval as needed
+        }, 1000);
 
         return () => clearInterval(timer);
     }, []);
@@ -22,8 +22,9 @@ function HeroSection() {
                 await next({ transform: 'translate(5px, 15px)' });
                 await next({ transform: 'translate(15px, 5px)' });
             }
+            await next({ transform: 'translate(5px, 15px)' });
         },
-        config: { duration: 120 }
+        config: { duration: 100, easing: easings.easeOutBack }
     });
 
     const waveAnimation2 = useSpring({
@@ -34,22 +35,18 @@ function HeroSection() {
                 await next({ transform: 'translate(15px, 0px)' });
                 await next({ transform: 'translate(0px, 15px)' });
             }
+            await next({ transform: 'translate(0px, 15px)' });
         },
-        config: { duration: 80 }
+        config: { duration: 100, easing: easings.easeOutBack }
     });
 
-    const currentWidth = useCurrentWidth();
-
-
     return (
-        <section className='max-width-desktop mx-auto d-flex justify-content-start align-items-start min-height-section p-3 p-md-0 py-md-5' id='hero'>
-            <div className='d-flex gap-2'
+        <section className='max-width-desktop mx-auto d-flex justify-content-start align-items-start p-3 py-md-5' id='hero'>
+            <div className='d-flex gap-2 p-3'
                 style={{
                     flex: 1,
                     backgroundColor: "rgba(186, 224, 255, 0.46)",
                     borderRadius: 20,
-                    padding: "30px 10px",
-                    margin: "0px 10px"
                 }}
             >
                 <animated.div className='d-none d-md-block' style={{ fontSize: 48, marginTop: -15, ...waveAnimation }}>👋🏼</animated.div>
