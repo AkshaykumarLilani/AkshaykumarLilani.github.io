@@ -33,7 +33,9 @@ function ResumeButton({ id }) {
             className="cursor-pointer d-flex justify-content-center align-items-center p-2 br-10 gap-2"
             onMouseEnter={startAnimation}
             onMouseLeave={stopAnimation}
-            onClick={() => window.open("https://drive.google.com/file/d/1TtynQWfVblIlMRToPpeiD1zzWoHfgxtk/view?usp=sharing", "_blank")}
+            onClick={() => {
+                window.open("https://drive.google.com/file/d/1TtynQWfVblIlMRToPpeiD1zzWoHfgxtk/view?usp=drive_link", "_blank");
+            }}
             id={id}
             style={{ width: "fit-content", ...springs }}
         >
