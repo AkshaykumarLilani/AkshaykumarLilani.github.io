@@ -1,0 +1,54 @@
+@import url("../node_modules/bootstrap/scss/bootstrap.scss");
+
+// Colors
+$accent-color: #0077D4;
+$design-max-width-desktop: 1120px;
+$body-color: #202020;
+
+body{
+    margin: 0px;
+    padding: 0px;
+    color: $body-color;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+#resume-button-1,
+#resume-button-2 {
+    background-color: $accent-color;
+}
+
+.br-10{
+    border-radius: 10px;
+}
+
+.nav-link.active {
+    color: $accent-color
+}
+
+// #nav-menu{
+//     max-width: $design-max-width-desktop;
+// }
+
+.max-width-desktop {
+    max-width: $design-max-width-desktop;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.color-accent{
+    color: $accent-color;
+}
+
+.min-height-section{
+    min-height: 50vh;
+    min-height: 50svh;
+}
+
+.nav-separator {
+    width: 1px;
+    height: 10px;
+    background-color: gray;
+}
