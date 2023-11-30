@@ -1,0 +1,44 @@
+@import url("../node_modules/bootstrap/scss/bootstrap.scss");
+body {
+  margin: 0px;
+  padding: 0px;
+  color: #202020;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+#resume-button-1,
+#resume-button-2 {
+  background-color: #0077D4;
+}
+
+.br-10 {
+  border-radius: 10px;
+}
+
+.nav-link.active {
+  color: #0077D4;
+}
+
+.max-width-desktop {
+  max-width: 1120px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.color-accent {
+  color: #0077D4;
+}
+
+.min-height-section {
+  min-height: 50vh;
+  min-height: 50svh;
+}
+
+.nav-separator {
+  width: 1px;
+  height: 10px;
+  background-color: gray;
+}/*# sourceMappingURL=App.css.map */
