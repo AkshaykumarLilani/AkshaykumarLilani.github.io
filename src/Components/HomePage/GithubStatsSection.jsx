@@ -11,19 +11,22 @@ const GithubStatsSection = () => {
     };
 
     return (
-        <section id='github-stats' className='max-width-desktop min-height-section mx-auto d-flex justify-content-start align-items-start flex-column gap-5 py-4'>
-            <SectionTitle title={`My Github Stats`}/>
+        <section id='github-stats' className='max-width-desktop  mx-auto d-flex justify-content-start align-items-start flex-column gap-5  p-3 py-md-5'>
+            <SectionTitle title={`Github Stats`}/>
             <GitHubCalendar
                 username="akshaykumarlilani"
                 theme={minimalTheme}
                 labels={{
                     totalCount: '{{count}} contributions in the last half year',
                 }}
+                style={{
+                    width: "100%"
+                }}
                 weekStart={1}
                 year={'last'}
                 colorScheme='light'
             />
-            <div className='d-flex flex-column justify-content-center align-items-center flex-md-row gap-3' id={css['all-git-stats']}>
+            <div className='d-flex flex-column justify-content-start justify-content-md-center  align-items-start align-items-md-center  flex-md-row gap-3' id={css['all-git-stats']}>
                 <a href="https://github.com/AkshaykumarLilani">
                     <img className='w-100' src="https://github-readme-streak-stats.herokuapp.com?user=AkshaykumarLilani" alt="GitHub Streak" id="github-streak-stats" />
                 </a>

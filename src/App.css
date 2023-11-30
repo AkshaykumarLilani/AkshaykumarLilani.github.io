@@ -32,11 +32,6 @@ body {
   color: #0077D4;
 }
 
-.min-height-section {
-  min-height: 50vh;
-  min-height: 50svh;
-}
-
 .nav-separator {
   width: 1px;
   height: 10px;

@@ -38,7 +38,7 @@ const myContacts = [
 
 function Contact() {
     return (
-        <section className='max-width-desktop pt-5  mx-auto d-flex flex-column justify-content-center gap-5 align-items-start py-2' id='contact'>
+        <section className='max-width-desktop mx-auto d-flex flex-column justify-content-center gap-5 align-items-start p-3 py-md-5' id='contact'>
             <div>
                 <SectionTitle title={`Connect with me`} />
             </div>

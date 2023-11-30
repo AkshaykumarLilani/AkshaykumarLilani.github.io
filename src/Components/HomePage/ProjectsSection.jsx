@@ -45,9 +45,9 @@ const projects = [
 
 function ProjectsSection() {
     return (
-        <section className='max-width-desktop mx-auto d-flex flex-column gap-4 justify-content-start align-items-start py-2 my-5 pb-5' id='projects'>
+        <section className='max-width-desktop mx-auto d-flex flex-column gap-4 justify-content-start align-items-start py-2 my-5 p-3 py-md-5' id='projects'>
             <div>
-                <SectionTitle title={`Selected Projects`} />
+                <SectionTitle title={`Projects`} />
             </div>
             <div className={styles['projects-container']}>
                 {
