@@ -59,13 +59,17 @@ function NavBar() {
 
                 if (scrollY >= sectionTop && scrollY <= sectionBottom) {
                     // You can do something specific for this section here
-                    if (sections[i].id) {
-                        setActive(sections[i].id);
+                    let sectionId = sections[i].id;
+                    console.log(sectionId)
+                    if (sectionId === "hero"){
+                        setActive("about");
+                    } else if (sectionId === "github-stats"){
+                        setActive("contact");
+                    } else if (sectionId) {
+                        setActive(sectionId);
                     }
                     // console.dir(sections[i]);
                     break;
-                } else {
-                    setActive("about");
                 }
             }
         };
@@ -117,9 +121,9 @@ function NavBar() {
                                 >
                                     {link[0].toUpperCase() + link.slice(1)}
                                 </a>
-                                {
+                                {/* {
                                     (i <= links.length - 2) ? <div className="nav-separator"></div> : <></>
-                                }
+                                } */}
                             </div>)
                         }
                         <ResumeButton id={`resume-button-1`} />
