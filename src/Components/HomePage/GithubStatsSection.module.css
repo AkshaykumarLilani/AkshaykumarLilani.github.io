@@ -1,0 +1,7 @@
+#all-git-stats > a {
+    max-width: 90vw;
+}
+
+#all-git-stats > a > img {
+    width: 100%;
+}
