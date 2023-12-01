@@ -1,4 +1,5 @@
 import { useSpring, animated } from "@react-spring/web"
+import resume from "../../assets/Resume/Akshaykumar-Lilani-Resume.pdf";
 
 function ResumeButton({ id }) {
 
@@ -35,11 +36,12 @@ function ResumeButton({ id }) {
             onMouseLeave={stopAnimation}
             onClick={() => {
                 const link = document.createElement("a");
-                link.download = "Akshaykumar Lilani Resume.pdf";
-                link.href = "https://drive.google.com/uc?export=download&id=1TtynQWfVblIlMRToPpeiD1zzWoHfgxtk";
+                link.download = "Akshaykumar-Lilani-Resume.pdf";
+                // link.href = "https://drive.google.com/uc?export=download&id=1TtynQWfVblIlMRToPpeiD1zzWoHfgxtk";
+                link.href = resume;
                 link.click();
                 window.open(
-                    "https://drive.google.com/file/d/1TtynQWfVblIlMRToPpeiD1zzWoHfgxtk/view?usp=drive_link",
+                    "https://drive.google.com/file/d/1_fxrf9AqBJYqKGy-WRmcD0Fx4nIsdMuY/view?usp=sharing",
                     "_blank"
                 );
             }}
