@@ -41,7 +41,7 @@ function ResumeButton({ id }) {
                 link.href = resume;
                 link.click();
                 window.open(
-                    "https://drive.google.com/file/d/1_fxrf9AqBJYqKGy-WRmcD0Fx4nIsdMuY/view?usp=sharing",
+                    "https://drive.google.com/file/d/1B9rsb8ZWOF7Q2M-Cb4Lywmz1QtMghNvp/view?usp=sharing",
                     "_blank"
                 );
             }}

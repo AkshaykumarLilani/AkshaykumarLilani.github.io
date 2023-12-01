@@ -32,9 +32,9 @@ function NavBar() {
             let distanceFromTop = rect.top;
             let scrollToY = window.scrollY + distanceFromTop;
             if (currentWidth <= 1119){
-                scrollToY -= 30;
+                scrollToY -= 10;
             } else {
-                scrollToY -= 100;
+                scrollToY -= 70;
             }
             // console.log({ rect, y: rect.top });
             // x.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
@@ -51,6 +51,16 @@ function NavBar() {
             // Assuming each section has a class 'section'
             const sections = document.querySelectorAll('section');
 
+            // let queuedHighlight = null;
+            // const delayHighlight = (id) => {
+            //     if (queuedHighlight){
+            //         clearTimeout(queuedHighlight);
+            //     }
+            //     queuedHighlight = setTimeout(()=>setActive(id), 1000);
+            // }
+
+            const delayHighlight = (id) => {setActive(id)}
+
             for (let i = 0; i < sections.length; i++) {
                 const rect = sections[i].getBoundingClientRect();
                 const sectionTop = rect.top + window.scrollY - 100;
@@ -62,11 +72,11 @@ function NavBar() {
                     let sectionId = sections[i].id;
                     console.log(sectionId)
                     if (sectionId === "hero"){
-                        setActive("about");
+                        delayHighlight("about");
                     } else if (sectionId === "github-stats"){
-                        setActive("contact");
+                        delayHighlight("contact");
                     } else if (sectionId) {
-                        setActive(sectionId);
+                        delayHighlight(sectionId);
                     }
                     // console.dir(sections[i]);
                     break;
@@ -79,7 +89,7 @@ function NavBar() {
             if (timer) {
                 clearTimeout(timer);
             }
-            setTimeout(() => {
+            timer = setTimeout(() => {
                 handleScroll();
             }, 100);
         }
