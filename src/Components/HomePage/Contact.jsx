@@ -58,7 +58,7 @@ function Contact() {
 const IndividualContactCard = ({ img, text, link }) => {
     const currentWidth = useCurrentWidth();
 
-    return <a href={link} target='_blank' rel='noreferrer' className={styles['contact-card'] + ' '}>
+    return <a href={link} target='_blank' rel='noreferrer' className={styles['contact-card'] + ' '} style={currentWidth < 550 ? {flex: 1} : { }}>
         <img width={currentWidth < 1120 ? 25 : 35} src={img} alt="" />
         <span>{text}</span>
     </a>

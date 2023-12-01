@@ -59,8 +59,8 @@ function SkillsSection() {
             <div>
                 <SectionTitle title={`Technologies I have used`} />
             </div>
-            <div className='w-100' style={{ display: "grid", gridTemplateColumns: `repeat(${gridColumns}, 1fr)`, gap: 20 }}>
-                {technologies.map((tech, index) => <TechnologyBox key={index + 'tec'} {...tech} inSkillsSection={true} />)}
+            <div className='w-100' style={{ display: "grid", gridTemplateColumns: `repeat(${gridColumns}, 1fr)`, gap: 10 }}>
+                {technologies.map((tech, index) => <TechnologyBox key={index + 'tec'} {...tech} inSkillsSection={true} gridColumns={gridColumns} />)}
             </div>
         </section>
     )

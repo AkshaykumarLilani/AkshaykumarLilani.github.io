@@ -2,7 +2,7 @@ import React from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useCurrentWidth } from 'react-socks';
 
-function TechnologyBox({ img, title, borderColor, backgroundColor, inSkillsSection, onAnimationBackgroundColor, fontSize }) {
+function TechnologyBox({ img, title, borderColor, backgroundColor, inSkillsSection, onAnimationBackgroundColor, fontSize, gridColumns }) {
     const spanTwoTechTitles = ["React", "ExpressJs", "MongoDB", "NodeJs", "Postgres", "Git"];
     const currentWidth = useCurrentWidth();
 
@@ -94,6 +94,21 @@ function TechnologyBox({ img, title, borderColor, backgroundColor, inSkillsSecti
             }
         }
 
+        const getImageWidth = (t) => {
+            if (gridColumns === 8) {
+                if (spanTwoTechTitles.includes(title)) {
+                    return 80;
+                } else {
+                    return 70;
+                }
+            } else if (gridColumns === 3) {
+                return 30;
+            } else {
+                return 40;
+            }
+
+        }
+
         return (
             <animated.div
                 className='d-flex flex-column justify-content-center align-items-center gap-2 p-3'
@@ -111,7 +126,7 @@ function TechnologyBox({ img, title, borderColor, backgroundColor, inSkillsSecti
             >
                 <img src={img} alt={title} style={{
                     fill: borderColor,
-                    width: spanTwoTechTitles.includes(title) ? 80 : 70
+                    width: getImageWidth(title)
                 }} />
                 {/* {
                     spanTwoTechTitles.includes(title) ? null : <div style={{ color: borderColor }}>
