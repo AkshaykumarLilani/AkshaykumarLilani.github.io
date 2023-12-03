@@ -10,18 +10,18 @@ const allTechs = allTechsSameColor;
 const projects = [
     {
         title: "LetsCamp",
-        description: "A Full Stack Campgrounds Booking Project using MongoDB, Express, EJS.",
+        description: "A comprehensive full-stack campgrounds booking project leveraging MongoDB for the database, Express for the backend framework, and EJS for dynamic templating on the frontend.",
         techStack: [allTechs.mongodb, allTechs.express, allTechs.ejs, allTechs.aws, allTechs.nodejs, allTechs.bootstrap],
-        githubRepositoryLink: "https://github.com/AkshaykumarLilani/OnlineBicycleShop",
-        deployedLink: "https://phenomenal-crisp-d9f0f8.netlify.app",
+        githubRepositoryLink: "https://github.com/AkshaykumarLilani/letscamp",
+        deployedLink: "https://letscamp.akshaylilani.com",
         image: project_LetsCamp
     },
     {
         title: "LetsCamp",
         description: "A Full Stack Campgrounds Booking Project using MongoDB, Express, EJS.",
         techStack: [allTechs.mongodb, allTechs.express, allTechs.ejs, allTechs.aws, allTechs.nodejs, allTechs.bootstrap],
-        githubRepositoryLink: "https://github.com/AkshaykumarLilani/OnlineBicycleShop",
-        deployedLink: "https://phenomenal-crisp-d9f0f8.netlify.app",
+        githubRepositoryLink: "https://github.com/AkshaykumarLilani/letscamp",
+        deployedLink: "https://letscamp.akshaylilani.com",
         image: project_LetsCamp
     },
 
