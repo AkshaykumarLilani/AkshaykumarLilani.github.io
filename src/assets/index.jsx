@@ -26,9 +26,9 @@ import tech_redux from "./technologies/redux.svg";
 import tech_s3 from "./technologies/s3.svg";
 import tech_ubuntu from "./technologies/ubuntu.svg";
 
-import project_OnlineBiCycleShop from "./projects/OnlineBiCycleShop.png";
-import project_LetsCamp from "./projects/LetsCamp.png";
-import project_BigBasketClone from "./projects/BigBasketClone.png";
+import project_OnlineBiCycleShop from "./projects/OnlineBiCycleShop.webp";
+import project_LetsCamp from "./projects/LetsCamp.webp";
+import project_BigBasketClone from "./projects/BigBasketClone.webp";
 
 import project_githubLogo from "./projects/github_logo.svg";
 import project_gotoLink from "./projects/gotoLink.svg";
