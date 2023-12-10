@@ -18,6 +18,7 @@ const technologies = [
     allTechsSameColor.express,
     allTechsSameColor.react,
     allTechsSameColor.nodejs,
+    allTechsSameColor.antdesign,
     allTechsSameColor.redux,
     allTechsSameColor.bootstrap,
     allTechsSameColor.django_rest,

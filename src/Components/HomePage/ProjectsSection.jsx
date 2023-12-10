@@ -2,23 +2,23 @@ import React from 'react'
 import SectionTitle from '../Common/SectionTitle'
 import { allTechsSameColor } from '../../Utilities/allTechs'
 import ProjectCard from '../ProjectCard'
-import { project_BigBasketClone, project_LetsCamp, project_OnlineBiCycleShop } from '../../assets'
+import { project_BigBasketClone, project_InventoryManagement, project_LetsCamp, project_OnlineBiCycleShop } from '../../assets'
 import styles from "./ProjectSection.module.css";
 
 const allTechs = allTechsSameColor;
 
 const projects = [
     {
-        title: "LetsCamp",
-        description: "A comprehensive full-stack campgrounds booking project leveraging MongoDB for the database, Express for the backend framework, and EJS for dynamic templating on the frontend.",
-        techStack: [allTechs.mongodb, allTechs.express, allTechs.ejs, allTechs.aws, allTechs.nodejs, allTechs.bootstrap],
-        githubRepositoryLink: "https://github.com/AkshaykumarLilani/letscamp",
-        deployedLink: "https://letscamp.akshaylilani.com",
-        image: project_LetsCamp
+        title: "Inventory Management",
+        description: "React-based Inventory Management Web App with Ant Design, Bootstrap, and Redux for frontend. Backend powered by ExpressJS and MongoDB.",
+        techStack: [allTechs.mongodb, allTechs.react, allTechs.redux, allTechs.express, allTechs.nodejs, allTechs.bootstrap, allTechs.antdesign],
+        githubRepositoryLink: "https://github.com/AkshaykumarLilani/inventory-management",
+        deployedLink: "https://akshay-u7-cw.netlify.app",
+        image: project_InventoryManagement
     },
     {
         title: "LetsCamp",
-        description: "A Full Stack Campgrounds Booking Project using MongoDB, Express, EJS.",
+        description: "A comprehensive full-stack campgrounds booking project leveraging MongoDB for the database, Express for the backend framework, and EJS for dynamic templating on the frontend.",
         techStack: [allTechs.mongodb, allTechs.express, allTechs.ejs, allTechs.aws, allTechs.nodejs, allTechs.bootstrap],
         githubRepositoryLink: "https://github.com/AkshaykumarLilani/letscamp",
         deployedLink: "https://letscamp.akshaylilani.com",

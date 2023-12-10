@@ -7,6 +7,7 @@ import tradingview_logo from "./tradingview.svg";
 import email_logo from "./email.svg";
 import phone_logo from "./phone.svg";
 
+import tech_antdesign from "./technologies/antdesign.svg";
 import tech_aws from "./technologies/aws.svg";
 import tech_bootstrap from "./technologies/bootstrap.svg";
 import tech_css from "./technologies/css.svg";
@@ -29,6 +30,7 @@ import tech_ubuntu from "./technologies/ubuntu.svg";
 import project_OnlineBiCycleShop from "./projects/OnlineBiCycleShop.webp";
 import project_LetsCamp from "./projects/LetsCamp.webp";
 import project_BigBasketClone from "./projects/BigBasketClone.webp";
+import project_InventoryManagement from "./projects/InventoryManagement.webp";
 
 import project_githubLogo from "./projects/github_logo.svg";
 import project_gotoLink from "./projects/gotoLink.svg";
@@ -43,6 +45,7 @@ export {
     email_logo,
     phone_logo,
 
+    tech_antdesign,
     tech_aws,
     tech_bootstrap,
     tech_css,
@@ -65,6 +68,7 @@ export {
     project_OnlineBiCycleShop,
     project_LetsCamp,
     project_BigBasketClone,
+    project_InventoryManagement,
 
     project_githubLogo,
     project_gotoLink

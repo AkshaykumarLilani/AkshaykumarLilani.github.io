@@ -19,8 +19,8 @@ function AboutSection() {
                     </div>
                     <ResumeButton id={`resume-button-2`} />
                 </div>
-                <div>
-                    <img src={profile} alt="" />
+                <div style={{minWidth: 312}}>
+                    <img src={profile} alt="" width="100%"/>
                 </div>
             </div>
         </section>

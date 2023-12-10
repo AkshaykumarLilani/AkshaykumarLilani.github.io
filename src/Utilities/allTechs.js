@@ -1,4 +1,5 @@
 import {
+    tech_antdesign,
     tech_aws,
     tech_bootstrap,
     tech_css,
@@ -20,6 +21,12 @@ import {
 } from '../assets';
 
 export const allTechs = {
+    antdesign: {
+        title: "Ant Design",
+        img: tech_antdesign,
+        borderColor: '#ff2300',
+        backgroundColor: '#c9f2ff'
+    },
     aws: {
         title: "AWS EC2",
         img: tech_aws,
@@ -152,6 +159,13 @@ const getMyBg = (title) => {
 }
 
 export const allTechsSameColor = {
+    antdesign: {
+        title: "Ant Design",
+        img: tech_antdesign,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("antdesign"),
+    },
     aws: {
         title: "AWS EC2",
         img: tech_aws,
