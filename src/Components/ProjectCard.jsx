@@ -42,38 +42,42 @@ function ProjectCard({ title, description, techStack, githubRepositoryLink, depl
     }
 
     return (
-        <div className={styles['project-card'] + " " + "d-flex flex-column justify-content-around gap-3"}>
-            <div>
-                <img src={image} alt="" className={styles['project-img'] + " "} />
+        <div className={styles['project-card'] + " " + "d-flex flex-column justify-content-between gap-3"}>
+            <div className='d-flex flex-column'>
+                <div className='mb-2'>
+                    <img src={image} alt="" className={styles['project-img'] + " "} />
+                </div>
+                <h5 className='mb-2 color-accent'>{title}</h5>
+                <p className='mb-0'>{description}</p>
             </div>
-            <h5 className='mb-0 color-accent'>{title}</h5>
-            <p className='mb-0'>{description}</p>
-            <div className='d-flex gap-2 flex-wrap'>
-                {
-                    Array.isArray(techStack) && techStack.map((tech, index) => <TechnologyBox key={index} {...tech} backgroundColor={"white"} fontSize={14} />)
-                }
-            </div>
-            <div className='d-flex justify-content-between align-items-center w-100'>
-                <animated.a href={githubRepositoryLink} target='_blank' rel='noreferrer' className={styles['github-deploy-link'] + " d-flex justify-content-between align-items-center gap-2"}
-                    style={{
-                        ...springs_git_link
-                    }}
-                    onMouseEnter={()=>startAnimation(api_git)}
-                    onMouseLeave={() => stopAnimation(api_git)}
-                >
-                    <span>View Github Repo</span>
-                    <img src={project_githubLogo} alt="Github Repo Link" />
-                </animated.a>
-                <animated.a href={deployedLink} target='_blank' rel='noreferrer' className={styles['github-deploy-link'] + " d-flex justify-content-between align-items-center gap-2"}
-                    style={{
-                        ...springs_live_website
-                    }}
-                    onMouseEnter={()=>startAnimation(api_lw)}
-                    onMouseLeave={() => stopAnimation(api_lw)}
-                >
-                    <span>View Live</span>
-                    <img src={project_gotoLink} alt="Github Repo Link" />
-                </animated.a>
+            <div className='d-flex flex-column gap-3'>
+                <div className='d-flex gap-2 flex-wrap'>
+                    {
+                        Array.isArray(techStack) && techStack.map((tech, index) => <TechnologyBox key={index} {...tech} backgroundColor={"white"} fontSize={14} />)
+                    }
+                </div>
+                <div className='d-flex justify-content-between align-items-center w-100'>
+                    <animated.a href={githubRepositoryLink} target='_blank' rel='noreferrer' className={styles['github-deploy-link'] + " d-flex justify-content-between align-items-center gap-2"}
+                        style={{
+                            ...springs_git_link
+                        }}
+                        onMouseEnter={() => startAnimation(api_git)}
+                        onMouseLeave={() => stopAnimation(api_git)}
+                    >
+                        <span>View Github Repo</span>
+                        <img src={project_githubLogo} alt="Github Repo Link" />
+                    </animated.a>
+                    <animated.a href={deployedLink} target='_blank' rel='noreferrer' className={styles['github-deploy-link'] + " d-flex justify-content-between align-items-center gap-2"}
+                        style={{
+                            ...springs_live_website
+                        }}
+                        onMouseEnter={() => startAnimation(api_lw)}
+                        onMouseLeave={() => stopAnimation(api_lw)}
+                    >
+                        <span>View Live</span>
+                        <img src={project_gotoLink} alt="Github Repo Link" />
+                    </animated.a>
+                </div>
             </div>
         </div>
     )

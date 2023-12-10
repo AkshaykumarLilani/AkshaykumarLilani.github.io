@@ -3,7 +3,7 @@ import { useSpring, animated } from '@react-spring/web'
 import { useCurrentWidth } from 'react-socks';
 
 function TechnologyBox({ img, title, borderColor, backgroundColor, inSkillsSection, onAnimationBackgroundColor, fontSize, gridColumns }) {
-    const spanTwoTechTitles = ["React", "ExpressJs", "MongoDB", "NodeJs", "Postgres", "Git"];
+    const spanTwoTechTitles = ["React", "ExpressJs", "MongoDB", "NodeJs", "Git"];
     const currentWidth = useCurrentWidth();
 
     const [springs, api] = useSpring(() => ({

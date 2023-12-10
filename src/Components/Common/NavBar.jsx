@@ -70,7 +70,7 @@ function NavBar() {
                 if (scrollY >= sectionTop && scrollY <= sectionBottom) {
                     // You can do something specific for this section here
                     let sectionId = sections[i].id;
-                    console.log(sectionId)
+                    // console.log(sectionId)
                     if (sectionId === "hero"){
                         delayHighlight("about");
                     } else if (sectionId === "github-stats"){
