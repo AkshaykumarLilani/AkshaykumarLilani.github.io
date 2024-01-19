@@ -1,5 +1,4 @@
 import { useSpring, animated } from "@react-spring/web"
-import resume from "../../assets/Resume/Akshaykumar-Lilani-Resume.pdf";
 
 function ResumeButton({ id }) {
 
@@ -29,22 +28,39 @@ function ResumeButton({ id }) {
         })
     }
 
+    const onResumeClick = async () => {
+
+        const s3FileUrl = 'https://akshaylilani.s3.ap-south-1.amazonaws.com/Akshaykumar+Lilani+Resume.pdf';
+
+        fetch(s3FileUrl)
+            .then(response => response.blob())
+            .then(blob => {
+                // Create a link element
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'Akshaykumar Lilani Resume.pdf';
+
+                // Append the link to the document body and trigger the click event
+                document.body.appendChild(link);
+                link.click();
+
+                // Clean up the link
+                document.body.removeChild(link);
+            })
+            .catch(error => console.error('Error downloading file:', error));
+
+        window.open(
+            s3FileUrl,
+            "_blank"
+        );
+    }
+
     return (
         <animated.div
             className="cursor-pointer d-flex justify-content-center align-items-center p-2 br-10 gap-2"
             onMouseEnter={startAnimation}
             onMouseLeave={stopAnimation}
-            onClick={() => {
-                const link = document.createElement("a");
-                link.download = "Akshaykumar-Lilani-Resume.pdf";
-                // link.href = "https://drive.google.com/uc?export=download&id=1TtynQWfVblIlMRToPpeiD1zzWoHfgxtk";
-                link.href = resume;
-                link.click();
-                window.open(
-                    "https://drive.google.com/file/d/1B9rsb8ZWOF7Q2M-Cb4Lywmz1QtMghNvp/view?usp=sharing",
-                    "_blank"
-                );
-            }}
+            onClick={onResumeClick}
             id={id}
             style={{ width: "fit-content", ...springs }}
         >

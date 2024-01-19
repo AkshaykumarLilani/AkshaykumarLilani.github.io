@@ -65,10 +65,11 @@ function NavBar() {
                 const rect = sections[i].getBoundingClientRect();
                 const sectionTop = rect.top + window.scrollY - 100;
                 const sectionBottom = sectionTop + rect.height - 100;
-                // console.table({h: sections[i].id, top: sectionTop, bot: sectionBottom, scrollY})
+                console.table({h: sections[i].id, sectionTop, sectionBottom, scrollY})
 
-                if (scrollY >= sectionTop && scrollY <= sectionBottom) {
-                    // You can do something specific for this section here
+                if (scrollY === 0){
+                    delayHighlight("about")
+                } else if (scrollY >= (sectionTop-100) && scrollY <= sectionBottom) {
                     let sectionId = sections[i].id;
                     // console.log(sectionId)
                     if (sectionId === "hero"){
