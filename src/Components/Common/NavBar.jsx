@@ -65,7 +65,7 @@ function NavBar() {
                 const rect = sections[i].getBoundingClientRect();
                 const sectionTop = rect.top + window.scrollY - 100;
                 const sectionBottom = sectionTop + rect.height - 100;
-                console.table({h: sections[i].id, sectionTop, sectionBottom, scrollY})
+                // console.table({h: sections[i].id, sectionTop, sectionBottom, scrollY})
 
                 if (scrollY === 0){
                     delayHighlight("about")

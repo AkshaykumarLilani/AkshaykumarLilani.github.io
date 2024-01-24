@@ -17,7 +17,8 @@ import {
     tech_react,
     tech_redux,
     tech_s3,
-    tech_ubuntu
+    tech_ubuntu,
+    tech_nextjs
 } from '../assets';
 
 export const allTechs = {
@@ -96,6 +97,12 @@ export const allTechs = {
         img: tech_netlify,
         borderColor: 'rgba(50, 230, 226, 0.67)',
         backgroundColor: 'rgba(195, 252, 251, 0.46)'
+    },
+    nextjs: {
+        title: 'Next.js',
+        img: tech_nextjs,
+        borderColor: 'rgba(41,41,41, 0.67)',
+        backgroundColor: 'RGBA(222, 227, 230, 0.46)'
     },
     nodejs: {
         title: 'NodeJs',
@@ -242,6 +249,13 @@ export const allTechsSameColor = {
         borderColor: sameColorBorderColor,
         backgroundColor: sameColorBgColor,
         onAnimationBackgroundColor: getMyBg("netlify"),
+    },
+    nextjs: {
+        title: 'Next.js',
+        img: tech_nextjs,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("nextjs"),
     },
     nodejs: {
         title: 'NodeJs',

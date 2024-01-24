@@ -7,36 +7,35 @@ import { useEffect, useState } from "react";
 const GithubStatsSection = () => {
     const [months, setMonths] = useState(6);
     const currentWidth = useCurrentWidth();
+
     const selectLastHalfYear = contributions => {
-        const currentYear = new Date().getFullYear();
-        const currentMonth = new Date().getMonth();
-        const shownMonths = months;
+        const currentDate = new Date();
+
+        const thresholdDate = new Date(currentDate);
+        thresholdDate.setMonth(currentDate.getMonth() - months);
 
         return contributions.filter(activity => {
             const date = new Date(activity.date);
-            const monthOfDay = date.getMonth();
 
-            return (
-                date.getFullYear() === currentYear &&
-                monthOfDay > currentMonth - shownMonths &&
-                monthOfDay <= currentMonth
-            );
+            return date >= thresholdDate;
         });
     };
 
-    useEffect(()=>{
-        if(currentWidth < 550) {
+    useEffect(() => {
+        if (currentWidth < 550) {
             setMonths(6);
-        }else if (currentWidth < 768) {
+        } else if (currentWidth < 768) {
             setMonths(6);
-        }else if (currentWidth < 845) {
+        } else if (currentWidth < 845) {
             setMonths(8);
-        }else if (currentWidth < 924) {
+        } else if (currentWidth < 924) {
             setMonths(9);
         } else if (currentWidth < 1000) {
             setMonths(10);
-        } else {
+        } else if (currentWidth < 1120) {
             setMonths(11);
+        } else {
+            setMonths(13);
         }
     }, [currentWidth]);
 
@@ -50,7 +49,7 @@ const GithubStatsSection = () => {
         <section id='github-stats' className='max-width-desktop  mx-auto d-flex justify-content-start align-items-start flex-column gap-5  p-3 py-md-5'>
             <SectionTitle title={`Github Stats`} />
             <GitHubCalendar
-                username="akshaykumarlilani"
+                username="Akshaykumarlilani"
                 theme={{
                     light: ['hsl(0, 0%, 92%)', '#0077D4'],
                     dark: ['hsl(0, 0%, 92%)', '#0077D4']
@@ -61,13 +60,14 @@ const GithubStatsSection = () => {
                 }}
                 blockMargin={5}
                 blockRadius={5}
-                blockSize={currentWidth > 590 ? 15 : currentWidth < 450 ? 9 : currentWidth < 530 ? 10 : 13}
+                blockSize={currentWidth > 590 ? 15 : currentWidth < 450 ? 10 : currentWidth < 530 ? 11 : 13}
+                // blockSize={12}
 
                 weekStart={1}
                 year={2023}
                 colorScheme='light'
             />
-            <div className='d-flex flex-column justify-content-start justify-content-md-center  align-items-start align-items-md-center  flex-md-row gap-3' id={css['all-git-stats']}>
+            <div className='d-flex flex-column justify-content-between w-100 justify-content-md-center  align-items-start align-items-md-center  flex-md-row gap-3' id={css['all-git-stats']}>
                 {/* <a href="https://github.com/AkshaykumarLilani" style={styles}>
                     <img className="w-100" src="https://github-readme-streak-stats.herokuapp.com?user=akshaykumarlilani&theme=transparent&hide_border=true&border_radius=12&mode=weekly" alt="GitHub Streak" id="github-streak-stats" />
                 </a>

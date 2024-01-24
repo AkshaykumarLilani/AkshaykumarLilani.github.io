@@ -26,6 +26,7 @@ import tech_react from "./technologies/react.svg";
 import tech_redux from "./technologies/redux.svg";
 import tech_s3 from "./technologies/s3.svg";
 import tech_ubuntu from "./technologies/ubuntu.svg";
+import tech_nextjs from "./technologies/nextjs.svg";
 
 import project_OnlineBiCycleShop from "./projects/OnlineBiCycleShop.webp";
 import project_LetsCamp from "./projects/LetsCamp.webp";
@@ -64,6 +65,7 @@ export {
     tech_redux,
     tech_s3,
     tech_ubuntu,
+    tech_nextjs,
 
     project_OnlineBiCycleShop,
     project_LetsCamp,
