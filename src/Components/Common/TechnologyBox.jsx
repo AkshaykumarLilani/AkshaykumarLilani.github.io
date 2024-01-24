@@ -1,14 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useCurrentWidth } from 'react-socks';
+import { allTechs } from '../../Utilities/allTechs';
+import getRandomNumber from '../../Utilities/getRandomNumber';
+
+const possibleTitles = Object.keys(allTechs).map(a => allTechs[a].title);
 
 function TechnologyBox({ img, title, borderColor, backgroundColor, inSkillsSection, onAnimationBackgroundColor, fontSize, gridColumns }) {
-    const spanTwoTechTitles = ["React", "ExpressJs", "MongoDB", "NodeJs", "Git"];
+    const [spanTwoTechTitles, setSpanTowTechTitle] = useState(["React", "ExpressJs", "MongoDB", "NodeJs"]);
     const currentWidth = useCurrentWidth();
 
     const [springs, api] = useSpring(() => ({
         from: { backgroundColor: backgroundColor, scale: 1 },
     }));
+
+    // useEffect(()=>{
+    //     const changeSpanTwoTechTitles = () =>{
+    //         // select random 4
+    //         let newArray = []
+            
+    //         while (true){
+
+    //             const randomIndex = getRandomNumber(0, possibleTitles.length);
+
+    //             newArray.push(possibleTitles[randomIndex]);
+
+    //             if (newArray.length === 4){
+    //                 break;
+    //             }
+    //         }
+    //         console.log({newArray, possibleTitles})
+    //         setSpanTowTechTitle(newArray);
+    //     }
+
+    //     let intervalId = setInterval(changeSpanTwoTechTitles, 5000);
+
+    //     return () => clearInterval(intervalId);
+    // }, []);
 
     const startAnimation = () => {
         api.start({

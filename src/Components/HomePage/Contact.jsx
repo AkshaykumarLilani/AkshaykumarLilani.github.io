@@ -3,6 +3,8 @@ import SectionTitle from '../Common/SectionTitle';
 import styles from "./Contact.module.css";
 import { linkedin_logo, github_logo, tradingview_logo, email_logo, phone_logo } from '../../assets';
 import { useCurrentWidth } from 'react-socks';
+// import Lottie from 'react-lottie';
+import businessChartAnimation from "../../assets/lottie/business-chart.json";
 
 const myContacts = [
     [
@@ -37,19 +39,31 @@ const myContacts = [
 ]
 
 function Contact() {
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: businessChartAnimation,
+    };
+
     return (
         <section className='max-width-desktop mx-auto d-flex flex-column justify-content-center gap-5 align-items-start p-3 py-md-5' id='contact'>
             <div>
                 <SectionTitle title={`Connect with me`} />
             </div>
-            <div className='d-flex flex-column gap-2'>
-                {
-                    myContacts.map((contacts, index) => <div className='d-flex gap-2' key={index}>
-                        {
-                            contacts?.map((contact, ind) => <IndividualContactCard {...contact} key={ind} />)
-                        }
-                    </div>)
-                }
+            <div className='d-flex justify-content-between align-items-center w-100 gap-2'>
+                <div className='d-flex flex-column gap-2' style={{flex: 3}}>
+                    {
+                        myContacts.map((contacts, index) => <div className='d-flex gap-2' key={index}>
+                            {
+                                contacts?.map((contact, ind) => <IndividualContactCard {...contact} key={ind} />)
+                            }
+                        </div>)
+                    }
+                </div>
+                <div style={{flex: 1}}>
+                    {/* <Lottie options={defaultOptions} /> */}
+                </div>
             </div>
         </section>
     )
@@ -58,7 +72,7 @@ function Contact() {
 const IndividualContactCard = ({ img, text, link }) => {
     const currentWidth = useCurrentWidth();
 
-    return <a href={link} target='_blank' rel='noreferrer' className={styles['contact-card'] + ' '} style={currentWidth < 550 ? {flex: 1} : { }}>
+    return <a href={link} target='_blank' rel='noreferrer' className={styles['contact-card'] + ' '} style={currentWidth < 550 ? { flex: 1 } : {}}>
         <img width={currentWidth < 1120 ? 25 : 35} src={img} alt="" />
         <span>{text}</span>
     </a>
