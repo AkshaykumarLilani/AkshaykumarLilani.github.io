@@ -1,4 +1,9 @@
 @import url("../node_modules/bootstrap/scss/bootstrap.scss");
+
+#root {
+  background-color: rgba(215, 229, 250, 0.15);
+}
+
 body {
   margin: 0px;
   padding: 0px;
