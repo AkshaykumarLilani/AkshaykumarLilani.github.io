@@ -32,7 +32,7 @@ const technologies = [
     allTechsSameColor.css,
     allTechsSameColor.javascript,
     allTechsSameColor.s3,
-    allTechsSameColor.netlify,
+    allTechsSameColor.pinescript,
     allTechsSameColor.ubuntu,
     allTechsSameColor.git
 ]

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./ProjectCard.module.css";
-import TechnologyBox from './Common/TechnologyBox';
-import { project_githubLogo, project_gotoLink } from '../assets';
+import TechnologyBox from '../../Common/TechnologyBox';
+import { project_githubLogo, project_gotoLink } from '../../../assets';
 import { useSpring, animated } from '@react-spring/web';
 
 const startBoxShadow = "0px 4px 4px 0px rgba(0, 0, 0, 0.19)";
@@ -57,16 +57,21 @@ function ProjectCard({ title, description, techStack, githubRepositoryLink, depl
                     }
                 </div>
                 <div className='d-flex justify-content-between align-items-center w-100'>
-                    <animated.a href={githubRepositoryLink} target='_blank' rel='noreferrer' className={styles['github-deploy-link'] + " d-flex justify-content-between align-items-center gap-2"}
-                        style={{
-                            ...springs_git_link
-                        }}
-                        onMouseEnter={() => startAnimation(api_git)}
-                        onMouseLeave={() => stopAnimation(api_git)}
-                    >
-                        <span>View Github Repo</span>
-                        <img src={project_githubLogo} alt="Github Repo Link" />
-                    </animated.a>
+                    {
+                        githubRepositoryLink ?
+                            <animated.a href={githubRepositoryLink} target='_blank' rel='noreferrer' className={styles['github-deploy-link'] + " d-flex justify-content-between align-items-center gap-2"}
+                                style={{
+                                    ...springs_git_link
+                                }}
+                                onMouseEnter={() => startAnimation(api_git)}
+                                onMouseLeave={() => stopAnimation(api_git)}
+                            >
+                                <span>Github Repo</span>
+                                <img src={project_githubLogo} alt="Github Repo Link" />
+                            </animated.a>
+                            : <div></div>
+                    }
+
                     <animated.a href={deployedLink} target='_blank' rel='noreferrer' className={styles['github-deploy-link'] + " d-flex justify-content-between align-items-center gap-2"}
                         style={{
                             ...springs_live_website
