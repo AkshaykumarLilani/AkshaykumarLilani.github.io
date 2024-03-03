@@ -1,12 +1,6 @@
 import React, { useState } from 'react'
 import styles from "./ProjectFilters.module.css";
-
-export const PROJECT_CATEGORIES = {
-    "ALL": "ALL",
-    "FRONTEND": "Frontend",
-    "FULLSTACK": "Full Stack",
-    "PINESCRIPT": "Pine Script"
-}
+import { PROJECT_CATEGORIES, PROJECT_CATEGORIES_COUNT } from '../../../data/projects';
 
 const ProjectFilters = ({ onChange }) => {
 
@@ -15,7 +9,7 @@ const ProjectFilters = ({ onChange }) => {
     const onFilterSelect = (e) => {
         let chosenFilter = e.target?.getAttribute?.('data-category');
         if (!chosenFilter){
-            chosenFilter = PROJECT_CATEGORIES.ALL;
+            return;
         }
         setCurrentFilter(PROJECT_CATEGORIES[chosenFilter]);
         if (typeof onChange === "function"){
@@ -24,7 +18,7 @@ const ProjectFilters = ({ onChange }) => {
     }
 
     return (
-        <div className={`d-flex justify-content-center align-items-center gap-2 ${styles['container']}`} onClick={onFilterSelect}>
+        <div className={`d-flex justify-content-center flex-wrap align-items-center gap-2 ${styles['container']}`} onClick={onFilterSelect}>
             {
                 Object.keys(PROJECT_CATEGORIES).map((category, index) => {
                     return (
@@ -34,6 +28,7 @@ const ProjectFilters = ({ onChange }) => {
                             className={`${styles['filter']} ${currentFilter === PROJECT_CATEGORIES[category] ? styles['active'] : ''}`}
                         >
                             {PROJECT_CATEGORIES[category]}
+                            <span className='ms-1'>({PROJECT_CATEGORIES_COUNT[category]})</span>
                         </div>)
                 })
             }
@@ -41,4 +36,4 @@ const ProjectFilters = ({ onChange }) => {
     )
 }
 
-export default ProjectFilters
+export default React.memo(ProjectFilters)

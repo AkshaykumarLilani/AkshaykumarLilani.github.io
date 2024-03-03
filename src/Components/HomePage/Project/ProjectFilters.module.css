@@ -3,12 +3,14 @@
     border-radius: 5px;
     background-color: rgb(230, 230, 231);
     height: max-content;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .filter {
     padding: 5px;
     cursor: pointer;
-    transition: 400ms ease-in-out;
+    transition: 300ms ease-in-out;
 }
 
 .filter.active {
