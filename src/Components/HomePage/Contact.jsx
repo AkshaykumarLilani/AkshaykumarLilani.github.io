@@ -6,36 +6,35 @@ import { useCurrentWidth } from 'react-socks';
 // import Lottie from 'react-lottie';
 import businessChartAnimation from "../../assets/lottie/business-chart.json";
 
-const myContacts = [
-    [
-        {
-            img: linkedin_logo,
-            link: "https://www.linkedin.com/in/akshay-lilani",
-            text: "Linkedin"
-        },
-        {
-            img: github_logo,
-            link: "https://github.com/AkshaykumarLilani",
-            text: "Github"
-        },
-        {
-            img: tradingview_logo,
-            link: "https://in.tradingview.com/u/S_Codes/",
-            text: "@S_Codes"
-        },
-    ],
-    [
-        {
-            img: email_logo,
-            link: "mailto:aksbaylilani60@gmail.com",
-            text: "aksbaylilani60@gmail.com"
-        },
-        {
-            img: phone_logo,
-            link: "tel:919049963060",
-            text: "(+91) 9049 963060"
-        },
-    ]
+const socialContacts = [
+    {
+        img: linkedin_logo,
+        link: "https://www.linkedin.com/in/akshay-lilani",
+        text: "Linkedin"
+    },
+    {
+        img: github_logo,
+        link: "https://github.com/AkshaykumarLilani",
+        text: "Github"
+    },
+    {
+        img: tradingview_logo,
+        link: "https://in.tradingview.com/u/S_Codes/",
+        text: "@S_Codes"
+    },
+]
+
+const personalContacts = [
+    {
+        img: email_logo,
+        link: "mailto:aksbaylilani60@gmail.com",
+        text: "aksbaylilani60@gmail.com"
+    },
+    {
+        img: phone_logo,
+        link: "tel:919049963060",
+        text: "(+91) 9049 963060"
+    },
 ]
 
 function Contact() {
@@ -52,17 +51,17 @@ function Contact() {
                 <SectionTitle title={`Connect with me`} />
             </div>
             <div className='d-flex justify-content-between align-items-center w-100 gap-2'>
-                <div className='d-flex flex-column gap-2' style={{flex: 3}}>
-                    {
-                        myContacts.map((contacts, index) => <div className='d-flex gap-2' key={index}>
-                            {
-                                contacts?.map((contact, ind) => <IndividualContactCard {...contact} key={ind} />)
-                            }
-                        </div>)
-                    }
-                </div>
-                <div style={{flex: 1}}>
-                    {/* <Lottie options={defaultOptions} /> */}
+                <div className='d-flex flex-column gap-2' style={{ flex: 3, maxWidth: 600 }}>
+                    <div className='d-flex gap-2'>
+                        {
+                            socialContacts?.map((contact, ind) => <IndividualContactCard {...contact} key={ind} />)
+                        }
+                    </div>
+                    <div className='d-flex flex-column flex-sm-row gap-2'>
+                        {
+                            personalContacts?.map((contact, ind) => <IndividualContactCard {...contact} key={ind} />)
+                        }
+                    </div>
                 </div>
             </div>
         </section>
