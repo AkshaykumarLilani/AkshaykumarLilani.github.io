@@ -27,11 +27,14 @@ import tech_redux from "./technologies/redux.svg";
 import tech_s3 from "./technologies/s3.svg";
 import tech_ubuntu from "./technologies/ubuntu.svg";
 import tech_nextjs from "./technologies/nextjs.svg";
+import tech_pinescript from "./technologies/PineScript.svg"
 
 import project_OnlineBiCycleShop from "./projects/OnlineBiCycleShop.webp";
 import project_LetsCamp from "./projects/LetsCamp.webp";
 import project_BigBasketClone from "./projects/BigBasketClone.webp";
 import project_InventoryManagement from "./projects/InventoryManagement.webp";
+import project_TimeAndSalesWindow from "./projects/TimeAndSalesWindow.webp";
+import project_LibraryManager from "./projects/LibraryManager.webp";
 
 import project_githubLogo from "./projects/github_logo.svg";
 import project_gotoLink from "./projects/gotoLink.svg";
@@ -66,11 +69,14 @@ export {
     tech_s3,
     tech_ubuntu,
     tech_nextjs,
+    tech_pinescript,
 
     project_OnlineBiCycleShop,
     project_LetsCamp,
     project_BigBasketClone,
     project_InventoryManagement,
+    project_TimeAndSalesWindow,
+    project_LibraryManager,
 
     project_githubLogo,
     project_gotoLink

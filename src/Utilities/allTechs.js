@@ -18,7 +18,8 @@ import {
     tech_redux,
     tech_s3,
     tech_ubuntu,
-    tech_nextjs
+    tech_nextjs,
+    tech_pinescript
 } from '../assets';
 
 export const allTechs = {
@@ -92,12 +93,12 @@ export const allTechs = {
         borderColor: 'rgba(2, 52, 48, 0.67)',
         backgroundColor: 'rgba(173, 255, 248, 0.46)'
     },
-    netlify: {
-        title: 'Netlify',
-        img: tech_netlify,
-        borderColor: 'rgba(50, 230, 226, 0.67)',
-        backgroundColor: 'rgba(195, 252, 251, 0.46)'
-    },
+    // netlify: {
+    //     title: 'Netlify',
+    //     img: tech_netlify,
+    //     borderColor: 'rgba(50, 230, 226, 0.67)',
+    //     backgroundColor: 'rgba(195, 252, 251, 0.46)'
+    // },
     nextjs: {
         title: 'Next.js',
         img: tech_nextjs,
@@ -109,6 +110,12 @@ export const allTechs = {
         img: tech_nodejs,
         borderColor: '#43853D',
         backgroundColor: 'rgba(157, 229, 150, 0.46)'
+    },
+    pinescript: {
+        title: 'PineScript',
+        img: tech_pinescript,
+        borderColor: 'rgba(105, 158, 201, 0.67)',
+        backgroundColor: 'rgba(186, 223, 253, 0.46)'
     },
     postgres: {
         title: 'Postgres',
@@ -159,7 +166,7 @@ const sameColorBgColor = 'rgba(192, 192, 192, 0.46)';
 // const sameColorBgColor = 'linear-gradient(90deg, rgba(247,247,250,1) 10%, rgba(238,238,238,1) 62%, rgba(231,232,232,0.7357317927170868) 100%)';
 
 const getMyBg = (title) => {
-    if (title.includes("express")){
+    if (title.includes("express")) {
         return allTechs[title].backgroundColorHover;
     }
     return allTechs[title].backgroundColor
@@ -243,13 +250,13 @@ export const allTechsSameColor = {
         backgroundColor: sameColorBgColor,
         onAnimationBackgroundColor: getMyBg("mongodb"),
     },
-    netlify: {
-        title: 'Netlify',
-        img: tech_netlify,
-        borderColor: sameColorBorderColor,
-        backgroundColor: sameColorBgColor,
-        onAnimationBackgroundColor: getMyBg("netlify"),
-    },
+    // netlify: {
+    //     title: 'Netlify',
+    //     img: tech_netlify,
+    //     borderColor: sameColorBorderColor,
+    //     backgroundColor: sameColorBgColor,
+    //     onAnimationBackgroundColor: getMyBg("netlify"),
+    // },
     nextjs: {
         title: 'Next.js',
         img: tech_nextjs,
@@ -263,6 +270,13 @@ export const allTechsSameColor = {
         borderColor: sameColorBorderColor,
         backgroundColor: sameColorBgColor,
         onAnimationBackgroundColor: getMyBg("nodejs"),
+    },
+    pinescript: {
+        title: 'PineScript',
+        img: tech_pinescript,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg("pinescript"),
     },
     postgres: {
         title: 'Postgres',

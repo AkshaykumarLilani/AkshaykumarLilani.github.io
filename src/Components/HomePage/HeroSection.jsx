@@ -59,7 +59,10 @@ function HeroSection() {
                         <div style={{ fontSize: 32 }}>Sr. Software Engineer at Teson LLP</div>
                     </div>
                     <div>
-                        Versatile Full Stack Web Developer with more than a year of experience in MERN, Django REST Framework, Docker, Python Scripting, Node Scripting, PineScript, AWS EC2, AWS S3, and Salesforce REST APIs. Proven track record in solo and collaborative projects, showcasing technical versatility, problem-solving, and effective teamwork.
+                        Frontend-focused full-stack developer with 1+ years of experience specializing in building dynamic
+                        and engaging user interfaces with React.js. Proficient in state management (Redux Toolkit),
+                        component design, and responsive layouts. Adept in backend technologies for seamless
+                        integration and support of frontend features.
                     </div>
                     <div className='d-flex align-items-center gap-3'>
                         <a href="https://www.linkedin.com/in/akshay-lilani" target='_blank' style={{ textDecoration: "none" }}>
