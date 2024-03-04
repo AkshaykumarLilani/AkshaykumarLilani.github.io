@@ -1,4 +1,8 @@
 @import url("../node_modules/bootstrap/scss/bootstrap.scss");
+#root > main {
+  transition: 300ms ease-in;
+}
+
 body {
   margin: 0px;
   padding: 0px;

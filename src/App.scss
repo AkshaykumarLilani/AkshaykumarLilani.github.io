@@ -6,6 +6,10 @@ $design-max-width-desktop: 1120px;
 $body-color: #202020;
 $body-background-color: rgba(255, 245, 245, 0.46);
 
+#root > main {
+    transition: 300ms ease-in;
+}
+
 body {
     margin: 0px;
     padding: 0px;

@@ -12,7 +12,7 @@ import ExperienceSection from '../Components/HomePage/ExperienceSection';
 function HomePage() {
 
   return (
-    <>
+    <main>
       <NavBar />
       <HeroSection />
       <AboutSection />
@@ -22,7 +22,7 @@ function HomePage() {
       <GithubStatsSection />
       <Contact />
       <Footer />
-    </>
+    </main>
   )
 }
 
