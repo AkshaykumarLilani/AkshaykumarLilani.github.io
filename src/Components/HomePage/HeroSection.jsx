@@ -24,7 +24,7 @@ function HeroSection() {
             }
             await next({ transform: 'translate(5px, 15px)' });
         },
-        config: { duration: 100, easing: easings.easeOutBack }
+        config: { duration: 100, easing: easings.easeInBounce }
     });
 
     const waveAnimation2 = useSpring({

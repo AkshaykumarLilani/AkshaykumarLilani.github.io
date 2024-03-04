@@ -5,12 +5,19 @@
     height: max-content;
     user-select: none;
     -webkit-user-select: none;
+    font-size: 14px;
+    overflow: auto;
+    max-width: max-content;
+}
+
+.container::-webkit-scrollbar {
+    height: 5px;
 }
 
 .filter {
     padding: 5px;
     cursor: pointer;
-    transition: 300ms ease-in-out;
+    text-wrap: nowrap;
 }
 
 .filter.active {
