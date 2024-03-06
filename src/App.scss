@@ -6,10 +6,6 @@ $design-max-width-desktop: 1120px;
 $body-color: #202020;
 $body-background-color: rgba(255, 245, 245, 0.46);
 
-#root > main {
-    transition: 300ms ease-in;
-}
-
 body {
     margin: 0px;
     padding: 0px;
@@ -65,4 +61,32 @@ body {
 ::-webkit-scrollbar-thumb {
     background-color: $accent-color;
     border-radius: 5px;
+}
+
+.home-loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    height: 100svh;
+    
+    width: 100vw;
+}
+
+.home-page {
+    animation: animation 1s ease-in-out forwards;
+}
+
+@keyframes animation {
+    from {
+        opacity: 0;
+        transform: translate3d(0px, 300px, 0px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0x, 0px, 0px);
+    }
 }

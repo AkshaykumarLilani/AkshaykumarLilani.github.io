@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { github_logo, linkedin_logo } from '../../assets'
+import { github_logo, hand_wave_animation, linkedin_logo } from '../../assets'
 import { useCurrentWidth } from 'react-socks'
 import { animated, easings, useSpring } from '@react-spring/web';
+import Lottie from 'lottie-react';
+import hand_wave_animation_data from "../../assets/lottie/hand_wave.json";
+
 
 function HeroSection() {
     const [wave, setWave] = useState(true);
@@ -14,32 +17,6 @@ function HeroSection() {
         return () => clearInterval(timer);
     }, []);
 
-    const waveAnimation = useSpring({
-        reset: true,
-        from: { transform: 'translate(5px, 15px)' },
-        to: async (next) => {
-            while (wave) {
-                await next({ transform: 'translate(5px, 15px)' });
-                await next({ transform: 'translate(15px, 5px)' });
-            }
-            await next({ transform: 'translate(5px, 15px)' });
-        },
-        config: { duration: 100, easing: easings.easeInBounce }
-    });
-
-    const waveAnimation2 = useSpring({
-        reset: true,
-        from: { transform: 'translate(0px, 15px)' },
-        to: async (next) => {
-            while (wave) {
-                await next({ transform: 'translate(15px, 0px)' });
-                await next({ transform: 'translate(0px, 15px)' });
-            }
-            await next({ transform: 'translate(0px, 15px)' });
-        },
-        config: { duration: 100, easing: easings.easeOutBack }
-    });
-
     return (
         <section className='max-width-desktop mx-auto d-flex justify-content-start align-items-start p-3 py-md-5' id='hero'>
             <div className='d-flex gap-2 p-3'
@@ -49,11 +26,13 @@ function HeroSection() {
                     borderRadius: 20,
                 }}
             >
-                <animated.div className='d-none d-md-block' style={{ fontSize: 48, marginTop: -15, ...waveAnimation }}>👋🏼</animated.div>
+                {/* <animated.div className='d-none d-md-block' style={{ fontSize: 48, marginTop: -15, ...waveAnimation }}>👋🏼</animated.div> */}
+                <Lottie className='d-none d-md-block' animationData={hand_wave_animation_data} loop={true} style={{ height: 80, width: 160, transform: "rotate(-40deg)" }} />
                 <div className='d-flex flex-column gap-4'>
                     <div>
                         <div style={{ fontSize: 48 }}>
-                            <animated.div className='d-block d-md-none' style={{ fontSize: 48, ...waveAnimation2 }}>👋🏼</animated.div>
+                            {/* <animated.div  style={{ fontSize: 48, ...waveAnimation2 }}>👋🏼</animated.div> */}
+                            <Lottie className='d-block d-md-none' animationData={hand_wave_animation_data} loop={true} style={{ height: 80, width: 80, transform: "rotate(-40deg)" }} />
                             <span>Hello, I am <strong className='color-accent'>Akshaykumar Lilani</strong></span>
                         </div>
                         <div style={{ fontSize: 32 }}>Sr. Software Engineer at Teson LLP</div>

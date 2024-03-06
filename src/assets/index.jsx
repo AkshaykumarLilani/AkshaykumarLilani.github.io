@@ -39,6 +39,10 @@ import project_LibraryManager from "./projects/LibraryManager.webp";
 import project_githubLogo from "./projects/github_logo.svg";
 import project_gotoLink from "./projects/gotoLink.svg";
 
+import hand_wave_animation from "./hand_wave.gif";
+import contact_animation from "./contact_animation.gif";
+import loading_animation from "./loading.gif";
+
 export {
     profile,
     underline,
@@ -79,5 +83,9 @@ export {
     project_LibraryManager,
 
     project_githubLogo,
-    project_gotoLink
+    project_gotoLink,
+
+    hand_wave_animation,
+    contact_animation,
+    loading_animation
 }

@@ -1,7 +1,7 @@
 import { Breakpoint, useCurrentWidth } from "react-socks";
 import ResumeButton from "./ResumeButton";
 import ThemeChangerButton from "./ThemeChangerButton";
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, animated, easings } from "@react-spring/web";
 import { useState, useEffect } from "react";
 
 const links = ["about", "skills", "projects", "contact"]
@@ -11,7 +11,7 @@ function NavBar() {
 
     const [active, setActive] = useState("about");
 
-    const scaleIn = useSpring({
+    const scaleInFromDown = useSpring({
         from: {
             y: 1000,
             opacity: 0,
@@ -19,6 +19,25 @@ function NavBar() {
         to: {
             y: 0,
             opacity: 1
+        },
+        config: {
+            duration: 1000,
+            easing: easings.easeInOutQuint
+        }
+    });
+
+    const scaleInFromTop = useSpring({
+        from: {
+            y: -1000,
+            opacity: 0,
+        },
+        to: {
+            y: 0,
+            opacity: 1
+        },
+        config: {
+            duration: 1000,
+            easing: easings.easeInOutCirc
         }
     });
 
@@ -104,7 +123,7 @@ function NavBar() {
 
     if (currentWidth <= 1119) {
         return (
-            <animated.nav className="d-flex justify-content-center py-4 w-100" id="nav-menu" style={{ position: "fixed", bottom: 0, ...scaleIn, zIndex: 999 }}>
+            <animated.nav className="d-flex justify-content-center py-4 w-100" id="nav-menu" style={{ position: "fixed", bottom: 0, ...scaleInFromDown, zIndex: 999 }}>
                 <div className="d-flex justify-content-between align-items-center py-2 px-2 mx-auto" style={{
                     // background: "linear-gradient(90deg, rgba(249, 248, 248, 0.96) 0.92%, rgba(249, 248, 248, 0.96) 99.95%)",
                     backgroundColor: "rgba(255, 255, 255, 0.78)",
@@ -145,7 +164,7 @@ function NavBar() {
         )
     } else {
         return (
-            <nav className="d-flex justify-content-center py-4 mx-auto max-width-desktop" id="nav-menu" style={{ position: "sticky", top: 0, zIndex: 999 }}>
+            <animated.nav className="d-flex justify-content-center py-4 mx-auto max-width-desktop" id="nav-menu" style={{ position: "sticky", top: 0, ...scaleInFromTop, zIndex: 999 }}>
                 <div className="d-flex justify-content-between align-items-center py-2 px-2 w-100" style={{
                     // background: "linear-gradient(90deg, rgba(249, 248, 248, 0.96) 0.92%, rgba(212, 212, 212, 0.00) 99.95%)",
                     backgroundColor: "rgba(255, 255, 255, 0.78)",
@@ -173,7 +192,7 @@ function NavBar() {
                         {/* <ThemeChangerButton size={24} /> */}
                     </div>
                 </div>
-            </nav>
+            </animated.nav>
         )
     }
 }
