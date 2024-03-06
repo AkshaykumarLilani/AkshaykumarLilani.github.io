@@ -1,10 +1,10 @@
 import React from 'react';
 import SectionTitle from '../Common/SectionTitle';
 import styles from "./Contact.module.css";
-import { linkedin_logo, github_logo, tradingview_logo, email_logo, phone_logo } from '../../assets';
+import { linkedin_logo, github_logo, tradingview_logo, email_logo, phone_logo, contact_animation } from '../../assets';
 import { useCurrentWidth } from 'react-socks';
-// import Lottie from 'react-lottie';
-import businessChartAnimation from "../../assets/lottie/business-chart.json";
+import Lottie from 'lottie-react';
+import working_animation from "../../assets/lottie/working.json";
 
 const socialContacts = [
     {
@@ -39,19 +39,14 @@ const personalContacts = [
 
 function Contact() {
 
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: businessChartAnimation,
-    };
 
     return (
         <section className='max-width-desktop mx-auto d-flex flex-column justify-content-center gap-5 align-items-start p-3 py-md-5' id='contact'>
             <div>
                 <SectionTitle title={`Connect with me`} />
             </div>
-            <div className='d-flex justify-content-between align-items-center w-100 gap-2'>
-                <div className='d-flex flex-column gap-2' style={{ flex: 3, maxWidth: 600 }}>
+            <div className='d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-end w-100 gap-2'>
+                <div className='d-flex flex-column gap-2 w-100' style={{ flex: 3, maxWidth: 600 }}>
                     <div className='d-flex gap-2'>
                         {
                             socialContacts?.map((contact, ind) => <IndividualContactCard {...contact} key={ind} />)
@@ -62,6 +57,10 @@ function Contact() {
                             personalContacts?.map((contact, ind) => <IndividualContactCard {...contact} key={ind} />)
                         }
                     </div>
+                </div>
+                <div style={{width: 280}}>
+                    {/* <img src={contact_animation} alt="Animation" /> */}
+                    <Lottie animationData={working_animation} loop={true}/>
                 </div>
             </div>
         </section>

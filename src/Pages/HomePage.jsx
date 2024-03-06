@@ -12,17 +12,19 @@ import ExperienceSection from '../Components/HomePage/ExperienceSection';
 function HomePage() {
 
   return (
-    <main>
+    <>
       <NavBar />
-      <HeroSection />
-      <AboutSection />
-      {/* <ExperienceSection /> */}
-      <SkillsSection />
-      <ProjectsSection />
-      <GithubStatsSection />
-      <Contact />
-      <Footer />
-    </main>
+      <div className='home-page'>
+        <HeroSection />
+        <AboutSection />
+        {/* <ExperienceSection /> */}
+        <SkillsSection />
+        <ProjectsSection />
+        <GithubStatsSection />
+        <Contact />
+        <Footer />
+      </div>
+    </>
   )
 }
 
