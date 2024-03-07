@@ -1,4 +1,5 @@
-import { useSpring, animated } from "@react-spring/web"
+import { useSpring, animated } from "@react-spring/web";
+import ReactGa from "react-ga";
 
 function ResumeButton({ id }) {
 
@@ -31,6 +32,12 @@ function ResumeButton({ id }) {
     const onResumeClick = async () => {
 
         const s3FileUrl = 'https://akshaylilani.s3.ap-south-1.amazonaws.com/Akshaykumar+Lilani+Resume.pdf';
+
+        ReactGa.event({
+            category: "Resume",
+            action: "Download Clicked",
+            label:"User clicked download resume"
+        })
 
         fetch(s3FileUrl)
             .then(response => response.blob())

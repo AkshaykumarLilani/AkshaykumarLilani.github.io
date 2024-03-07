@@ -4,6 +4,11 @@ import './App.css';
 import LoadingHome from './Components/HomePage/LoadingHome';
 const HomePage = React.lazy(() => import('./Pages/HomePage'));
 
+import ReactGA from "react-ga";
+
+const GA_TRACKING_ID = 'G-X8SFGCMW02';
+ReactGA.initialize(GA_TRACKING_ID);
+
 function App() {
 
   return (
