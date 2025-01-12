@@ -1,8 +1,8 @@
-import { CHANGE_THEME } from "./actionTypes";
+import { CHANGE_THEME } from './actionTypes';
 
 let initialState = {
-    theme: "light",
-}
+    theme: 'light',
+};
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -13,6 +13,6 @@ const reducer = (state = initialState, action) => {
             // console.log("Default Reducer: ", { state, action });
             return state;
     }
-}
+};
 
 export default reducer;

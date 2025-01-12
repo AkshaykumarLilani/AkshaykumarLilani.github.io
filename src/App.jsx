@@ -4,21 +4,20 @@ import './App.css';
 import LoadingHome from './Components/HomePage/LoadingHome';
 const HomePage = React.lazy(() => import('./Pages/HomePage'));
 
-import ReactGA from "react-ga";
+import ReactGA from 'react-ga';
 
 // const GA_TRACKING_ID = 'G-X8SFGCMW02';
 const GA_TRACKING_ID = '430855175';
 ReactGA.initialize(GA_TRACKING_ID);
 
 function App() {
-
-  return (
-    <>
-      <React.Suspense fallback={<LoadingHome />}>
-        <HomePage />
-      </React.Suspense>
-    </>
-  )
+    return (
+        <>
+            <React.Suspense fallback={<LoadingHome />}>
+                <HomePage />
+            </React.Suspense>
+        </>
+    );
 }
 
-export default App
+export default App;
