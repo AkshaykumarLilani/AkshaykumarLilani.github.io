@@ -1,7 +1,7 @@
-@import url("../node_modules/bootstrap/scss/bootstrap.scss");
+@import url('../node_modules/bootstrap/scss/bootstrap.scss');
 
 // Colors
-$accent-color: #0077D4;
+$accent-color: #0077d4;
 $design-max-width-desktop: 1120px;
 $body-color: #202020;
 $body-background-color: rgba(255, 245, 245, 0.46);
@@ -27,7 +27,7 @@ body {
 }
 
 .nav-link.active {
-    color: $accent-color
+    color: $accent-color;
 }
 
 // #nav-menu{
@@ -71,7 +71,7 @@ body {
 
     height: 100vh;
     height: 100svh;
-    
+
     width: 100vw;
 }
 

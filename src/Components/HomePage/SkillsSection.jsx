@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import SectionTitle from '../Common/SectionTitle'
+import React, { useEffect, useState } from 'react';
+import SectionTitle from '../Common/SectionTitle';
 import TechnologyBox from '../Common/TechnologyBox';
 import { allTechsSameColor } from '../../Utilities/allTechs';
 import { useCurrentWidth } from 'react-socks';
@@ -34,8 +34,8 @@ const technologies = [
     allTechsSameColor.s3,
     allTechsSameColor.pinescript,
     allTechsSameColor.ubuntu,
-    allTechsSameColor.git
-]
+    allTechsSameColor.git,
+];
 
 function SkillsSection() {
     const currentWidth = useCurrentWidth();
@@ -57,15 +57,32 @@ function SkillsSection() {
     }, [currentWidth]);
 
     return (
-        <section className='max-width-desktop  mx-auto d-flex flex-column gap-3 justify-content-center align-items-start  p-3 py-md-5' id='skills'>
+        <section
+            className="max-width-desktop  mx-auto d-flex flex-column gap-3 justify-content-center align-items-start  p-3 py-md-5"
+            id="skills"
+        >
             <div>
                 <SectionTitle title={`Technologies I have used`} />
             </div>
-            <div className='w-100' style={{ display: "grid", gridTemplateColumns: `repeat(${gridColumns}, 1fr)`, gap: 10 }}>
-                {technologies.map((tech, index) => <TechnologyBox key={index + 'tec'} {...tech} inSkillsSection={true} gridColumns={gridColumns} />)}
+            <div
+                className="w-100"
+                style={{
+                    display: 'grid',
+                    gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
+                    gap: 10,
+                }}
+            >
+                {technologies.map((tech, index) => (
+                    <TechnologyBox
+                        key={index + 'tec'}
+                        {...tech}
+                        inSkillsSection={true}
+                        gridColumns={gridColumns}
+                    />
+                ))}
             </div>
         </section>
-    )
+    );
 }
 
 export default SkillsSection;
