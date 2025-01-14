@@ -1,9 +1,11 @@
+"use client";
+
 import React, { useState } from 'react';
 import styles from './ProjectFilters.module.css';
 import {
     PROJECT_CATEGORIES,
     PROJECT_CATEGORIES_COUNT,
-} from '../../../data/projects';
+} from '@/lib/data/projects';
 
 const ProjectFilters = ({ onChange }) => {
     const [currentFilter, setCurrentFilter] = useState(PROJECT_CATEGORIES.ALL);
@@ -21,7 +23,7 @@ const ProjectFilters = ({ onChange }) => {
 
     return (
         <div
-            className={`d-flex justify-content-start align-items-center gap-1 ${styles['container']}`}
+            className={`flex justify-start items-center gap-1 ${styles['container']}`}
             onClick={onFilterSelect}
         >
             {Object.keys(PROJECT_CATEGORIES).map((category, index) => {

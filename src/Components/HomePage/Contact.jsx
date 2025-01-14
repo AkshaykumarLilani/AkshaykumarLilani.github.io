@@ -1,5 +1,7 @@
+"use client";
+
 import React from 'react';
-import SectionTitle from '../Common/SectionTitle';
+import SectionTitle from '@/components/common/SectionTitle';
 import styles from './Contact.module.css';
 import {
     linkedin_logo,
@@ -7,11 +9,13 @@ import {
     tradingview_logo,
     email_logo,
     phone_logo,
-    contact_animation,
-} from '../../assets';
-import { useCurrentWidth } from 'react-socks';
+} from '@/assets';
 import Lottie from 'lottie-react';
-import working_animation from '../../assets/lottie/working.json';
+import working_animation from '@/assets/lottie/working.json';
+import Image from 'next/image';
+import useWindowWidth from '@/lib/hooks/use-window-width';
+import { BackgroundBeams } from '../ui/background-beams';
+import Footer from '../common/Footer';
 
 const socialContacts = [
     {
@@ -34,8 +38,8 @@ const socialContacts = [
 const personalContacts = [
     {
         img: email_logo,
-        link: 'mailto:aksbaylilani60@gmail.com',
-        text: 'aksbaylilani60@gmail.com',
+        link: 'mailto:akshaylilani60@gmail.com',
+        text: 'akshaylilani60@gmail.com',
     },
     {
         img: phone_logo,
@@ -47,30 +51,29 @@ const personalContacts = [
 function Contact() {
     return (
         <section
-            className="max-width-desktop mx-auto d-flex flex-column justify-content-center gap-5 align-items-start p-3 py-md-5"
+            className=" flex flex-col justify-center gap-5 items-start p-3 md:py-5"
             id="contact"
         >
             <div>
                 <SectionTitle title={`Connect with me`} />
             </div>
-            <div className="d-flex flex-column flex-md-row justify-content-between align-items-center align-items-md-end w-100 gap-2">
+            <div className="flex flex-col md:flex-row justify-between items-center md:items-end w-full gap-2">
                 <div
-                    className="d-flex flex-column gap-2 w-100"
+                    className="flex flex-col gap-2 w-full"
                     style={{ flex: 3, maxWidth: 600 }}
                 >
-                    <div className="d-flex gap-2">
+                    <div className="flex gap-2">
                         {socialContacts?.map((contact, ind) => (
                             <IndividualContactCard {...contact} key={ind} />
                         ))}
                     </div>
-                    <div className="d-flex flex-column flex-sm-row gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2">
                         {personalContacts?.map((contact, ind) => (
                             <IndividualContactCard {...contact} key={ind} />
                         ))}
                     </div>
                 </div>
-                <div style={{ width: 280 }}>
-                    {/* <img src={contact_animation} alt="Animation" /> */}
+                <div className="w-[280px]">
                     <Lottie animationData={working_animation} loop={true} />
                 </div>
             </div>
@@ -79,17 +82,17 @@ function Contact() {
 }
 
 const IndividualContactCard = ({ img, text, link }) => {
-    const currentWidth = useCurrentWidth();
+    const currentWidth = useWindowWidth();
 
     return (
         <a
             href={link}
             target="_blank"
             rel="noreferrer"
-            className={styles['contact-card'] + ' '}
+            className={`${styles['contact-card']}`}
             style={currentWidth < 550 ? { flex: 1 } : {}}
         >
-            <img width={currentWidth < 1120 ? 25 : 35} src={img} alt="" />
+            <Image width={currentWidth < 1120 ? 25 : 35} src={img} alt="" />
             <span>{text}</span>
         </a>
     );

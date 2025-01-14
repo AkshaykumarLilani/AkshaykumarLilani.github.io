@@ -1,7 +1,7 @@
 .container {
     padding: 5px;
     border-radius: 5px;
-    background-color: rgb(230, 230, 231);
+    background-color: hsl(var(--foreground));
     height: max-content;
     user-select: none;
     -webkit-user-select: none;
@@ -18,10 +18,12 @@
     padding: 5px;
     cursor: pointer;
     text-wrap: nowrap;
+    color: hsl(var(--background));
 }
 
 .filter.active {
-    background-color: white;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--foreground));
     border-radius: 5px;
-    box-shadow: 2px 2px 5px lightgray;
+    box-shadow: 2px 2px 5px hsl(var(--muted-foreground));
 }

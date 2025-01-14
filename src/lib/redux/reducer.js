@@ -1,3 +1,5 @@
+"use client";
+
 import { CHANGE_THEME } from './actionTypes';
 
 let initialState = {

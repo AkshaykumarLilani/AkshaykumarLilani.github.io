@@ -1,12 +1,15 @@
-import { useCurrentWidth } from 'react-socks';
-import SectionTitle from '../Common/SectionTitle';
+"use client";
+
+import SectionTitle from '@/components/common/SectionTitle';
 import css from './GithubStatsSection.module.css';
 import GitHubCalendar from 'react-github-calendar';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import useWindowWidth from '@/lib/hooks/use-window-width';
 
 const GithubStatsSection = () => {
     const [months, setMonths] = useState(6);
-    const currentWidth = useCurrentWidth();
+    const currentWidth = useWindowWidth();
 
     const selectLastHalfYear = (contributions) => {
         const currentDate = new Date();
@@ -48,7 +51,7 @@ const GithubStatsSection = () => {
     return (
         <section
             id="github-stats"
-            className="max-width-desktop  mx-auto d-flex justify-content-start align-items-start flex-column gap-5  p-3 py-md-5"
+            className=" flex flex-col justify-start items-start gap-5 p-3 md:py-5"
         >
             <SectionTitle title={`Github Stats`} />
             <GitHubCalendar
@@ -67,49 +70,37 @@ const GithubStatsSection = () => {
                     currentWidth > 590
                         ? 15
                         : currentWidth < 450
-                          ? 10
-                          : currentWidth < 530
-                            ? 11
-                            : 13
+                            ? 10
+                            : currentWidth < 530
+                                ? 11
+                                : 13
                 }
-                // blockSize={12}
-
                 weekStart={1}
                 year={2023}
                 colorScheme="light"
             />
             <div
-                className="d-flex flex-column justify-content-between w-100 justify-content-md-center  align-items-start align-items-md-center  flex-md-row gap-3"
+                className={`flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-3`}
                 id={css['all-git-stats']}
             >
-                {/* <a href="https://github.com/AkshaykumarLilani" style={styles}>
-                    <img className="w-100" src="https://github-readme-streak-stats.herokuapp.com?user=akshaykumarlilani&theme=transparent&hide_border=true&border_radius=12&mode=weekly" alt="GitHub Streak" id="github-streak-stats" />
-                </a>
                 <a href="https://github.com/AkshaykumarLilani" style={styles}>
-                    <img className="w-100" src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=akshaykumarlilani&theme=transparent" alt="" id="github-stats-card" />
-                </a> */}
-                <a href="https://github.com/AkshaykumarLilani" style={styles}>
-                    <img
-                        className="w-100"
+                    <Image
+                        alt="Github Stats"
+                        className="w-full"
+                        width={100}
+                        height={100}
                         src="https://github-readme-stats.vercel.app/api?username=akshaykumarlilani&theme=graywhite&show_icons=true&hide_border=true&count_private=true"
                     />
                 </a>
                 <a href="https://github.com/AkshaykumarLilani" style={styles}>
-                    <img
-                        className="w-100"
+                    <Image
+                        className="w-full"
                         src="https://github-readme-streak-stats.herokuapp.com/?user=akshaykumarlilani&theme=graywhite&hide_border=true"
                         alt=""
+                        width={100}
+                        height={100}
                     />
                 </a>
-                {/* <a href="https://github.com/AkshaykumarLilani" style={styles}>
-                    <img className="w-100" src="https://github-readme-stats.vercel.app/api/top-langs/?username=akshaykumarlilani&theme=graywhite&show_icons=true&hide_border=true&layout=compact" alt="" />
-                </a> */}
-                {/* <a href="https://github.com/AkshaykumarLilani">
-                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=akshaykumarlilani" alt="Github Top Languages" id="github-top-langs" />
-                </a> */}
-                {/* <a href="https://github.com/AkshaykumarLilani">
-                    <img src="https://github-readme-stats.vercel.app/api?username=akshaykumarlilani&show_icons=true" alt="Github Stats" id="github-stats-card" />
-                </a> */}
             </div>
         </section>
     );

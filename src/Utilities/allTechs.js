@@ -1,3 +1,5 @@
+"use client";
+
 import {
     tech_antdesign,
     tech_aws,
@@ -20,7 +22,7 @@ import {
     tech_ubuntu,
     tech_nextjs,
     tech_pinescript,
-} from '../assets';
+} from '@/assets';
 
 export const allTechs = {
     antdesign: {

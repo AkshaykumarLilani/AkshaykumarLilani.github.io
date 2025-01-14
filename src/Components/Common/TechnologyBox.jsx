@@ -1,8 +1,11 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
-import { useCurrentWidth } from 'react-socks';
-import { allTechs } from '../../Utilities/allTechs';
-import getRandomNumber from '../../Utilities/getRandomNumber';
+import { allTechs } from '@/utilities/allTechs';
+import getRandomNumber from '@/utilities/getRandomNumber';
+import Image from 'next/image';
+import useWindowWidth from '@/lib/hooks/use-window-width';
 
 const possibleTitles = Object.keys(allTechs).map((a) => allTechs[a].title);
 
@@ -22,35 +25,11 @@ function TechnologyBox({
         'MongoDB',
         'NodeJs',
     ]);
-    const currentWidth = useCurrentWidth();
+    const currentWidth = useWindowWidth();
 
     const [springs, api] = useSpring(() => ({
         from: { backgroundColor: backgroundColor, scale: 1 },
     }));
-
-    // useEffect(()=>{
-    //     const changeSpanTwoTechTitles = () =>{
-    //         // select random 4
-    //         let newArray = []
-
-    //         while (true){
-
-    //             const randomIndex = getRandomNumber(0, possibleTitles.length);
-
-    //             newArray.push(possibleTitles[randomIndex]);
-
-    //             if (newArray.length === 4){
-    //                 break;
-    //             }
-    //         }
-    //         console.log({newArray, possibleTitles})
-    //         setSpanTowTechTitle(newArray);
-    //     }
-
-    //     let intervalId = setInterval(changeSpanTwoTechTitles, 5000);
-
-    //     return () => clearInterval(intervalId);
-    // }, []);
 
     const startAnimation = () => {
         api.start({
@@ -83,19 +62,15 @@ function TechnologyBox({
             if (title === 'EJS') {
                 return (
                     <div
-                        className="d-flex gap-2 p-1 px-2"
+                        className="flex gap-2 p-2 px-3 rounded-lg"
                         style={{
-                            borderRadius: 10,
-                            // border: `2px solid ${borderColor}`,
                             backgroundColor: `${backgroundColor}`,
                             fontSize: fontSize,
                         }}
                     >
                         <div style={{ color: borderColor }}>
                             <strong>
-                                {'<%= '}
-                                {title}
-                                {' %>'}
+                                {'<%= '}{title}{' %>'}
                             </strong>
                         </div>
                     </div>
@@ -105,15 +80,13 @@ function TechnologyBox({
 
         return (
             <div
-                className="d-flex gap-2 p-1 px-2"
+                className="flex gap-2 p-2 px-3 rounded-lg border border-primary"
                 style={{
-                    borderRadius: 10,
-                    // border: `2px solid ${borderColor}`,
                     backgroundColor: `${backgroundColor}`,
                     fontSize: fontSize,
                 }}
             >
-                <img
+                <Image
                     src={img}
                     alt={title}
                     style={{ fill: borderColor, width: fontSize }}
@@ -127,24 +100,6 @@ function TechnologyBox({
         if (!img) {
             if (title === 'EJS') {
                 return null;
-                return (
-                    <div
-                        className="d-flex flex-column gap-2 p-1 px-2"
-                        style={{
-                            borderRadius: 10,
-                            border: `2px solid ${borderColor}`,
-                            backgroundColor: `${backgroundColor}`,
-                        }}
-                    >
-                        <div style={{ color: borderColor }}>
-                            <strong>
-                                {'<%= '}
-                                {title}
-                                {' %>'}
-                            </strong>
-                        </div>
-                    </div>
-                );
             }
         }
 
@@ -152,12 +107,12 @@ function TechnologyBox({
             let containsTitle = spanTwoTechTitles.includes(t);
             if (containsTitle) {
                 if (currentWidth < 992) {
-                    return 'span 1';
+                    return 'col-span-1';
                 } else {
-                    return 'span 2';
+                    return 'col-span-2';
                 }
             } else {
-                return 'span 1';
+                return 'col-span-1';
             }
         };
 
@@ -177,20 +132,19 @@ function TechnologyBox({
 
         return (
             <animated.div
-                className="d-flex flex-column justify-content-center align-items-center gap-2 p-3"
+                className="flex flex-col justify-center items-center gap-2 p-3"
                 onMouseEnter={startAnimation}
                 onMouseLeave={stopAnimation}
                 style={{
-                    borderRadius: 15,
-                    // border: `2px solid ${borderColor}`,
+                    borderRadius: '15px',
                     backgroundColor: `${backgroundColor}`,
                     fontSize: fontSize,
                     opacity: 0.8,
-                    gridColumn: getGridSpan(title),
+                    // gridColumn: getGridSpan(title),
                     ...springs,
                 }}
             >
-                <img
+                <Image
                     src={img}
                     alt={title}
                     style={{
@@ -198,12 +152,7 @@ function TechnologyBox({
                         width: getImageWidth(title),
                     }}
                 />
-                {/* {
-                    spanTwoTechTitles.includes(title) ? null : <div style={{ color: borderColor }}>
-                        <strong>{title}</strong>
-                    </div>
-                } */}
-                <div style={{ color: borderColor }}>
+                <div className='text-foreground'>
                     <strong>{title}</strong>
                 </div>
             </animated.div>

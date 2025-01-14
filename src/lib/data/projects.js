@@ -1,4 +1,6 @@
-import { allTechsSameColor } from '../Utilities/allTechs';
+"use client";
+
+import { allTechsSameColor } from '@/utilities/allTechs';
 import {
     project_BigBasketClone,
     project_InventoryManagement,
@@ -6,7 +8,7 @@ import {
     project_LibraryManager,
     project_OnlineBiCycleShop,
     project_TimeAndSalesWindow,
-} from '../assets';
+} from '@/assets';
 project_BigBasketClone;
 
 const allTechs = allTechsSameColor;

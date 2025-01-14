@@ -1,3 +1,5 @@
+"use client";
+
 import { useSpring, animated } from '@react-spring/web';
 import ReactGa from 'react-ga';
 
@@ -60,7 +62,7 @@ function ResumeButton({ id }) {
 
     return (
         <animated.div
-            className="cursor-pointer d-flex justify-content-center align-items-center p-2 br-10 gap-2"
+            className="cursor-pointer flex justify-center items-center p-2 br-10 gap-2"
             onMouseEnter={startAnimation}
             onMouseLeave={stopAnimation}
             onClick={onResumeClick}
