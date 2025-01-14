@@ -1,3 +1,5 @@
+"use client";
+
 import profile from './profile.webp';
 import underline from './underline.svg';
 

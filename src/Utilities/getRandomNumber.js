@@ -1,3 +1,5 @@
+"use client";
+
 function getRandomNumber(min, max) {
     const randomDecimal = Math.random();
 

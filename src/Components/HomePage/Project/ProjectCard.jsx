@@ -1,8 +1,11 @@
+"use client";
+
 import React from 'react';
 import styles from './ProjectCard.module.css';
-import TechnologyBox from '../../Common/TechnologyBox';
-import { project_githubLogo, project_gotoLink } from '../../../assets';
+import TechnologyBox from '@/components/common/TechnologyBox';
+import { project_githubLogo, project_gotoLink } from '@/assets';
 import { useSpring, animated } from '@react-spring/web';
+import Image from 'next/image';
 
 const startBoxShadow = '0px 4px 4px 0px rgba(0, 0, 0, 0.19)';
 const stopBoxShadow = '0px 4px 4px 4px #0077d433';
@@ -52,22 +55,22 @@ function ProjectCard({
             className={
                 styles['project-card'] +
                 ' ' +
-                'd-flex flex-column justify-content-between gap-3'
+                'flex flex-col justify-between gap-3 rounded-lg border border-primary'
             }
         >
-            <div className="d-flex flex-column">
+            <div className="flex flex-col">
                 <div className="mb-2">
-                    <img
+                    <Image
                         src={image}
                         alt=""
-                        className={styles['project-img'] + ' '}
+                        className={styles['project-img'] + ' rounded-lg border border-primary'}
                     />
                 </div>
-                <h5 className="mb-2 color-accent">{title}</h5>
+                <h5 className="mb-2 text-foreground text-xl">{title}</h5>
                 <p className="mb-0">{description}</p>
             </div>
-            <div className="d-flex flex-column gap-3">
-                <div className="d-flex gap-2 flex-wrap">
+            <div className="flex flex-col gap-3">
+                <div className="flex gap-2 flex-wrap">
                     {Array.isArray(techStack) &&
                         techStack.map((tech, index) => (
                             <TechnologyBox
@@ -78,7 +81,7 @@ function ProjectCard({
                             />
                         ))}
                 </div>
-                <div className="d-flex justify-content-between align-items-center w-100">
+                <div className="flex justify-between items-center w-full">
                     {githubRepositoryLink ? (
                         <animated.a
                             href={githubRepositoryLink}
@@ -86,7 +89,7 @@ function ProjectCard({
                             rel="noreferrer"
                             className={
                                 styles['github-deploy-link'] +
-                                ' d-flex justify-content-between align-items-center gap-2'
+                                ' flex justify-between items-center gap-2 border border-primary'
                             }
                             style={{
                                 ...springs_git_link,
@@ -95,7 +98,7 @@ function ProjectCard({
                             onMouseLeave={() => stopAnimation(api_git)}
                         >
                             <span>Github Repo</span>
-                            <img
+                            <Image
                                 src={project_githubLogo}
                                 alt="Github Repo Link"
                             />
@@ -110,7 +113,7 @@ function ProjectCard({
                         rel="noreferrer"
                         className={
                             styles['github-deploy-link'] +
-                            ' d-flex justify-content-between align-items-center gap-2'
+                            ' flex justify-between items-center gap-2 border border-primary'
                         }
                         style={{
                             ...springs_live_website,
@@ -119,7 +122,7 @@ function ProjectCard({
                         onMouseLeave={() => stopAnimation(api_lw)}
                     >
                         <span>View Live</span>
-                        <img src={project_gotoLink} alt="Github Repo Link" />
+                        <Image src={project_gotoLink} alt="Github Repo Link" />
                     </animated.a>
                 </div>
             </div>

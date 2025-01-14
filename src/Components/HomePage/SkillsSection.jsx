@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import SectionTitle from '../Common/SectionTitle';
-import TechnologyBox from '../Common/TechnologyBox';
-import { allTechsSameColor } from '../../Utilities/allTechs';
-import { useCurrentWidth } from 'react-socks';
+"use client";
 
-// const technologies = [
-//     [allTechsSameColor.react, allTechsSameColor.redux, allTechsSameColor.bootstrap],
-//     [allTechsSameColor.express, allTechsSameColor.django_rest, allTechsSameColor.ejs],
-//     [allTechsSameColor.mongodb, allTechsSameColor.postgres],
-//     [allTechsSameColor.nodejs, allTechsSameColor.python, allTechsSameColor.javascript, allTechsSameColor.html, allTechsSameColor.css],
-//     [allTechsSameColor.aws, allTechsSameColor.s3, allTechsSameColor.netlify],
-//     [allTechsSameColor.docker, allTechsSameColor.ubuntu, allTechsSameColor.git]
-// ]
+import React, { useEffect, useState } from 'react';
+import SectionTitle from '@/components/common/SectionTitle';
+import TechnologyBox from '@/components/common/TechnologyBox';
+import { allTechsSameColor } from '@/utilities/allTechs';
+import useWindowWidth from '@/lib/hooks/use-window-width';
+import { useTheme } from 'next-themes';
 
 const technologies = [
     allTechsSameColor.mongodb,
@@ -38,12 +32,15 @@ const technologies = [
 ];
 
 function SkillsSection() {
-    const currentWidth = useCurrentWidth();
+    const currentWidth = useWindowWidth();
     const [gridColumns, setGridColumns] = useState(8);
+    const { theme } = useTheme();
 
     useEffect(() => {
-        // console.log({ currentWidth });
-        if (currentWidth < 580) {
+        console.log({ currentWidth })
+        if (currentWidth < 450) {
+            setGridColumns(2);
+        } else if (currentWidth < 600) {
             setGridColumns(3);
         } else if (currentWidth < 720) {
             setGridColumns(4);
@@ -57,28 +54,11 @@ function SkillsSection() {
     }, [currentWidth]);
 
     return (
-        <section
-            className="max-width-desktop  mx-auto d-flex flex-column gap-3 justify-content-center align-items-start  p-3 py-md-5"
-            id="skills"
-        >
-            <div>
-                <SectionTitle title={`Technologies I have used`} />
-            </div>
-            <div
-                className="w-100"
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: `repeat(${gridColumns}, 1fr)`,
-                    gap: 10,
-                }}
-            >
+        <section key={`${theme}-skills`} className="w-full p-3 py-md-5 flex flex-col gap-3 justify-center items-start" id="skills">
+            <SectionTitle title={`Technologies I have used`} />
+            <div className="w-full grid gap-4" style={{ gridTemplateColumns: `repeat(${gridColumns}, 1fr)` }}>
                 {technologies.map((tech, index) => (
-                    <TechnologyBox
-                        key={index + 'tec'}
-                        {...tech}
-                        inSkillsSection={true}
-                        gridColumns={gridColumns}
-                    />
+                    <TechnologyBox key={index + 'tec' + theme} {...tech} inSkillsSection={true} gridColumns={gridColumns} />
                 ))}
             </div>
         </section>

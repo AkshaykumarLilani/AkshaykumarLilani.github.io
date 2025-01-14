@@ -1,10 +1,12 @@
+"use client";
+
 import React, { useState } from 'react';
-import SectionTitle from '../../Common/SectionTitle';
-import { allTechsSameColor } from '../../../Utilities/allTechs';
+import SectionTitle from '@/components/common/SectionTitle';
+import { allTechsSameColor } from '@/utilities/allTechs';
 import ProjectCard from './ProjectCard';
 import styles from './ProjectsSection.module.css';
 import ProjectFilters from './ProjectFilters';
-import projects, { PROJECT_CATEGORIES } from '../../../data/projects';
+import projects, { PROJECT_CATEGORIES } from '@/lib/data/projects';
 
 function ProjectsSection() {
     const [projectsToShow, setProjectsToShow] = useState(projects);
@@ -20,10 +22,10 @@ function ProjectsSection() {
 
     return (
         <section
-            className="max-width-desktop mx-auto d-flex flex-column gap-4 justify-content-start align-items-start py-2 my-5 p-3 py-md-5"
+            className="flex flex-col gap-4 justify-start items-start py-2 my-5 p-3 md:py-5"
             id="projects"
         >
-            <div className="d-flex flex-column flex-sm-row justify-content-between w-100">
+            <div className="flex flex-col sm:flex-row justify-between w-full">
                 <SectionTitle title={`Sample Projects`} />
                 <ProjectFilters onChange={onFilterChange} />
             </div>

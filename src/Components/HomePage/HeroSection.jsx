@@ -1,9 +1,10 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { github_logo, hand_wave_animation, linkedin_logo } from '../../assets';
-import { useCurrentWidth } from 'react-socks';
-import { animated, easings, useSpring } from '@react-spring/web';
 import Lottie from 'lottie-react';
 import hand_wave_animation_data from '../../assets/lottie/hand_wave.json';
+import Image from 'next/image';
 
 function HeroSection() {
     const [wave, setWave] = useState(true);
@@ -18,20 +19,17 @@ function HeroSection() {
 
     return (
         <section
-            className="max-width-desktop mx-auto d-flex justify-content-start align-items-start p-3 py-md-5"
+            className=" flex justify-start items-start p-3 md:py-5"
             id="hero"
         >
             <div
-                className="d-flex gap-2 p-3"
+                className="flex gap-2 p-3 bg-muted rounded-2xl"
                 style={{
                     flex: 1,
-                    backgroundColor: 'rgba(186, 224, 255, 0.46)',
-                    borderRadius: 20,
                 }}
             >
-                {/* <animated.div className='d-none d-md-block' style={{ fontSize: 48, marginTop: -15, ...waveAnimation }}>👋🏼</animated.div> */}
                 <Lottie
-                    className="d-none d-md-block"
+                    className="hidden md:block"
                     animationData={hand_wave_animation_data}
                     loop={true}
                     style={{
@@ -40,12 +38,11 @@ function HeroSection() {
                         transform: 'rotate(-40deg)',
                     }}
                 />
-                <div className="d-flex flex-column gap-4">
+                <div className="flex flex-col gap-4">
                     <div>
-                        <div style={{ fontSize: 48 }}>
-                            {/* <animated.div  style={{ fontSize: 48, ...waveAnimation2 }}>👋🏼</animated.div> */}
+                        <div className="text-4xl">
                             <Lottie
-                                className="d-block d-md-none"
+                                className="block md:hidden"
                                 animationData={hand_wave_animation_data}
                                 loop={true}
                                 style={{
@@ -56,12 +53,12 @@ function HeroSection() {
                             />
                             <span>
                                 Hello, I am{' '}
-                                <strong className="color-accent">
+                                <strong className="text-primary">
                                     Akshaykumar Lilani
                                 </strong>
                             </span>
                         </div>
-                        <div style={{ fontSize: 32 }}>
+                        <div className="text-2xl">
                             Sr. Software Engineer at Teson LLP
                         </div>
                     </div>
@@ -73,13 +70,13 @@ function HeroSection() {
                         responsive layouts. Adept in backend technologies for
                         seamless integration and support of frontend features.
                     </div>
-                    <div className="d-flex align-items-center gap-3">
+                    <div className="flex items-center gap-3">
                         <a
                             href="https://www.linkedin.com/in/akshay-lilani"
                             target="_blank"
-                            style={{ textDecoration: 'none' }}
+                            className="no-underline"
                         >
-                            <img
+                            <Image
                                 width={44}
                                 src={linkedin_logo}
                                 alt="LinkedIn Logo"
@@ -88,9 +85,9 @@ function HeroSection() {
                         <a
                             href="https://www.github.com/AkshaykumarLilani"
                             target="_blank"
-                            style={{ textDecoration: 'none' }}
+                            className="no-underline"
                         >
-                            <img
+                            <Image
                                 width={50}
                                 src={github_logo}
                                 alt="Github Logo"
