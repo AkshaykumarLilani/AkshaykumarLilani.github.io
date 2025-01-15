@@ -14,22 +14,24 @@ function NavBar() {
     const [active, setActive] = useState('about');
 
     const scrollTo = (e, sectionName) => {
-        e.preventDefault();
-        let x = document.querySelector(`#${sectionName}`);
-        setActive(sectionName);
-        if (x) {
-            let rect = x.getBoundingClientRect();
-            let distanceFromTop = rect.top;
-            let scrollToY = window.scrollY + distanceFromTop;
-            if (currentWidth <= 1119) {
-                scrollToY -= 10;
-            } else {
-                scrollToY -= 70;
+        if (typeof window !== "undefined") {
+            e.preventDefault();
+            let x = document.querySelector(`#${sectionName}`);
+            setActive(sectionName);
+            if (x) {
+                let rect = x.getBoundingClientRect();
+                let distanceFromTop = rect.top;
+                let scrollToY = window.scrollY + distanceFromTop;
+                if (currentWidth <= 1119) {
+                    scrollToY -= 10;
+                } else {
+                    scrollToY -= 70;
+                }
+                window.scrollTo({
+                    top: scrollToY,
+                    behavior: 'smooth',
+                });
             }
-            window.scrollTo({
-                top: scrollToY,
-                behavior: 'smooth',
-            });
         }
     };
 
@@ -72,13 +74,19 @@ function NavBar() {
                 clearTimeout(timer);
             }
             timer = setTimeout(() => {
-                handleScroll();
+                if (typeof window !== "undefined") {
+                    handleScroll();
+                }
             }, 100);
         };
-        window.addEventListener('scroll', efficientScrollHandler);
+        if (typeof window !== "undefined") {
+            window.addEventListener('scroll', efficientScrollHandler);
+        }
 
         return () => {
-            window.removeEventListener('scroll', efficientScrollHandler);
+            if (typeof window !== "undefined") {
+                window.removeEventListener('scroll', efficientScrollHandler);
+            }
         };
     }, []);
 
