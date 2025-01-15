@@ -13,7 +13,9 @@ import ExperienceSection from '@/components/HomePage/ExperienceSection';
 import ReactGa from 'react-ga';
 function HomePage() {
   useEffect(() => {
-    ReactGa.pageview(window.location.pathname);
+    if (typeof window !== "undefined") {
+      ReactGa.pageview(window.location.pathname);
+    }
   }, []);
 
   return (
