@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 function useWindowWidth() {
     const [windowWidth, setWindowWidth] = useState(
-        typeof window !== "undefined" ? window.innerWidth : 1600 // Fallback for SSR
+        typeof window !== "undefined" ? window.outerWidth : 1600 // Fallback for SSR
     );
 
     useEffect(() => {
