@@ -156,6 +156,7 @@ const MobileNavbar = ({ scrollTo, active }) => {
                         </div>
                     ))}
                     <ResumeButton id={`resume-button-1`} />
+                    <ModeToggle />
                 </div>
             </div>
         </animated.nav>
