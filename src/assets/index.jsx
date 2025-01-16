@@ -45,6 +45,8 @@ import hand_wave_animation from './hand_wave.gif';
 import contact_animation from './contact_animation.gif';
 import loading_animation from './loading.gif';
 
+import vercel_logo from "./vercel.png";
+
 export {
     profile,
     underline,
@@ -85,4 +87,5 @@ export {
     hand_wave_animation,
     contact_animation,
     loading_animation,
+    vercel_logo
 };
