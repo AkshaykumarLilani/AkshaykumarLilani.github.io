@@ -22,6 +22,7 @@ import {
     tech_ubuntu,
     tech_nextjs,
     tech_pinescript,
+    tech_tailwind
 } from '@/assets';
 
 export const allTechs = {
@@ -160,6 +161,12 @@ export const allTechs = {
         img: false,
         borderColor: '#A91E50',
         backgroundColor: 'rgba(239, 174, 198, 0.46)',
+    },
+    tailwind: {
+        title: 'Tailwind CSS',
+        img: tech_tailwind,
+        borderColor: '#38bdf8',
+        backgroundColor: '#rgba(56, 189, 248, 0.46)',
     },
 };
 
@@ -328,5 +335,12 @@ export const allTechsSameColor = {
         borderColor: sameColorBorderColor,
         backgroundColor: sameColorBgColor,
         onAnimationBackgroundColor: getMyBg('ejs'),
+    },
+    tailwind: {
+        title: 'Tailwind CSS',
+        img: false,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg('tailwind'),
     },
 };

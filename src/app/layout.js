@@ -4,6 +4,7 @@ import React from "react";
 // import { store } from "@/lib/data/redux/store.js";
 // import { Provider } from "react-redux";
 import Script from "next/script";
+import { Toaster } from "@/components/ui/sonner"
 import "./globals.css";
 
 const geistSans = localFont({
@@ -73,6 +74,7 @@ export default function RootLayout({ children }) {
           </ThemeProvider>
           {/* </Provider> */}
           {/* </BreakpointProvider> */}
+          <Toaster position="top-center" />
         </React.StrictMode>
       </body>
     </html>

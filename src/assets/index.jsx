@@ -30,6 +30,7 @@ import tech_s3 from './technologies/s3.svg';
 import tech_ubuntu from './technologies/ubuntu.svg';
 import tech_nextjs from './technologies/nextjs.svg';
 import tech_pinescript from './technologies/PineScript.svg';
+import tech_tailwind from "./technologies/tailwind.svg"
 
 import project_OnlineBiCycleShop from './projects/OnlineBiCycleShop.webp';
 import project_LetsCamp from './projects/LetsCamp.webp';
@@ -87,5 +88,6 @@ export {
     hand_wave_animation,
     contact_animation,
     loading_animation,
-    vercel_logo
+    vercel_logo,
+    tech_tailwind
 };

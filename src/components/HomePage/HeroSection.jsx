@@ -5,6 +5,7 @@ import { github_logo, hand_wave_animation, linkedin_logo } from '../../assets';
 import Lottie from 'lottie-react';
 import hand_wave_animation_data from '../../assets/lottie/hand_wave.json';
 import Image from 'next/image';
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 function HeroSection() {
     const [wave, setWave] = useState(true);
@@ -63,12 +64,7 @@ function HeroSection() {
                         </div>
                     </div>
                     <div>
-                        Frontend-focused full-stack developer with 2+ years of
-                        experience specializing in building dynamic and engaging
-                        user interfaces with React.js. Proficient in state
-                        management (Redux Toolkit), component design, and
-                        responsive layouts. Adept in backend technologies for
-                        seamless integration and support of frontend features.
+                        Full Stack Web Developer with 2+ years of experience in building scalable and user-friendly web applications. Proficient in frontend technologies like React.js and Tailwind CSS, and backend frameworks such as Django. Experienced in API integration, database management (PostgreSQL), and modernizing legacy systems. Adept at delivering solutions that improve performance, enhance user experience, and meet business goals.
                     </div>
                     <div className="flex items-center gap-3">
                         <a
