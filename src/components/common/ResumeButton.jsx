@@ -61,17 +61,18 @@ function ResumeButton({ id }) {
     };
 
     return (
-        <animated.div
+        <animated.a
             className="cursor-pointer flex justify-center items-center p-2 br-10 gap-2"
             onMouseEnter={startAnimation}
             onMouseLeave={stopAnimation}
-            onClick={onResumeClick}
             id={id}
             style={{ width: 'fit-content', ...springs }}
+            href={"/resume"}
+            target={"_blank"}
         >
             <DownloadIcon />
             <span className="text-white">Resume</span>
-        </animated.div>
+        </animated.a>
     );
 }
 
