@@ -29,7 +29,7 @@ const technologies = [
     allTechsSameColor.pinescript,
     allTechsSameColor.ubuntu,
     allTechsSameColor.git,
-    // allTechsSameColor.tailwind
+    allTechsSameColor.tailwind
 ];
 
 function SkillsSection() {

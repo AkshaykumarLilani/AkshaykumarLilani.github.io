@@ -165,7 +165,7 @@ export const allTechs = {
     tailwind: {
         title: 'Tailwind CSS',
         img: tech_tailwind,
-        borderColor: '#38bdf8',
+        borderColor: 'rgba(56, 189, 248, 0.46)',
         backgroundColor: '#rgba(56, 189, 248, 0.46)',
     },
 };
@@ -338,7 +338,7 @@ export const allTechsSameColor = {
     },
     tailwind: {
         title: 'Tailwind CSS',
-        img: false,
+        img: tech_tailwind,
         borderColor: sameColorBorderColor,
         backgroundColor: sameColorBgColor,
         onAnimationBackgroundColor: getMyBg('tailwind'),
