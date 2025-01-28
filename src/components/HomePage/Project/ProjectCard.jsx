@@ -7,6 +7,7 @@ import { project_githubLogo, project_gotoLink } from '@/assets';
 import { useSpring, animated } from '@react-spring/web';
 import Image from 'next/image';
 
+
 const startBoxShadow = '0px 4px 4px 0px rgba(0, 0, 0, 0.19)';
 const stopBoxShadow = '0px 4px 4px 4px #0077d433';
 
@@ -51,6 +52,7 @@ function ProjectCard({
     };
 
     return (
+
         <div
             className={
                 styles['project-card'] +

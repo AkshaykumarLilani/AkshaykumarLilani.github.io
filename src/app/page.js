@@ -11,9 +11,12 @@ import Footer from '@/components/common/Footer';
 import Contact from '@/components/HomePage/Contact';
 import ExperienceSection from '@/components/HomePage/ExperienceSection';
 import ReactGa from 'react-ga';
+
+
 function HomePage() {
   useEffect(() => {
     if (typeof window !== "undefined") {
+      ReactGa.initialize(process.env.NEXT_PUBLIC_GA_TRACKING_ID);
       ReactGa.pageview(window.location.pathname);
     }
   }, []);
