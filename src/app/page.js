@@ -24,10 +24,10 @@ function HomePage() {
   return (
     <>
       <NavBar />
-      <div className="home-page max-w-[1120px] mx-auto  flex flex-col gap-5">
+      <div className="home-page max-w-[1120px] mx-auto flex flex-col gap-5 md:pt-24">
         <HeroSection />
         <AboutSection />
-        {/* <ExperienceSection /> */}
+        <ExperienceSection />
         <SkillsSection />
         <ProjectsSection />
         {/* <GithubStatsSection /> */}

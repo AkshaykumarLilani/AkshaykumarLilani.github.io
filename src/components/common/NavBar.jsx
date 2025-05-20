@@ -1,161 +1,66 @@
+// src/components/common/NavBar.jsx
 "use client";
 
+import Link from 'next/link'; // For client-side navigation to #hero
 import ResumeButton from './ResumeButton';
 import { useSpring, animated, easings } from '@react-spring/web';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { ModeToggle } from '../theme-toggle';
 import useWindowWidth from '@/lib/hooks/use-window-width';
+import { Button } from "@/components/ui/button";
+import { ChevronUp, ChevronDown, Menu as MenuIcon, X as CloseIcon, Download, Moon, Sun, User, Briefcase, Code, Layers, Mail, Home } from 'lucide-react'; // Icons
 
-const links = ['about', 'skills', 'projects', 'contact'];
+// Consistent links array for both navbars
+const navItems = [
+    { id: 'about', label: 'About', icon: User },
+    { id: 'experience', label: 'Experience', icon: Briefcase },
+    { id: 'skills', label: 'Skills', icon: Code },
+    { id: 'projects', label: 'Projects', icon: Layers },
+    { id: 'contact', label: 'Contact', icon: Mail },
+];
 
-function NavBar() {
-    const currentWidth = useWindowWidth();
-
-    const [active, setActive] = useState('about');
-
-    const scrollTo = (e, sectionName) => {
-        if (typeof window !== "undefined") {
-            e.preventDefault();
-            let x = document.querySelector(`#${sectionName}`);
-            setActive(sectionName);
-            if (x) {
-                let rect = x.getBoundingClientRect();
-                let distanceFromTop = rect.top;
-                let scrollToY = window.scrollY + distanceFromTop;
-                if (currentWidth <= 1119) {
-                    scrollToY -= 10;
-                } else {
-                    scrollToY -= 70;
-                }
-                window.scrollTo({
-                    top: scrollToY,
-                    behavior: 'smooth',
-                });
-            }
-        }
-    };
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-            const sections = document.querySelectorAll('section');
-
-            const delayHighlight = (id) => {
-                setActive(id);
-            };
-
-            for (let i = 0; i < sections.length; i++) {
-                const rect = sections[i].getBoundingClientRect();
-                const sectionTop = rect.top + window.scrollY - 100;
-                const sectionBottom = sectionTop + rect.height - 100;
-
-                if (scrollY === 0) {
-                    delayHighlight('about');
-                } else if (
-                    scrollY >= sectionTop - 100 &&
-                    scrollY <= sectionBottom
-                ) {
-                    let sectionId = sections[i].id;
-                    if (sectionId === 'hero') {
-                        delayHighlight('about');
-                    } else if (sectionId === 'github-stats') {
-                        delayHighlight('contact');
-                    } else if (sectionId) {
-                        delayHighlight(sectionId);
-                    }
-                    break;
-                }
-            }
-        };
-
-        let timer = null;
-        const efficientScrollHandler = () => {
-            if (timer) {
-                clearTimeout(timer);
-            }
-            timer = setTimeout(() => {
-                if (typeof window !== "undefined") {
-                    handleScroll();
-                }
-            }, 100);
-        };
-        if (typeof window !== "undefined") {
-            window.addEventListener('scroll', efficientScrollHandler);
-        }
-
-        return () => {
-            if (typeof window !== "undefined") {
-                window.removeEventListener('scroll', efficientScrollHandler);
-            }
-        };
-    }, []);
-
-    if (currentWidth <= 1119) {
-        return <MobileNavbar scrollTo={scrollTo} active={active} />
-    } else {
-        return <DesktopNavbar scrollTo={scrollTo} active={active} />
-    }
-}
-
-
-const MobileNavbar = ({ scrollTo, active }) => {
-
-    const scaleInFromDown = useSpring({
-        from: {
-            y: 1000,
-            opacity: 0,
-        },
-        to: {
-            y: 0,
-            opacity: 1,
-        },
-        config: {
-            duration: 1000,
-            easing: easings.easeInOutQuint,
-        },
-    });
-
+// --- Desktop Navbar ---
+function DesktopNavbarComponent({ scrollTo, active, links, baseSpring }) {
     return (
         <animated.nav
-            className="flex justify-center py-4 w-full"
-            id="nav-menu"
-            style={{
-                position: 'fixed',
-                bottom: 0,
-                ...scaleInFromDown,
-                zIndex: 999,
-            }}
+            style={baseSpring}
+            className="fixed top-0 left-0 right-0 z-[999] flex justify-center py-3 md:py-2 px-3"
         >
-            <div
-                className="flex justify-between items-center py-2 px-2 mx-auto bg-foreground rounded-lg"
-                style={{
-                    // backgroundColor: 'rgba(255, 255, 255, 0.78)',
-                    // boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                    // border: '1px solid #FFF',
-                    borderRadius: '10px',
-                    backdropFilter: 'blur(5px)',
-                    minWidth: 350,
-                    width: '80%',
-                    fontSize: '14px',
-                }}
-            >
+            <div className="flex justify-between items-center py-2.5 px-4 w-full max-w-[1120px] bg-background/80 dark:bg-neutral-950/80 backdrop-blur-md rounded-xl shadow-lg border border-border/60">
                 <div
-                    className="flex justify-around items-center"
-                    style={{ flex: 1 }}
+                    onClick={(e) => scrollTo(e, 'hero')}
+                    className="cursor-pointer"
+                    aria-label="Scroll to top"
                 >
-                    {links?.map((link, i) => (
-                        <div className="flex justify-between" key={i + 'mobnav'}>
-                            <a
-                                href={`#${link}`}
-                                className={`cursor-pointer nav-link text-background ${link} ${link === active ? 'active' : ''}`}
-                                onClick={(e) => scrollTo(e, link)}
-                                style={{ scrollMargin: 20, flex: 1 }}
-                            >
-                                {link[0].toUpperCase() + link.slice(1)}
-                            </a>
-                        </div>
+                    <h5 className="mb-0 text-primary text-xl font-semibold">Akshaykumar Lilani</h5>
+                </div>
+                <div className="flex items-center gap-1">
+                    {links.map((link) => (
+                        <a
+                            key={`desktop-${link.id}`}
+                            href={`#${link.id}`}
+                            onClick={(e) => scrollTo(e, link.id)}
+                            className={`relative group cursor-pointer text-sm font-medium px-3 py-1.5 rounded-md transition-colors duration-150 ease-in-out
+                                ${active === link.id
+                                    ? 'text-primary'
+                                    : 'text-foreground/70 hover:text-foreground hover:bg-muted/50'
+                                }`}
+                        >
+                            {link.label}
+                            {active === link.id && (
+                                <motion.div
+                                    className="absolute bottom-[-2px] left-0 right-0 h-[2px] bg-primary rounded-full"
+                                    layoutId="desktop-nav-underline"
+                                    initial={false}
+                                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                                />
+                            )}
+                        </a>
                     ))}
-                    <ResumeButton id={`resume-button-1`} />
+                    <div className="ml-3 mr-1"> {/* Added margin for ResumeButton */}
+                        <ResumeButton id={`resume-button-1`} />
+                    </div>
                     <ModeToggle />
                 </div>
             </div>
@@ -163,68 +68,174 @@ const MobileNavbar = ({ scrollTo, active }) => {
     );
 }
 
-const DesktopNavbar = ({ scrollTo, active }) => {
+function MobileNavbarComponent({ scrollTo, active, links, baseSpring }) {
+    const [isExpanded, setIsExpanded] = useState(false);
 
-    const scaleInFromTop = useSpring({
-        from: {
-            y: -1000,
-            opacity: 0,
-        },
-        to: {
-            y: 0,
-            opacity: 1,
-        },
-        config: {
-            duration: 1000,
-            easing: easings.easeInOutCirc,
-        },
-    });
+    const handleLinkClick = (e, sectionId) => {
+        e.preventDefault();
+        scrollTo(e, sectionId);
+        setIsExpanded(false); 
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (isExpanded) {
+                setIsExpanded(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isExpanded]);
 
     return (
-        <animated.nav
-            className="flex justify-center py-4 px-3 mx-auto max-w-[1120px]"
-            id="nav-menu"
-            style={{
-                position: 'sticky',
-                top: 0,
-                ...scaleInFromTop,
-                zIndex: 999,
-            }}
+        // This outer div is for positioning the entire navbar structure at the bottom.
+        <animated.div
+            style={baseSpring}
+            // Positioning: fixed to bottom, spanning width with margin, then centered.
+            // left-4 and right-4 create the side margins. mx-auto centers it.
+            className="fixed bottom-4 left-4 right-4 z-[999] md:hidden flex justify-center"
         >
-            <div
-                className="flex justify-between items-center py-2 px-2 w-full bg-foreground rounded-lg"
-                style={{
-                    // backgroundColor: 'rgba(255, 255, 255, 0.78)',
-                    // boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                    // border: '1px solid #FFF',
-                    // borderRadius: '10px',
-                    backdropFilter: 'blur(5px)',
-                }}
+            {/* This motion.div is the actual visible navbar bar with max-width and styling */}
+            <motion.div
+                className="bg-background/85 dark:bg-neutral-950/85 backdrop-blur-lg shadow-2xl rounded-2xl border border-border/60 overflow-hidden w-full max-w-xs sm:max-w-sm"
+                // max-w-xs for very small, sm:max-w-sm for slightly larger mobile. Adjust as needed.
+                animate={{ height: isExpanded ? "auto" : "3.75rem" }} // 3.75rem = h-15 (60px), slightly more compact
+                transition={{ type: "spring", stiffness: 350, damping: 30 }}
             >
-                <div
-                    onClick={(e) => scrollTo(e, 'hero')}
-                    className="cursor-pointer nav-link home"
-                >
-                    <h5 className="mb-0 text-primary text-2xl">Akshaykumar Lilani</h5>
-                </div>
-                <div className="flex justify-center items-center gap-4">
-                    {links?.map((link, i) => (
-                        <a
-                            key={`desktop-${i}`}
-                            href={`#${link}`}
-                            className={`cursor-pointer nav-link text-background ${link} ${link === active ? 'active' : ''}`}
-                            onClick={(e) => scrollTo(e, link)}
-                            style={{ scrollMargin: 20 }}
+                {/* Collapsed Bar Content */}
+                <div className="flex justify-between items-center h-[3.75rem] px-3"> {/* Reduced padding slightly */}
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={(e) => handleLinkClick(e, 'hero')}
+                        className={`p-2 rounded-full text-sm ${active === 'hero' ? 'text-primary bg-primary/10' : 'text-muted-foreground hover:text-foreground'}`}
+                        aria-label="Go to top"
+                    >
+                        {/* Using "AL" initials for compactness */}
+                        <span className="font-semibold">AL</span>
+                    </Button>
+
+                    <div className="flex items-center gap-1.5"> {/* Reduced gap */}
+                        {/* Icon-only Resume Button */}
+                        <ResumeButton id={`mobile-resume-button`} />
+                        <ModeToggle /> {/* Ensure this component itself is compact */}
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            className="p-2.5 text-muted-foreground hover:text-foreground data-[state=open]:bg-primary/10 data-[state=open]:text-primary"
+                            aria-label={isExpanded ? "Close menu" : "Open menu"}
                         >
-                            {link[0].toUpperCase() + link.slice(1)}
-                        </a>
-                    ))}
-                    <ResumeButton id={`resume-button-1`} />
-                    <ModeToggle />
+                            {isExpanded ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
+                        </Button>
+                    </div>
                 </div>
-            </div>
-        </animated.nav>
-    )
+
+                {/* Expandable Links Section */}
+                <AnimatePresence>
+                    {isExpanded && (
+                        <motion.nav
+                            className="px-3 pb-3 pt-1 flex flex-col items-center border-t border-border/50"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto", transition: { delay: 0.05, duration: 0.3, ease: "circOut" } }}
+                            exit={{ opacity: 0, height: 0, transition: { duration: 0.2, ease: "circIn" } }}
+                        >
+                            {links.map((link) => (
+                                <a
+                                    key={`mobile-${link.id}`}
+                                    href={`#${link.id}`}
+                                    onClick={(e) => handleLinkClick(e, link.id)}
+                                    className={`flex items-center gap-2.5 w-full text-left px-3 py-2.5 rounded-md text-sm
+                                        ${active === link.id
+                                            ? 'text-primary font-medium bg-primary/10'
+                                            : 'text-foreground/90 hover:text-foreground hover:bg-muted/50'
+                                        }`}
+                                >
+                                    <link.icon className={`h-4 w-4 ${active === link.id ? 'text-primary' : 'text-muted-foreground'}`} />
+                                    <span>{link.label}</span>
+                                </a>
+                            ))}
+                        </motion.nav>
+                    )}
+                </AnimatePresence>
+            </motion.div>
+        </animated.div>
+    );
+}
+
+
+// --- Main NavBar ---
+function NavBar() {
+    const currentWidth = useWindowWidth();
+    const [active, setActive] = useState('hero');
+
+    const scrollTo = (e, sectionName) => {
+        e.preventDefault();
+        const element = document.querySelector(`#${sectionName}`);
+        console.log('scrollTo', sectionName, element);
+        if (element) {
+            // setActive(sectionName); // Active state updated by scroll handler primarily
+            let offset = 0;
+            if (currentWidth > 768) { // Desktop
+                offset = 80;
+            } else { // Mobile
+                offset = 0;
+            }
+            if (sectionName === 'hero') offset = 0;
+
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = element.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            console.log({offsetPosition})
+
+            setTimeout(()=>{
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth',
+                });
+            }, 0)
+        }
+    };
+
+    useEffect(() => {
+        const allScrollSections = ['hero', ...navItems.map(l => l.id)];
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            let currentSectionId = 'hero';
+            const offset = currentWidth > 768 ? 100 : 80;
+
+            for (const id of allScrollSections) {
+                const section = document.querySelector(`#${id}`);
+                if (section) {
+                    const sectionTop = section.offsetTop - offset;
+                    if (scrollY >= sectionTop) {
+                        currentSectionId = id;
+                    }
+                }
+            }
+            setActive(currentSectionId);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // Initial check
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [currentWidth]);
+
+    const navAnimationConfig = {
+        from: { y: currentWidth > 768 ? -80 : 80, opacity: 0 }, // Slide from top for desktop, from bottom for mobile
+        to: { y: 0, opacity: 1 },
+        config: { duration: 600, easing: easings.easeOutCubic },
+        delay: 200, // Slight delay for the animation to start after page load
+    };
+    const navSpring = useSpring(navAnimationConfig);
+
+    if (currentWidth <= 768) { // Breakpoint for mobile
+        return <MobileNavbarComponent scrollTo={scrollTo} active={active} links={navItems} baseSpring={navSpring} />;
+    } else {
+        return <DesktopNavbarComponent scrollTo={scrollTo} active={active} links={navItems} baseSpring={navSpring} />;
+    }
 }
 
 export default NavBar;

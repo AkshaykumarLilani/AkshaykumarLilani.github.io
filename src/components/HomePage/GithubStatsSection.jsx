@@ -54,7 +54,7 @@ const GithubStatsSection = () => {
             className=" flex flex-col justify-start items-start gap-5 p-3 md:py-5"
         >
             <SectionTitle title={`Github Stats`} />
-            <GitHubCalendar
+            {/* <GitHubCalendar
                 username="Akshaykumarlilani"
                 theme={{
                     light: ['hsl(0, 0%, 92%)', '#0077D4'],
@@ -78,7 +78,7 @@ const GithubStatsSection = () => {
                 weekStart={1}
                 year={2023}
                 colorScheme="light"
-            />
+            /> */}
             <div
                 className={`flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-3`}
                 id={css['all-git-stats']}

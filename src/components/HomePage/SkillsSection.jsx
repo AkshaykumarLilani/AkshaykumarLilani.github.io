@@ -32,6 +32,16 @@ const technologies = [
     allTechsSameColor.tailwind
 ];
 
+const categorizedSkills = {
+    "Frontend": [allTechsSameColor.react, allTechsSameColor.nextjs, allTechsSameColor.javascript, allTechsSameColor.html, allTechsSameColor.css, allTechsSameColor.tailwind, allTechsSameColor.redux, allTechsSameColor.antdesign, allTechsSameColor.bootstrap],
+    "Backend": [allTechsSameColor.nodejs, allTechsSameColor.express, allTechsSameColor.python, allTechsSameColor.django_rest],
+    "Databases": [allTechsSameColor.mongodb, allTechsSameColor.postgres],
+    "DevOps & Tools": [allTechsSameColor.git, allTechsSameColor.docker, allTechsSameColor.aws, allTechsSameColor.s3, allTechsSameColor.ubuntu],
+    "Specialized": [allTechsSameColor.pinescript,]
+}
+
+const prominentTechTitles = [];
+
 function SkillsSection() {
     const currentWidth = useWindowWidth();
     const [gridColumns, setGridColumns] = useState(8);
@@ -56,12 +66,28 @@ function SkillsSection() {
 
     return (
         <section key={`${theme}-skills`} className="w-full p-3 py-md-5 flex flex-col gap-3 justify-center items-start" id="skills">
-            <SectionTitle title={`Technologies I have used`} />
-            <div className="w-full grid gap-4" style={{ gridTemplateColumns: `repeat(${gridColumns}, 1fr)` }}>
-                {technologies.map((tech, index) => (
-                    <TechnologyBox key={index + 'tec' + theme} {...tech} inSkillsSection={true} gridColumns={gridColumns} />
-                ))}
-            </div>
+            <SectionTitle title={`My Tech Stack`} />
+            {Object.entries(categorizedSkills).map(([category, techs]) => (
+                techs.length > 0 && ( // Only render category if it has skills
+                    <div key={category} className="mb-8 w-full">
+                        <h4 className="text-xl font-semibold text-primary mb-4 mt-6">{category}</h4>
+                        <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${gridColumns}, 1fr)` }}>
+                            {techs.map((tech, index) => (
+                                <div
+                                    key={`<span class="math-inline">\{category\}\-</span>{tech.title}-${index}`}
+                                    className={
+                                        (currentWidth >= 992 && prominentTechTitles.includes(tech.title))
+                                            ? 'md:col-span-2'
+                                            : 'col-span-1'
+                                    }
+                                >
+                                    <TechnologyBox {...tech} inSkillsSection={true} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )
+            ))}
         </section>
     );
 }

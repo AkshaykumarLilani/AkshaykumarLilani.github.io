@@ -1,14 +1,22 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { github_logo, hand_wave_animation, linkedin_logo } from '../../assets';
 import Lottie from 'lottie-react';
 import hand_wave_animation_data from '../../assets/lottie/hand_wave.json';
 import Image from 'next/image';
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { calculateSumOfExperiences } from '@/lib/dateUtils';
+import { experiences } from '@/lib/data/experiences';
+// import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 function HeroSection() {
     const [wave, setWave] = useState(true);
+
+    const summedExperience = useMemo(() => calculateSumOfExperiences([experiences[0]]), []);
+
+    // const heroTagline = "Full Stack Developer (Django & Next.js/React) | Sr. Software Engineer at Teson LLP";
+    const heroBio = `With nearly ${summedExperience.totalYears + 1} years of experience as a Full Stack Developer, currently contributing as a Sr. Software Engineer at Teson LLP, I specialize in building high-performance, scalable web applications. My expertise is centered around Python (Django/REST Framework) for robust back-end development, and modern JavaScript frameworks (Next.js, React.js) for dynamic front-end solutions. I'm proficient in leveraging PostgreSQL for database management and Docker for containerization, with a strong focus on API integration and delivering solutions that enhance user experience and meet key business objectives.`;
+
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -59,12 +67,15 @@ function HeroSection() {
                                 </strong>
                             </span>
                         </div>
-                        <div className="text-2xl">
-                            Sr. Software Engineer at Teson LLP
-                        </div>
+                        <>
+                            <div className="text-2xl">Sr. Software Engineer at Teson LLP</div>
+                            <div className="text-xl text-muted-foreground">Full Stack Developer (Django & Next.js/React)</div>
+                        </>
+
+                        {/* <TextGenerateEffect words={heroTagline} className="text-2xl text-foreground" /> */}
                     </div>
                     <div>
-                        Full Stack Web Developer with 2+ years of experience in building scalable and user-friendly web applications. Proficient in frontend technologies like React.js and Tailwind CSS, and backend frameworks such as Django. Experienced in API integration, database management (PostgreSQL), and modernizing legacy systems. Adept at delivering solutions that improve performance, enhance user experience, and meet business goals.
+                        {heroBio}
                     </div>
                     <div className="flex items-center gap-3">
                         <a

@@ -5,8 +5,8 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 97%;
+    --foreground: 220 15% 15%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
@@ -33,7 +33,7 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 220 15% 15%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -106,6 +106,29 @@ body {
 #resume-button-1,
 #resume-button-2 {
   background-color: hsl(var(--primary));
+}
+
+#mobile-resume-button {
+  padding: 0.5rem;
+  gap: 0; 
+  min-width: auto;
+  background-color: transparent !important; 
+}
+
+#mobile-resume-button span {
+  display: none; /* This hides the "Resume" text */
+}
+
+#mobile-resume-button svg {
+  width: 1.25rem; /* 20px - h-5 w-5 equivalent from Tailwind */
+  height: 1.25rem;
+  fill: hsl(var(--muted-foreground)); /* Example to match other icons, if your SVG uses fill */
+  stroke: hsl(var(--muted-foreground)); /* Or stroke, depending on your SVG */
+}
+
+#mobile-resume-button:hover svg {
+  fill: hsl(var(--primary));
+  stroke: hsl(var(--primary));
 }
 
 .nav-link.active {

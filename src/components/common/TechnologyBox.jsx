@@ -1,163 +1,93 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { useSpring, animated } from '@react-spring/web';
-import { allTechs } from '@/utilities/allTechs';
-import getRandomNumber from '@/utilities/getRandomNumber';
+import React from 'react';
 import Image from 'next/image';
-import useWindowWidth from '@/lib/hooks/use-window-width';
+import { motion } from 'framer-motion';
 
-const possibleTitles = Object.keys(allTechs).map((a) => allTechs[a].title);
+const baseShadowClass = 'shadow-md';
+const hoverShadowClass = 'shadow-xl';
 
 function TechnologyBox({
     img,
     title,
     borderColor,
-    backgroundColor,
+    backgroundColor: initialBackgroundColorProp,
     inSkillsSection,
     onAnimationBackgroundColor,
-    fontSize,
-    gridColumns,
+    fontSize = 14,
 }) {
-    const [spanTwoTechTitles, setSpanTowTechTitle] = useState([
-        'React',
-        'ExpressJs',
-        'MongoDB',
-        'NodeJs',
-    ]);
-    const currentWidth = useWindowWidth();
+    const baseBgSkillsClass = 'bg-secondary'; // e.g., from your theme
 
-    const [springs, api] = useSpring(() => ({
-        from: { backgroundColor: backgroundColor, scale: 1 },
-    }));
-
-    const startAnimation = () => {
-        api.start({
-            from: {
-                backgroundColor: backgroundColor,
-                scale: 1,
-            },
-            to: {
-                backgroundColor: onAnimationBackgroundColor,
-                scale: 1.1,
-            },
-        });
-    };
-
-    const stopAnimation = () => {
-        api.start({
-            from: {
-                backgroundColor: onAnimationBackgroundColor,
-                scale: 1.1,
-            },
-            to: {
-                backgroundColor: backgroundColor,
-                scale: 1,
-            },
-        });
-    };
-
+    // For project card tech tags (simpler, no complex hover on the box itself)
     if (!inSkillsSection) {
-        if (!img) {
-            if (title === 'EJS') {
-                return (
-                    <div
-                        className="flex gap-2 p-2 px-3 rounded-lg"
-                        style={{
-                            backgroundColor: `${backgroundColor}`,
-                            fontSize: fontSize,
-                        }}
-                    >
-                        <div style={{ color: borderColor }}>
-                            <strong>
-                                {'<%= '}{title}{' %>'}
-                            </strong>
-                        </div>
-                    </div>
-                );
-            }
+        if (!img && title === 'EJS') {
+            return (
+                <motion.div
+                    className="flex gap-1.5 items-center p-1.5 px-2.5 rounded-md bg-muted border border-border/80 cursor-default"
+                    style={{ fontSize: `${fontSize}px` }}
+                    whileTap={{ scale: 0.97 }}
+                >
+                    <strong className="text-muted-foreground" style={{ color: borderColor }}>
+                        {'<%= '}{title}{' %>'}
+                    </strong>
+                </motion.div>
+            );
         }
 
         return (
-            <div
-                className="flex gap-2 p-2 px-3 rounded-lg border border-primary"
-                style={{
-                    backgroundColor: `${backgroundColor}`,
-                    fontSize: fontSize,
-                }}
+            <motion.div
+                className="flex gap-1.5 items-center p-1.5 px-2.5 rounded-md bg-muted border border-border/80 cursor-default"
+                style={{ fontSize: `${fontSize}px` }}
+                whileTap={{ scale: 0.97 }}
             >
-                <Image
-                    src={img}
-                    alt={title}
-                    style={{ fill: borderColor, width: fontSize }}
-                />
-                <div style={{ color: borderColor }}>
-                    <strong>{title}</strong>
-                </div>
-            </div>
-        );
-    } else {
-        if (!img) {
-            if (title === 'EJS') {
-                return null;
-            }
-        }
-
-        const getGridSpan = (t) => {
-            let containsTitle = spanTwoTechTitles.includes(t);
-            if (containsTitle) {
-                if (currentWidth < 992) {
-                    return 'col-span-1';
-                } else {
-                    return 'col-span-2';
-                }
-            } else {
-                return 'col-span-1';
-            }
-        };
-
-        const getImageWidth = (t) => {
-            if (gridColumns === 8) {
-                if (spanTwoTechTitles.includes(title)) {
-                    return 80;
-                } else {
-                    return 70;
-                }
-            } else if (gridColumns === 3) {
-                return 30;
-            } else {
-                return 40;
-            }
-        };
-
-        return (
-            <animated.div
-                className="flex flex-col justify-center items-center gap-2 p-3"
-                onMouseEnter={startAnimation}
-                onMouseLeave={stopAnimation}
-                style={{
-                    borderRadius: '15px',
-                    backgroundColor: `${backgroundColor}`,
-                    fontSize: fontSize,
-                    opacity: 0.8,
-                    // gridColumn: getGridSpan(title),
-                    ...springs,
-                }}
-            >
-                <Image
-                    src={img}
-                    alt={title}
-                    style={{
-                        fill: borderColor,
-                        width: getImageWidth(title),
-                    }}
-                />
-                <div className='text-foreground'>
-                    <strong>{title}</strong>
-                </div>
-            </animated.div>
+                {img && (
+                    <Image
+                        src={img}
+                        alt={title}
+                        width={fontSize}
+                        height={fontSize}
+                    />
+                )}
+                <strong className="text-muted-foreground" style={{ color: borderColor }}>
+                    {title}
+                </strong>
+            </motion.div>
         );
     }
+
+    const imageSize = fontSize * (title === 'React' || title === 'NodeJs' || title === 'Next.js' || title === 'Django Rest' ? 2.8 : 2.2);
+
+    const hoverStyle = {
+        '--hover-bg-color': onAnimationBackgroundColor || 'hsl(var(--secondary))', // Fallback
+    };
+
+    return (
+        <motion.div
+            // Base styles
+            className={`
+                flex flex-col justify-center items-center gap-2 p-3 sm:p-4 rounded-lg 
+                text-center border border-border/60 h-full cursor-pointer 
+                ${baseBgSkillsClass} ${baseShadowClass}
+                transition-all duration-200 ease-out 
+                md:hover:scale-108 md:hover:${hoverShadowClass} 
+                md:hover:![background-color:var(--hover-bg-color)] /* Apply dynamic bg on desktop hover */
+            `}
+            style={hoverStyle} // Apply the custom property
+            whileTap={{ scale: 0.95 }} // Tap feedback for all devices
+        >
+            {img && (
+                <Image
+                    src={img}
+                    alt={title}
+                    width={imageSize}
+                    height={imageSize}
+                />
+            )}
+            <div className="text-foreground font-medium" style={{ fontSize: `${fontSize * 0.9}px` }}>
+                {title}
+            </div>
+        </motion.div>
+    );
 }
 
 export default TechnologyBox;

@@ -1,22 +1,15 @@
 "use client";
 
 import React from 'react';
-import styles from './ProjectCard.module.css';
 import TechnologyBox from '@/components/common/TechnologyBox';
 import { project_githubLogo, project_gotoLink } from '@/assets';
 import { useSpring, animated } from '@react-spring/web';
 import Image from 'next/image';
+// import styles from './ProjectCard.module.css'; // Keep for any specific styles if needed
 
-
-const startBoxShadow = '0px 4px 4px 0px rgba(0, 0, 0, 0.19)';
-const stopBoxShadow = '0px 4px 4px 4px #0077d433';
-
-const startPointAnimation = {
-    from: {
-        scale: 1,
-        boxShadow: startBoxShadow,
-    },
-};
+// Updated shadow definitions (can be moved to module or kept here for spring)
+const cardBoxShadowEnter = '0px 8px 20px -4px hsl(var(--primary) / 0.25)'; // Softer, more modern hover shadow
+const cardBoxShadowLeave = '0px 4px 6px -2px hsl(var(--foreground) / 0.06)'; // Subtle base shadow
 
 function ProjectCard({
     title,
@@ -26,109 +19,111 @@ function ProjectCard({
     deployedLink,
     image,
 }) {
-    const [springs_live_website, api_lw] = useSpring(() => startPointAnimation);
-    const [springs_git_link, api_git] = useSpring(() => startPointAnimation);
+    // Spring animation for the entire card
+    const [cardSprings, cardApi] = useSpring(() => ({
+        from: {
+            transform: 'translateY(0px) scale(1)',
+            boxShadow: cardBoxShadowLeave,
+        },
+        config: { tension: 300, friction: 20 },
+    }));
 
-    const startAnimation = (a) => {
-        a.start({
-            from: {
-                boxShadow: startBoxShadow,
-            },
-            to: {
-                boxShadow: stopBoxShadow,
-            },
+    const handleCardMouseEnter = () => {
+        cardApi.start({
+            transform: 'translateY(-5px) scale(1.02)',
+            boxShadow: cardBoxShadowEnter,
         });
     };
 
-    const stopAnimation = (a) => {
-        a.start({
-            from: {
-                boxShadow: stopBoxShadow,
-            },
-            to: {
-                boxShadow: startBoxShadow,
-            },
+    const handleCardMouseLeave = () => {
+        cardApi.start({
+            transform: 'translateY(0px) scale(1)',
+            boxShadow: cardBoxShadowLeave,
         });
     };
+
+    // Simplified link hover (can use Tailwind's hover states for opacity/bg change)
+    // Or keep spring if a more complex link hover is desired
 
     return (
-
-        <div
-            className={
-                styles['project-card'] +
-                ' ' +
-                'flex flex-col justify-between gap-3 rounded-lg border border-primary'
-            }
+        <animated.div
+            onMouseEnter={handleCardMouseEnter}
+            onMouseLeave={handleCardMouseLeave}
+            style={cardSprings}
+            className="flex flex-col justify-between gap-4 bg-card p-5 rounded-xl border border-border/70"
+            // styles['project-card'] can be removed if all styling is via Tailwind now
+            // or keep it for base shadow if not using spring for it
         >
             <div className="flex flex-col">
-                <div className="mb-2">
+                {/* Image container with aspect ratio */}
+                <div className="mb-3 aspect-video w-full overflow-hidden rounded-lg border border-border/50">
                     <Image
                         src={image}
-                        alt=""
-                        className={styles['project-img'] + ' rounded-lg border border-primary'}
+                        alt={title || "Project image"} // Add alt text
+                        width={400} // Provide appropriate width/height for Next/Image
+                        height={225} // (16:9 ratio example)
+                        className="w-full h-full object-cover" // Ensure image covers the area
                     />
                 </div>
-                <h5 className="mb-2 text-foreground text-xl">{title}</h5>
-                <p className="mb-0">{description}</p>
+                <h5 className="mb-1 text-xl font-semibold text-foreground">{title}</h5>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-0">{description}</p>
             </div>
-            <div className="flex flex-col gap-3">
-                <div className="flex gap-2 flex-wrap">
-                    {Array.isArray(techStack) &&
-                        techStack.map((tech, index) => (
+
+            <div className="flex flex-col gap-3 mt-auto"> {/* mt-auto to push this block to bottom */}
+                {techStack && techStack.length > 0 && (
+                    <div className="flex gap-1.5 flex-wrap">
+                        {techStack.map((tech, index) => (
                             <TechnologyBox
                                 key={index}
                                 {...tech}
-                                backgroundColor={'white'}
-                                fontSize={14}
+                                // Pass theme-aware colors or ensure TechnologyBox handles it
+                                // Example: Use secondary background for tech tags
+                                backgroundColor="hsl(var(--secondary))"
+                                borderColor="hsl(var(--secondary-foreground))"
+                                fontSize={12}
                             />
                         ))}
-                </div>
-                <div className="flex justify-between items-center w-full">
+                    </div>
+                )}
+                <div className="flex justify-between items-center w-full gap-3 pt-2 border-t border-border/50 mt-2">
                     {githubRepositoryLink ? (
-                        <animated.a
+                        <a
                             href={githubRepositoryLink}
                             target="_blank"
                             rel="noreferrer"
-                            className={
-                                styles['github-deploy-link'] +
-                                ' flex justify-between items-center gap-2 border border-primary'
-                            }
-                            style={{
-                                ...springs_git_link,
-                            }}
-                            onMouseEnter={() => startAnimation(api_git)}
-                            onMouseLeave={() => stopAnimation(api_git)}
+                            className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
                         >
-                            <span>Github Repo</span>
                             <Image
-                                src={project_githubLogo}
-                                alt="Github Repo Link"
+                                src={project_githubLogo} // Ensure this SVG is styled to inherit color or is a suitable color
+                                alt="GitHub"
+                                width={16}
+                                height={16}
+                                className="dark:invert" // Example to make it visible in dark mode if it's black
                             />
-                        </animated.a>
+                            <span>GitHub</span>
+                        </a>
                     ) : (
-                        <div></div>
+                        <div></div> // Placeholder to maintain layout if one link is missing
                     )}
 
-                    <animated.a
+                    <a
                         href={deployedLink}
                         target="_blank"
                         rel="noreferrer"
-                        className={
-                            styles['github-deploy-link'] +
-                            ' flex justify-between items-center gap-2 border border-primary'
-                        }
-                        style={{
-                            ...springs_live_website,
-                        }}
-                        onMouseEnter={() => startAnimation(api_lw)}
-                        onMouseLeave={() => stopAnimation(api_lw)}
+                        className="flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 transition-colors duration-200 font-medium"
                     >
                         <span>View Live</span>
-                        <Image src={project_gotoLink} alt="Github Repo Link" />
-                    </animated.a>
+                        <Image
+                            src={project_gotoLink} // Ensure this SVG is styled to inherit color or is a suitable color
+                            alt="View Live"
+                            width={16}
+                            height={16}
+                            className="dark:filter dark:brightness-0 dark:invert" // Example for dark mode visibility
+                        />
+                    </a>
                 </div>
             </div>
-        </div>
+        </animated.div>
     );
 }
 
