@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { github_logo, hand_wave_animation, linkedin_logo } from '../../assets';
+import { github_logo, hand_wave_animation, linkedin_logo, profile_image } from '../../assets';
 import Lottie from 'lottie-react';
 import hand_wave_animation_data from '../../assets/lottie/hand_wave.json';
 import Image from 'next/image';
@@ -28,7 +28,7 @@ function HeroSection() {
 
     return (
         <section
-            className=" flex justify-start items-start p-3 md:py-5"
+            className="flex flex-col md:flex-row justify-start items-start p-3 md:py-5"
             id="hero"
         >
             <div
@@ -74,8 +74,18 @@ function HeroSection() {
 
                         {/* <TextGenerateEffect words={heroTagline} className="text-2xl text-foreground" /> */}
                     </div>
-                    <div>
-                        {heroBio}
+                    <div className='flex flex-col md:flex-row gap-2 items-center'>
+                        <div className='w-full md:w-3/4'>
+                            {heroBio}
+                        </div>
+                        <div className="flex justify-center items-center w-full md:w-1/4 mt-4 md:mt-0">
+                            <Image
+                                src={profile_image}
+                                alt="Akshaykumar Lilani"
+                                width={200}
+                                height={200}
+                            />
+                        </div>
                     </div>
                     <div className="flex items-center gap-3">
                         <a

@@ -49,7 +49,7 @@ import loading_animation from './loading.gif';
 import vercel_logo from "./vercel.png";
 
 export {
-    profile,
+    profile as profile_image,
     underline,
     github_logo,
     linkedin_logo,
