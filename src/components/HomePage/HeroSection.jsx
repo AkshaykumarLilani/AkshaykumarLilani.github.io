@@ -12,7 +12,7 @@ import { experiences } from '@/lib/data/experiences';
 function HeroSection() {
     const [wave, setWave] = useState(true);
 
-    const summedExperience = useMemo(() => calculateSumOfExperiences([experiences[0]]), []);
+    const summedExperience = useMemo(() => calculateSumOfExperiences([experiences[0], experiences[1], experiences[3]]), []);
 
     // const heroTagline = "Full Stack Developer (Django & Next.js/React) | Sr. Software Engineer at Teson LLP";
     const heroBio = `With nearly ${summedExperience.totalYears + 1} years of experience as a Full Stack Developer, currently contributing as a Sr. Software Engineer at Teson LLP, I specialize in building high-performance, scalable web applications. My expertise is centered around Python (Django/REST Framework) for robust back-end development, and modern JavaScript frameworks (Next.js, React.js) for dynamic front-end solutions. I'm proficient in leveraging PostgreSQL for database management and Docker for containerization, with a strong focus on API integration and delivering solutions that enhance user experience and meet key business objectives.`;
