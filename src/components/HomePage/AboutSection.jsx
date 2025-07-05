@@ -1,41 +1,42 @@
 "use client";
 
-import React, { useMemo } from 'react';
-import Image from 'next/image';
-import { profile } from '@/assets';
+import React from 'react';
 import SectionTitle from "@/components/common/SectionTitle";
-import { calculateSumOfExperiences } from '@/lib/dateUtils';
-import { experiences } from '@/lib/data/experiences';
-// import ResumeButton from '@/components/common/ResumeButton';
 
 function AboutSection() {
-    const summedExperience = useMemo(() => calculateSumOfExperiences([experiences[0]]), []);
+    const whatIDo = [
+        {
+            title: "Full Stack Development",
+            description: "I build beautiful, functional, and scalable web applications using modern technologies like React, Next.js, and Django."
+        },
+        {
+            title: "API Design & Development",
+            description: "I design and build robust and scalable RESTful APIs using Python, Django, and Node.js."
+        },
+        {
+            title: "Database Design & Management",
+            description: "I design and manage efficient and scalable databases using PostgreSQL and MongoDB."
+        },
+        {
+            title: "DevOps & Automation",
+            description: "I use Docker and other tools to automate the deployment and management of web applications."
+        }
+    ];
+
     return (
         <section
-            className=" flex justify-start items-center p-3 md:py-5"
+            className="flex flex-col justify-start items-start w-full p-3 md:py-5"
             id="about"
         >
-            <div className="flex flex-col-reverse md:flex-row gap-5">
-                <div className="flex flex-col gap-4">
-                    <SectionTitle title={`About`} />
-                    <div>
-                        <p className='mb-3'>
-                            {`With ${summedExperience.totalYears} year${summedExperience.totalYears > 1 ? 's' : ''} and ${summedExperience.totalMonths} month${summedExperience.totalMonths > 1 ? 's' : ''} of experience as a Full Stack Developer at Teson LLP, I specialize in designing, developing, and deploying robust web applications. My core expertise lies in leveraging Python with Django/REST Framework for powerful back-end systems, and Next.js/React.js for dynamic, modern front-end experiences.`}
-                        </p>
-                        <p className='mb-3'>
-                            {`I have a proven track record of utilizing PostgreSQL for efficient database management and Docker for containerization, ensuring scalable and maintainable architectures. My commitment to clean code and best practices allows me to tackle complex challenges and deliver efficient, high-performing applications.`}
-                        </p>
-                        <p>
-                            {`My broader skillset includes MongoDB, Express.js, Node.js, Elasticsearch, AWS EC2/S3, EJS, AngularJS, allowing me to adapt to diverse project requirements and deliver comprehensive solutions.`}
-                        </p>
-                        {/* <p>
-                            {`As a proactive and creative problem-solver, I'm dedicated to continuously learning and applying the latest industry best practices to develop high-quality, impactful solutions. I focus on understanding business objectives to build applications that are not only technically robust but also drive user satisfaction and achieve project goals.`}
-                        </p> */}
-                    </div>
-                    {/* <ResumeButton id={`resume-button-2`} /> */}
-                </div>
-                <div className="max-w-[312px] w-4/5">
-                    <Image src={profile} alt="" width="100%" />
+            <div className="flex flex-col gap-4 w-full">
+                <SectionTitle title={`What I Do`} />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {whatIDo.map((item, index) => (
+                        <div key={index} className="p-4 border rounded-lg bg-card">
+                            <h3 className="text-xl font-bold mb-2 text-primary">{item.title}</h3>
+                            <p className="text-muted-foreground">{item.description}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

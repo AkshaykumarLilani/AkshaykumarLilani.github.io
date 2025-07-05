@@ -68,7 +68,7 @@ function HeroSection() {
                             </span>
                         </div>
                         <>
-                            <div className="text-2xl">Sr. Software Engineer at Teson LLP</div>
+                            <div className="text-2xl">Sr. Software Engineer at <a href="https://teson.xyz" target="_blank" rel="noopener noreferrer">Teson LLP</a></div>
                             <div className="text-xl text-muted-foreground">Full Stack Developer (Django & Next.js/React)</div>
                         </>
 

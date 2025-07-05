@@ -86,9 +86,9 @@ function ExperienceCard({ company, role, startDate, endDate, responsibilities, t
                         <div className="flex flex-wrap gap-2">
                             {technologiesUsed.map((tech) => (
                                 <TechnologyBox
-                                    key={tech.title}
+                                    key={tech?.title}
                                     {...tech}
-                                    fontSize={12}
+                                    size="sm"
                                 />
                             ))}
                         </div>

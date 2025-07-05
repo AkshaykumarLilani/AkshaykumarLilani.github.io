@@ -80,7 +80,7 @@ function ProjectCard({
                                 // Example: Use secondary background for tech tags
                                 backgroundColor="hsl(var(--secondary))"
                                 borderColor="hsl(var(--secondary-foreground))"
-                                fontSize={12}
+                                size="sm"
                             />
                         ))}
                     </div>

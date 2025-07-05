@@ -11,19 +11,28 @@ function TechnologyBox({
     img,
     title,
     borderColor,
-    backgroundColor: initialBackgroundColorProp,
+    backgroundColor: initialBackgroundColorProp, // Not directly used in new hover, but kept for compatibility
     inSkillsSection,
-    onAnimationBackgroundColor,
-    fontSize = 14,
+    onAnimationBackgroundColor, // Used for whileHover background
+    size = 'md', // 'sm', 'md', 'lg'
 }) {
-    const baseBgSkillsClass = 'bg-secondary'; // e.g., from your theme
+    const baseShadowClass = 'shadow-md';
+    const hoverShadowClass = 'shadow-xl';
+
+    const sizeMap = {
+        sm: { text: 12, image: 24, boxPadding: 'p-2' },
+        md: { text: 14, image: 32, boxPadding: 'p-3 sm:p-4' },
+        lg: { text: 16, image: 48, boxPadding: 'p-4 sm:p-5' },
+    };
+
+    const { text: fontSize, image: imageSize, boxPadding } = sizeMap[size];
 
     // For project card tech tags (simpler, no complex hover on the box itself)
     if (!inSkillsSection) {
         if (!img && title === 'EJS') {
             return (
                 <motion.div
-                    className="flex gap-1.5 items-center p-1.5 px-2.5 rounded-md bg-muted border border-border/80 cursor-default"
+                    className={`flex gap-1.5 items-center ${boxPadding} px-2.5 rounded-md bg-muted border border-border/80 cursor-default`}
                     style={{ fontSize: `${fontSize}px` }}
                     whileTap={{ scale: 0.97 }}
                 >
@@ -36,7 +45,7 @@ function TechnologyBox({
 
         return (
             <motion.div
-                className="flex gap-1.5 items-center p-1.5 px-2.5 rounded-md bg-muted border border-border/80 cursor-default"
+                className={`flex gap-1.5 items-center ${boxPadding} px-2.5 rounded-md bg-muted border border-border/80 cursor-default`}
                 style={{ fontSize: `${fontSize}px` }}
                 whileTap={{ scale: 0.97 }}
             >
@@ -44,7 +53,7 @@ function TechnologyBox({
                     <Image
                         src={img}
                         alt={title}
-                        width={fontSize}
+                        width={fontSize} // Use text font size for small icons
                         height={fontSize}
                     />
                 )}
@@ -55,25 +64,21 @@ function TechnologyBox({
         );
     }
 
-    const imageSize = fontSize * (title === 'React' || title === 'NodeJs' || title === 'Next.js' || title === 'Django Rest' ? 2.8 : 2.2);
-
-    const hoverStyle = {
-        '--hover-bg-color': onAnimationBackgroundColor || 'hsl(var(--secondary))', // Fallback
-    };
-
+    // For skills section with hover effects
     return (
         <motion.div
-            // Base styles
             className={`
-                flex flex-col justify-center items-center gap-2 p-3 sm:p-4 rounded-lg 
+                flex flex-col justify-center items-center gap-2 ${boxPadding} rounded-lg 
                 text-center border border-border/60 h-full cursor-pointer 
-                ${baseBgSkillsClass} ${baseShadowClass}
+                bg-secondary ${baseShadowClass}
                 transition-all duration-200 ease-out 
-                md:hover:scale-108 md:hover:${hoverShadowClass} 
-                md:hover:![background-color:var(--hover-bg-color)] /* Apply dynamic bg on desktop hover */
             `}
-            style={hoverStyle} // Apply the custom property
-            whileTap={{ scale: 0.95 }} // Tap feedback for all devices
+            whileHover={{
+                scale: 1.08,
+                boxShadow: `0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 0 0 3px ${onAnimationBackgroundColor || 'hsl(var(--secondary))'}`, // Tailwind shadow-xl + custom ring
+                backgroundColor: onAnimationBackgroundColor || 'hsl(var(--secondary))',
+            }}
+            whileTap={{ scale: 0.95 }}
         >
             {img && (
                 <Image
