@@ -26,12 +26,12 @@ export function HoverBorderGradient({
   };
 
   const movingMap = {
-    TOP: "radial-gradient(20.7% 50% at 50% 0%, hsl(var(--primary)) 0%, hsl(var(--background)) 100%)",
-    LEFT: "radial-gradient(16.6% 43.1% at 0% 50%, hsl(var(--primary)) 0%, hsl(var(--background)) 100%)",
+    TOP: "radial-gradient(20.7% 50% at 50% 0%, hsl(217.2 91.2% 59.8%) 0%, hsl(var(--background)) 100%)",
+    LEFT: "radial-gradient(16.6% 43.1% at 0% 50%, hsl(217.2 91.2% 59.8%) 0%, hsl(var(--background)) 100%)",
     BOTTOM:
-      "radial-gradient(20.7% 50% at 50% 100%, hsl(var(--primary)) 0%, hsl(var(--background)) 100%)",
+      "radial-gradient(20.7% 50% at 50% 100%, hsl(217.2 91.2% 59.8%) 0%, hsl(var(--background)) 100%)",
     RIGHT:
-      "radial-gradient(16.2% 41.199999999999996% at 100% 50%, hsl(var(--primary)) 0%, hsl(var(--background)) 100%)",
+      "radial-gradient(16.2% 41.199999999999996% at 100% 50%, hsl(217.2 91.2% 59.8%) 0%, hsl(var(--background)) 100%)",
   };
 
   const highlight =
@@ -57,7 +57,7 @@ export function HoverBorderGradient({
       )}
       {...props}>
       <div
-        className={cn("w-auto text-white z-10 bg-background px-4 py-2 rounded-[inherit]", className)}>
+        className={cn("w-auto text-foreground z-10 bg-background px-4 py-2 rounded-[inherit]", className)}>
         {children}
       </div>
       <motion.div

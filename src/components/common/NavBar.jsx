@@ -27,7 +27,7 @@ function DesktopNavbarComponent({ scrollTo, active, links, baseSpring }) {
             style={baseSpring}
             className="fixed top-0 left-0 right-0 z-[999] flex justify-center py-3 md:py-2 px-3"
         >
-            <div className="flex justify-between items-center py-2.5 px-4 w-full max-w-[1120px] bg-background/80 dark:bg-neutral-950/80 backdrop-blur-md rounded-xl shadow-lg border border-border/60">
+            <div className="flex justify-between items-center py-2.5 px-4 w-full max-w-[1120px] bg-background/80 dark:bg-accent/60 backdrop-blur-md rounded-xl shadow-lg border border-border/60">
                 <div
                     onClick={(e) => scrollTo(e, 'hero')}
                     className="cursor-pointer"

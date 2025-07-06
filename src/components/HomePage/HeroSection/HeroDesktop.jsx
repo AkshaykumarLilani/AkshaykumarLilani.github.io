@@ -49,14 +49,14 @@ const HeroDesktop = ({ heroBio }) => {
                                 target="_blank"
                                 className="no-underline"
                             >
-                                <Image width={44} src={linkedin_logo} alt="LinkedIn Logo" />
+                                <Image width={44} src={linkedin_logo} className='dark:invert dark:filter' alt="LinkedIn Logo" />
                             </a>
                             <a
                                 href="https://www.github.com/AkshaykumarLilani"
                                 target="_blank"
                                 className="no-underline"
                             >
-                                <Image width={50} src={github_logo} alt="Github Logo" />
+                                <Image width={50} src={github_logo} className='dark:invert dark:filter' alt="Github Logo" />
                             </a>
                         </div>
                     </div>
