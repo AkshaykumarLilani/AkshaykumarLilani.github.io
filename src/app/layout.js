@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
           property="og:image"
           content="https://akshaylilani.com/profile.png"
         />
-        <meta property="og:description" content="Full Stack Web Developer" />
+        <meta property="og:description" content="Full-Stack Engineer | Python, React, Next.js, Django & Docker" />
         <meta property="og:site_name" content="Akshaykumar Lilani" />
         <title>Akshaykumar Lilani</title>
 
