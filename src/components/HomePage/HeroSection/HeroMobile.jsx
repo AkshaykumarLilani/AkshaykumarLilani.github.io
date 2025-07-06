@@ -9,7 +9,7 @@ import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
 const HeroMobile = ({ heroBio, conciseHeroBio, summedExperience }) => {
     return (
         <section
-            className="flex flex-col justify-start items-start p-3"
+            className="flex flex-col justify-start items-start p-5"
             id="hero-mobile"
         >
             <HoverBorderGradient
@@ -32,9 +32,8 @@ const HeroMobile = ({ heroBio, conciseHeroBio, summedExperience }) => {
                     />
                 </div>
                 <div className="flex flex-col gap-2">
-
                     <div>
-                        <div className="text-md">Senior Software Engineer | <a href="https://teson.xyz" target="_blank" rel="noopener noreferrer">Teson LLP</a></div>
+                        <div className="text-md text-primary">Senior Software Engineer | <a href="https://teson.xyz" target="_blank" rel="noopener noreferrer">Teson LLP</a></div>
                     </div>
                 </div>
 

@@ -9,7 +9,7 @@ import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
 const HeroDesktop = ({ heroBio }) => {
     return (
         <section
-            className="flex flex-row justify-start items-start p-5"
+            className="flex flex-row justify-start items-start py-5"
             id="hero-desktop"
         >
             <HoverBorderGradient
@@ -27,11 +27,11 @@ const HeroDesktop = ({ heroBio }) => {
                                     </strong>
                                 </span>
                             </div>
-                            <div className="text-2xl">Senior. Software Engineer | <a href="https://teson.xyz" target="_blank" rel="noopener noreferrer">Teson LLP</a></div>
+                            <div className="text-2xl text-foreground">Senior. Software Engineer | <a href="https://teson.xyz" target="_blank" rel="noopener noreferrer">Teson LLP</a></div>
                             {/* <div className="text-xl text-muted-foreground">Full Stack Developer (Django & Next.js/React)</div> */}
                         </div>
                         <div className='flex flex-row gap-2 items-center'>
-                            <div className='w-3/4'>
+                            <div className='w-3/4 text-foreground'>
                                 {heroBio}
                             </div>
                             <div className="flex justify-center items-center w-1/4">

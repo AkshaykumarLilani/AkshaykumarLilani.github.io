@@ -14,8 +14,6 @@ export function ModeToggle() {
     }, []);
 
     if (!mounted) {
-        // Render a placeholder or null to avoid hydration mismatch
-        // or a default icon if preferred, but null is safest for theme switches
         return <Button variant="ghost" size="icon" disabled className="h-10 w-10" />;
     }
 
