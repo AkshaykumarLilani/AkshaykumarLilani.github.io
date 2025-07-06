@@ -97,7 +97,7 @@ function MobileNavbarComponent({ scrollTo, active, links, baseSpring }) {
         >
             {/* This motion.div is the actual visible navbar bar with max-width and styling */}
             <motion.div
-                className="bg-background/85 dark:bg-neutral-950/85 backdrop-blur-lg shadow-2xl rounded-2xl border border-border/60 overflow-hidden w-full max-w-xs sm:max-w-sm"
+                className="bg-background/85 dark:bg-neutral-950/85 backdrop-blur-lg shadow-2xl rounded-2xl border border-muted overflow-hidden w-full max-w-xs sm:max-w-sm"
                 // max-w-xs for very small, sm:max-w-sm for slightly larger mobile. Adjust as needed.
                 animate={{ height: isExpanded ? "auto" : "3.75rem" }} // 3.75rem = h-15 (60px), slightly more compact
                 transition={{ type: "spring", stiffness: 350, damping: 30 }}

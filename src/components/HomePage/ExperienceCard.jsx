@@ -76,7 +76,7 @@ function ExperienceCard({ company, role, startDate, endDate, responsibilities, t
                 <div className="mb-5">
                     <ul className="list-disc list-outside ml-5 text-foreground space-y-1.5 text-sm md:text-base">
                         {responsibilities.map((item, index) => (
-                            <li key={index} className="leading-relaxed">{item}</li>
+                            <li key={`responsibility-${index}`} className="leading-relaxed">{item}</li>
                         ))}
                     </ul>
                 </div>
@@ -84,9 +84,9 @@ function ExperienceCard({ company, role, startDate, endDate, responsibilities, t
                     <div>
                         <h4 className="text-base font-medium mb-2 text-foreground">Technologies Utilized:</h4>
                         <div className="flex flex-wrap gap-2">
-                            {technologiesUsed.map((tech) => (
+                            {technologiesUsed.map((tech, index) => (
                                 <TechnologyBox
-                                    key={tech?.title}
+                                    key={tech?.title || `tech-${index}`}
                                     {...tech}
                                     size="sm"
                                 />

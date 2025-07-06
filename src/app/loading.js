@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const LoadingHome = () => {
     return (
-        <main className="flex justify-center items-center min-h-screen bg-white">
+        <main className="flex justify-center items-center min-h-screen bg-background">
             <div className="flex flex-col items-center">
                 <Image src={loading_animation} alt="Loading" />
             </div>
