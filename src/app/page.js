@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import NavBar from '@/components/common/NavBar';
 import HeroSection from '@/components/HomePage/HeroSection/index';
 import AboutSection from '@/components/HomePage/AboutSection';
@@ -24,7 +24,7 @@ function HomePage() {
     }
   }, [isClient]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIsClient(true)
   }, [])
 

@@ -71,6 +71,10 @@ module.exports = {
 					'5': 'hsl(var(--chart-5))'
 				}
 			},
+			fontFamily: {
+				'helvetica-neue': ['"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+				sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',

@@ -27,7 +27,7 @@ const HeroDesktop = ({ heroBio }) => {
                                     </strong>
                                 </span>
                             </div>
-                            <div className="text-2xl text-foreground">Senior. Software Engineer | <a href="https://teson.xyz" target="_blank" rel="noopener noreferrer">Teson LLP</a></div>
+                            <div className="text-2xl text-foreground">Senior Software Engineer | <a href="https://teson.xyz" target="_blank" rel="noopener noreferrer">Teson LLP</a></div>
                             {/* <div className="text-xl text-muted-foreground">Full Stack Developer (Django & Next.js/React)</div> */}
                         </div>
                         <div className='flex flex-row gap-2 items-center'>

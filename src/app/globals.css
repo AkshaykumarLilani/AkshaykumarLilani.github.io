@@ -32,6 +32,7 @@
     } */
 
     :root {
+        --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         --background: 0 0% 100%;
         --foreground: 0 0% 3.9%;
         --card: 0 0% 100%;
@@ -124,9 +125,16 @@
     }
 }
 
-/* Global Custom Properties */
-
-/* Dark Mode Preferences */
+html {
+    /* Use Tailwind's generated CSS variables for font families if available, or directly use the stack */
+    font-family: var(
+        --font-sans,
+        'Helvetica Neue',
+        Helvetica,
+        Arial,
+        sans-serif
+    );
+}
 
 /* Global Body Styles */
 body {
