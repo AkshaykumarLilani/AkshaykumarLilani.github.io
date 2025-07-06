@@ -22,7 +22,7 @@
 }
 
 .filter.active {
-    background-color: hsl(var(--primary));
+    background-color: hsl(var(--accent));
     color: hsl(var(--foreground));
     border-radius: 5px;
     box-shadow: 2px 2px 5px hsl(var(--muted-foreground));
