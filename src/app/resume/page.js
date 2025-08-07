@@ -1,17 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { toast } from "sonner"
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import { Download, ExternalLink, House, Loader2 } from 'lucide-react';
 
 const RESUME_FILE_NAME = "Akshaykumar_Lilani_Resume";
 const RESUME_FILE_EXTENSION = "pdf";
 
-export default function DownloadPage() {
+export default function ResumePage() {
     const router = useRouter();
-    const [downloadStatus, setDownloadStatus] = useState('loading'); // 'loading', 'success', 'error'
+    const [downloadStatus, setDownloadStatus] = useState(null); // null, 'loading', 'success', 'error'
 
     const initiateDownload = async () => {
         setDownloadStatus('loading');
@@ -26,9 +27,12 @@ export default function DownloadPage() {
             const link = document.createElement('a');
             link.href = url;
             link.download = `${RESUME_FILE_NAME}.${RESUME_FILE_EXTENSION}`;
+            document.body.appendChild(link);
             link.click();
+            document.body.removeChild(link);
             window.URL.revokeObjectURL(url);
             setDownloadStatus('success');
+            toast.success("Resume downloaded successfully!");
         } catch (error) {
             console.error('Error downloading the file:', error);
             toast.error("Error downloading the file", {
@@ -38,72 +42,60 @@ export default function DownloadPage() {
         }
     };
 
-    useEffect(() => {
-        initiateDownload();
-    }, []);
-
     return (
         <div
             className={cn(
-                'flex flex-col items-center justify-center min-h-screen px-4',
+                'flex flex-col gap-4 items-center justify-center h-screen px-4 py-4 overflow-x-hidden',
                 'bg-background text-foreground'
             )}
         >
-            
-            <h1 className="text-4xl font-bold mb-8">{`Akshaykumar Lilani's Resume`}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-center">{`Akshaykumar Lilani's Resume`}</h1>
 
-            {downloadStatus === 'loading' && (
-                <>
-                    <h2 className="text-3xl font-bold mb-4">Downloading Resume...</h2>
-                    <p className="text-lg">If the download does not start automatically, please wait.</p>
-                </>
-            )}
+            <div className='w-full flex flex-col-reverse md:flex-col gap-4'>
+                <div className="flex flex-row items-center justify-center flex-wrap gap-4">
+                    <Button
+                        variant="secondary"
+                        size="sm"
+                        className="hover:bg-muted/50 w-auto"
+                        onClick={() => window.open(`/${RESUME_FILE_NAME}.${RESUME_FILE_EXTENSION}`, '_blank')}
+                    >
+                        <ExternalLink /> View in New Tab
+                    </Button>
+                    <Button
+                        variant="secondary"
+                        className="hover:bg-muted/50 w-auto"
+                        onClick={initiateDownload}
+                        disabled={downloadStatus === 'loading'}
+                    >
+                        {downloadStatus === 'loading' ? <> <Loader2 className='animate-spin' /> Downloading...</> : <> <Download /> Download Resume</>}
+                    </Button>
+                    <Button
+                        variant="secondary"
+                        className="hover:bg-muted/50 w-auto"
+                        onClick={() => router.push("/")}
+                    >
+                        <House /> Go to Main Page
+                    </Button>
+                </div>
 
-            {downloadStatus === 'success' && (
-                <>
-                    <h2 className="text-3xl font-bold mb-4">Download Complete!</h2>
-                    <p className="text-lg">The resume has been downloaded.</p>
-                    <div className="flex gap-4 mt-4">
-                        <Button
-                            variant="outline"
-                            className="hover:bg-muted/50"
-                            onClick={() => window.open(`/${RESUME_FILE_NAME}.${RESUME_FILE_EXTENSION}`, '_blank')}
+                <div className='flex-1 flex items-center justify-center'>
+                    {downloadStatus === 'error' && (
+                        <div className="text-destructive mb-4">
+                            <p>There was an error downloading your resume. Please try again.</p>
+                        </div>
+                    )}
+
+                    <div className="w-full max-w-4xl h-[55vh] md:h-[calc(100vh-200px)]">
+                        <iframe
+                            src={`/${RESUME_FILE_NAME}.${RESUME_FILE_EXTENSION}`}
+                            className="w-full h-full border rounded-lg"
+                            title="Akshaykumar Lilani's Resume"
                         >
-                            View Resume
-                        </Button>
-                        <Button
-                            variant="outline"
-                            className="hover:bg-muted/50"
-                            onClick={() => router.push("/")}
-                        >
-                            Go to Main Page
-                        </Button>
+                            {`This browser does not support PDFs. Please download the PDF to view it.`}
+                        </iframe>
                     </div>
-                </>
-            )}
-
-            {downloadStatus === 'error' && (
-                <>
-                    <h2 className="text-3xl font-bold mb-4">Download Failed!</h2>
-                    <p className="text-lg">There was an error downloading your resume.</p>
-                    <div className="flex gap-4 mt-4">
-                        <Button
-                            variant="outline"
-                            className="hover:bg-muted/50"
-                            onClick={initiateDownload}
-                        >
-                            Try Again
-                        </Button>
-                        <Button
-                            variant="outline"
-                            className="hover:bg-muted/50"
-                            onClick={() => router.push("/")}
-                        >
-                            Go to Main Page
-                        </Button>
-                    </div>
-                </>
-            )}
+                </div>
+            </div>
         </div>
     );
 }
