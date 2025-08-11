@@ -38,6 +38,7 @@ import project_BigBasketClone from './projects/BigBasketClone.webp';
 import project_InventoryManagement from './projects/InventoryManagement.webp';
 import project_TimeAndSalesWindow from './projects/TimeAndSalesWindow.webp';
 import project_LibraryManager from './projects/LibraryManager.webp';
+import project_NotebookLM from './projects/NotebookLMClone.webp';
 
 import project_githubLogo from './projects/github_logo.svg';
 import project_gotoLink from './projects/gotoLink.svg';
@@ -82,6 +83,7 @@ export {
     project_BigBasketClone,
     project_InventoryManagement,
     project_TimeAndSalesWindow,
+    project_NotebookLM,
     project_LibraryManager,
     project_githubLogo,
     project_gotoLink,

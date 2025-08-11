@@ -6,7 +6,7 @@ export const experiences = [
         company: "Teson LLP",
         role: "Senior Software Engineer",
         startDate: "2024-03-01",
-        endDate: "Present",
+        endDate: "2025-07-31",
         responsibilities: [
             "Led the frontend architecture for a platform serving 15,000+ users and processing over 109 Million MUR in sales annually.",
             "Engineered a full-featured gift card and wallet payment system from scratch.",

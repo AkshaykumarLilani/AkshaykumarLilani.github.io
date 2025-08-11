@@ -8,6 +8,7 @@ import {
     project_LibraryManager,
     project_OnlineBiCycleShop,
     project_TimeAndSalesWindow,
+    project_NotebookLM
 } from '@/assets';
 project_BigBasketClone;
 
@@ -21,6 +22,20 @@ export const PROJECT_CATEGORIES = {
 };
 
 const projects = [
+    {
+        title: 'NotebookLM Clone',
+        description:
+            "A Python Flask and Next.js RAG app that lets users upload PDFs, chat with an AI about their content, and receive source-cited answers, inspired by Google's NotebookLM.",
+        techStack: [
+            allTechs.nextjs,
+            allTechs.python,
+        ],
+        githubRepositoryLink:
+            'https://github.com/AkshaykumarLilani/notebooklm-clone',
+        deployedLink: 'https://nblm.akshaylilani.com/',
+        image: project_NotebookLM,
+        category: PROJECT_CATEGORIES.FULLSTACK,
+    },
     {
         title: 'Library Manager',
         description:
