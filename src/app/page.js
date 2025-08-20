@@ -3,10 +3,10 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import NavBar from '@/components/common/NavBar';
 import HeroSection from '@/components/HomePage/HeroSection/index';
-import AboutSection from '@/components/HomePage/AboutSection';
+// import AboutSection from '@/components/HomePage/AboutSection';
 import SkillsSection from '@/components/HomePage/SkillsSection';
 import ProjectsSection from '@/components/HomePage/Project/ProjectsSection';
-import GithubStatsSection from '@/components/HomePage/GithubStatsSection';
+// import GithubStatsSection from '@/components/HomePage/GithubStatsSection';
 import Footer from '@/components/common/Footer';
 import Contact from '@/components/HomePage/Contact';
 import ExperienceSection from '@/components/HomePage/ExperienceSection';
@@ -37,7 +37,7 @@ function HomePage() {
       <NavBar />
       <div className="home-page max-w-[1120px] mx-auto flex flex-col gap-5 md:pt-24">
         <HeroSection />
-        <AboutSection />
+        {/* <AboutSection /> */}
         <ExperienceSection />
         <SkillsSection />
         <ProjectsSection />

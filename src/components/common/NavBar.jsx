@@ -13,7 +13,7 @@ import { ChevronUp, ChevronDown, Menu as MenuIcon, X as CloseIcon, Download, Moo
 
 // Consistent links array for both navbars
 const navItems = [
-    { id: 'about', label: 'About', icon: User },
+    // { id: 'about', label: 'About', icon: User },
     { id: 'experience', label: 'Experience', icon: Briefcase },
     { id: 'skills', label: 'Skills', icon: Code },
     { id: 'projects', label: 'Projects', icon: Layers },
