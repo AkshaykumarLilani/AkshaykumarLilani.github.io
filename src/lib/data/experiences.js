@@ -3,6 +3,25 @@ import { allTechsSameColor } from '@/utilities/allTechs'; // Or your preferred t
 
 export const experiences = [
     {
+        company: "Kognitos",
+        role: "Senior Software Engineer (UI)",
+        startDate: "2025-09-29",
+        endDate: "2025-11-28",
+        responsibilities: [
+            "Led the end-to-end implementation of a Role-Based Access Control (RBAC) system, ensuring secure and granular permission management across the application.",
+            "Built a comprehensive Consumption Dashboard from scratch, providing users with actionable insights through interactive charts and live data integration.",
+            "Optimized application stability and performance by resolving critical production issues and improving error handling infrastructure.",
+        ],
+        technologiesUsed: [
+            allTechsSameColor.react,
+            allTechsSameColor.typescript,
+            allTechsSameColor.graphql,
+            allTechsSameColor.cypress,
+            allTechsSameColor.storybook,
+            allTechsSameColor.circleci,
+        ]
+    },
+    {
         company: "Teson LLP",
         role: "Senior Software Engineer",
         startDate: "2024-03-01",

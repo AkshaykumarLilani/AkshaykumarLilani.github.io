@@ -22,7 +22,12 @@ import {
     tech_ubuntu,
     tech_nextjs,
     tech_pinescript,
-    tech_tailwind
+    tech_tailwind,
+    tech_cypress,
+    tech_graphql,
+    tech_storybook,
+    tech_circleci,
+    tech_typescript
 } from '@/assets';
 
 export const allTechs = {
@@ -167,6 +172,36 @@ export const allTechs = {
         img: tech_tailwind,
         borderColor: 'rgba(56, 189, 248, 0.46)',
         backgroundColor: '#rgba(56, 189, 248, 0.46)',
+    },
+    cypress: {
+        title: 'Cypress',
+        img: tech_cypress,
+        borderColor: '#1b1e2e',
+        backgroundColor: '#e0e0e0',
+    },
+    graphql: {
+        title: 'GraphQL',
+        img: tech_graphql,
+        borderColor: '#e10098',
+        backgroundColor: '#ffccf2',
+    },
+    storybook: {
+        title: 'Storybook',
+        img: tech_storybook,
+        borderColor: '#ff4785',
+        backgroundColor: '#ffdaea',
+    },
+    circleci: {
+        title: 'CircleCI',
+        img: tech_circleci,
+        borderColor: '#343434',
+        backgroundColor: '#e6e6e6',
+    },
+    typescript: {
+        title: 'TypeScript',
+        img: tech_typescript,
+        borderColor: '#007acc',
+        backgroundColor: '#d6f0ff',
     },
 };
 
@@ -342,5 +377,40 @@ export const allTechsSameColor = {
         borderColor: sameColorBorderColor,
         backgroundColor: sameColorBgColor,
         onAnimationBackgroundColor: getMyBg('tailwind'),
+    },
+    cypress: {
+        title: 'Cypress',
+        img: tech_cypress,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg('cypress'),
+    },
+    graphql: {
+        title: 'GraphQL',
+        img: tech_graphql,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg('graphql'),
+    },
+    storybook: {
+        title: 'Storybook',
+        img: tech_storybook,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg('storybook'),
+    },
+    circleci: {
+        title: 'CircleCI',
+        img: tech_circleci,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg('circleci'),
+    },
+    typescript: {
+        title: 'TypeScript',
+        img: tech_typescript,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg('typescript'),
     },
 };

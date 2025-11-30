@@ -31,6 +31,11 @@ import tech_ubuntu from './technologies/ubuntu.svg';
 import tech_nextjs from './technologies/nextjs.svg';
 import tech_pinescript from './technologies/PineScript.svg';
 import tech_tailwind from "./technologies/tailwind.svg";
+import tech_cypress from "./technologies/cypress.svg";
+import tech_graphql from "./technologies/graphql.svg";
+import tech_storybook from "./technologies/storybook.svg";
+import tech_circleci from "./technologies/circleci.svg";
+import tech_typescript from "./technologies/typescript.svg";
 
 import project_OnlineBiCycleShop from './projects/OnlineBiCycleShop.webp';
 import project_LetsCamp from './projects/LetsCamp.webp';
@@ -91,5 +96,10 @@ export {
     contact_animation,
     loading_animation,
     vercel_logo,
-    tech_tailwind
+    tech_tailwind,
+    tech_cypress,
+    tech_graphql,
+    tech_storybook,
+    tech_circleci,
+    tech_typescript
 };
