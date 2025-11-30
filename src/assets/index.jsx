@@ -36,6 +36,8 @@ import tech_graphql from "./technologies/graphql.svg";
 import tech_storybook from "./technologies/storybook.svg";
 import tech_circleci from "./technologies/circleci.svg";
 import tech_typescript from "./technologies/typescript.svg";
+import tech_jest from "./technologies/jest.svg";
+import tech_testinglibrary from "./technologies/testinglibrary.svg";
 
 import project_OnlineBiCycleShop from './projects/OnlineBiCycleShop.webp';
 import project_LetsCamp from './projects/LetsCamp.webp';
@@ -101,5 +103,7 @@ export {
     tech_graphql,
     tech_storybook,
     tech_circleci,
-    tech_typescript
+    tech_typescript,
+    tech_jest,
+    tech_testinglibrary
 };

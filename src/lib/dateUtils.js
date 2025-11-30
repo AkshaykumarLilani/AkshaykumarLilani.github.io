@@ -21,7 +21,8 @@ export function formatExperienceDateRange(startDateStr, endDateStr) {
     // If the end date's day is before the start date's day,
     // and we are not in the exact same month and year (for 'Present' case primarily)
     // or if it's a fixed end date.
-    if (end.getDate() < start.getDate()) {
+    // Added a grace period of 5 days: if it's within 5 days of a full month, count it.
+    if (end.getDate() < start.getDate() && (start.getDate() - end.getDate() >= 5)) {
         if (!(start.getFullYear() === end.getFullYear() && start.getMonth() === end.getMonth())) {
             months--;
         }
@@ -93,7 +94,7 @@ export function calculateSumOfExperiences(experiencesArray) {
         let years = end.getFullYear() - start.getFullYear();
         let months = end.getMonth() - start.getMonth();
 
-        if (end.getDate() < start.getDate()) {
+        if (end.getDate() < start.getDate() && (start.getDate() - end.getDate() >= 5)) {
             months--;
         }
 
@@ -152,7 +153,7 @@ export function calculateTotalCareerSpan(experiencesArray) {
     }
     let years = latestOverallEndDate.getFullYear() - earliestOverallStartDate.getFullYear();
     let months = latestOverallEndDate.getMonth() - earliestOverallStartDate.getMonth();
-    if (latestOverallEndDate.getDate() < earliestOverallStartDate.getDate()) {
+    if (latestOverallEndDate.getDate() < earliestOverallStartDate.getDate() && (earliestOverallStartDate.getDate() - latestOverallEndDate.getDate() >= 5)) {
         months--;
     }
     if (months < 0) {

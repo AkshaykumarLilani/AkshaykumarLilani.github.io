@@ -27,7 +27,9 @@ import {
     tech_graphql,
     tech_storybook,
     tech_circleci,
-    tech_typescript
+    tech_typescript,
+    tech_jest,
+    tech_testinglibrary
 } from '@/assets';
 
 export const allTechs = {
@@ -202,6 +204,18 @@ export const allTechs = {
         img: tech_typescript,
         borderColor: '#007acc',
         backgroundColor: '#d6f0ff',
+    },
+    jest: {
+        title: 'Jest',
+        img: tech_jest,
+        borderColor: '#C21325',
+        backgroundColor: '#f5d0d4',
+    },
+    testinglibrary: {
+        title: 'Testing Library',
+        img: tech_testinglibrary,
+        borderColor: '#E33332',
+        backgroundColor: '#f7d6d6',
     },
 };
 
@@ -412,5 +426,19 @@ export const allTechsSameColor = {
         borderColor: sameColorBorderColor,
         backgroundColor: sameColorBgColor,
         onAnimationBackgroundColor: getMyBg('typescript'),
+    },
+    jest: {
+        title: 'Jest',
+        img: tech_jest,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg('jest'),
+    },
+    testinglibrary: {
+        title: 'Testing Library',
+        img: tech_testinglibrary,
+        borderColor: sameColorBorderColor,
+        backgroundColor: sameColorBgColor,
+        onAnimationBackgroundColor: getMyBg('testinglibrary'),
     },
 };

@@ -19,6 +19,8 @@ export const experiences = [
             allTechsSameColor.cypress,
             allTechsSameColor.storybook,
             allTechsSameColor.circleci,
+            allTechsSameColor.jest,
+            allTechsSameColor.testinglibrary,
         ]
     },
     {
