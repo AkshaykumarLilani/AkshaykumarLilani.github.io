@@ -24,19 +24,27 @@ const technologies = [
     allTechsSameColor.ejs,
     allTechsSameColor.html,
     allTechsSameColor.css,
+    allTechsSameColor.typescript,
     allTechsSameColor.javascript,
     allTechsSameColor.s3,
     allTechsSameColor.pinescript,
     allTechsSameColor.ubuntu,
     allTechsSameColor.git,
-    allTechsSameColor.tailwind
+    allTechsSameColor.tailwind,
+    allTechsSameColor.cypress,
+    allTechsSameColor.graphql,
+    allTechsSameColor.storybook,
+    allTechsSameColor.circleci,
+    allTechsSameColor.jest,
+    allTechsSameColor.testinglibrary
 ];
 
 const categorizedSkills = {
-    "Frontend": [allTechsSameColor.react, allTechsSameColor.nextjs, allTechsSameColor.javascript, allTechsSameColor.html, allTechsSameColor.css, allTechsSameColor.tailwind, allTechsSameColor.redux, allTechsSameColor.antdesign, allTechsSameColor.bootstrap],
+    "Frontend": [allTechsSameColor.react, allTechsSameColor.nextjs, allTechsSameColor.typescript, allTechsSameColor.javascript, allTechsSameColor.html, allTechsSameColor.css, allTechsSameColor.tailwind, allTechsSameColor.redux, allTechsSameColor.graphql, allTechsSameColor.storybook, allTechsSameColor.antdesign, allTechsSameColor.bootstrap],
     "Backend": [allTechsSameColor.nodejs, allTechsSameColor.express, allTechsSameColor.python, allTechsSameColor.django_rest],
     "Databases": [allTechsSameColor.mongodb, allTechsSameColor.postgres],
-    "DevOps & Tools": [allTechsSameColor.git, allTechsSameColor.docker, allTechsSameColor.aws, allTechsSameColor.s3, allTechsSameColor.ubuntu],
+    "Testing": [allTechsSameColor.jest, allTechsSameColor.testinglibrary, allTechsSameColor.cypress],
+    "DevOps & Tools": [allTechsSameColor.git, allTechsSameColor.docker, allTechsSameColor.circleci, allTechsSameColor.aws, allTechsSameColor.s3, allTechsSameColor.ubuntu],
     "Specialized": [allTechsSameColor.pinescript,]
 }
 

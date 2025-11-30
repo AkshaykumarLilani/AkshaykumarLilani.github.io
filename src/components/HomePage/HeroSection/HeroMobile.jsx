@@ -33,7 +33,7 @@ const HeroMobile = ({ heroBio, conciseHeroBio, summedExperience }) => {
                 </div>
                 <div className="flex flex-col gap-2">
                     <div>
-                        <div className="text-md text-primary">Senior Software Engineer | <a href="https://teson.xyz" target="_blank" rel="noopener noreferrer">Teson LLP</a></div>
+                        <div className="text-md text-primary">Senior Software Engineer (UI) | <a href="https://kognitos.com" target="_blank" rel="noopener noreferrer">Kognitos</a></div>
                     </div>
                 </div>
 
