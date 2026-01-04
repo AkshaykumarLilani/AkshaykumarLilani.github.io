@@ -5,6 +5,7 @@ import TechnologyBox from '@/components/common/TechnologyBox';
 import { project_githubLogo, project_gotoLink } from '@/assets';
 import { useSpring, animated } from '@react-spring/web';
 import Image from 'next/image';
+import { trackLogRocketEvent } from '@/lib/analytics'; // Import tracking utility
 // import LogRocket from 'logrocket'; // Static import removed
 // import styles from './ProjectCard.module.css'; // Keep for any specific styles if needed
 
@@ -93,10 +94,7 @@ function ProjectCard({
                             target="_blank"
                             rel="noreferrer"
                             className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
-                            onClick={async () => {
-                                const LogRocket = (await import('logrocket')).default;
-                                LogRocket.track('Project GitHub Click', { project: title });
-                            }}
+                            onClick={() => trackLogRocketEvent('Project GitHub Click', { project: title })}
                         >
                             <Image
                                 src={project_githubLogo} // Ensure this SVG is styled to inherit color or is a suitable color
@@ -116,10 +114,7 @@ function ProjectCard({
                         target="_blank"
                         rel="noreferrer"
                         className="flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 transition-colors duration-200 font-medium"
-                        onClick={async () => {
-                            const LogRocket = (await import('logrocket')).default;
-                            LogRocket.track('Project Live Demo Click', { project: title });
-                        }}
+                        onClick={() => trackLogRocketEvent('Project Live Demo Click', { project: title })}
                     >
                         <span>View Live</span>
                         <Image

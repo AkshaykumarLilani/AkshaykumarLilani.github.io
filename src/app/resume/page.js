@@ -6,6 +6,7 @@ import { toast } from "sonner"
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { Download, ExternalLink, House, Loader2 } from 'lucide-react';
+import { trackLogRocketEvent } from '@/lib/analytics';
 
 const RESUME_FILE_NAME = "Akshaykumar_Lilani_Resume";
 const RESUME_FILE_EXTENSION = "pdf";
@@ -15,11 +16,7 @@ export default function ResumePage() {
     const [downloadStatus, setDownloadStatus] = useState(null); // null, 'loading', 'success', 'error'
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            import('logrocket').then((LogRocket) => {
-                LogRocket.default.track('Resume Page View');
-            });
-        }
+        trackLogRocketEvent('Resume Page View');
     }, []);
 
     const initiateDownload = async () => {
