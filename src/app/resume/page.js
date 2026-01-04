@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { toast } from "sonner"
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import { Download, ExternalLink, House, Loader2 } from 'lucide-react';
+import { trackLogRocketEvent } from '@/lib/analytics';
 
 const RESUME_FILE_NAME = "Akshaykumar_Lilani_Resume";
 const RESUME_FILE_EXTENSION = "pdf";
@@ -13,6 +14,10 @@ const RESUME_FILE_EXTENSION = "pdf";
 export default function ResumePage() {
     const router = useRouter();
     const [downloadStatus, setDownloadStatus] = useState(null); // null, 'loading', 'success', 'error'
+
+    useEffect(() => {
+        trackLogRocketEvent('Resume Page View');
+    }, []);
 
     const initiateDownload = async () => {
         setDownloadStatus('loading');

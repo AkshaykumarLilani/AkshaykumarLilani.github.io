@@ -5,6 +5,8 @@ import TechnologyBox from '@/components/common/TechnologyBox';
 import { project_githubLogo, project_gotoLink } from '@/assets';
 import { useSpring, animated } from '@react-spring/web';
 import Image from 'next/image';
+import { trackLogRocketEvent } from '@/lib/analytics'; // Import tracking utility
+// import LogRocket from 'logrocket'; // Static import removed
 // import styles from './ProjectCard.module.css'; // Keep for any specific styles if needed
 
 // Updated shadow definitions (can be moved to module or kept here for spring)
@@ -51,8 +53,8 @@ function ProjectCard({
             onMouseLeave={handleCardMouseLeave}
             style={cardSprings}
             className="flex flex-col justify-between gap-4 bg-card p-5 rounded-xl border border-border/70"
-            // styles['project-card'] can be removed if all styling is via Tailwind now
-            // or keep it for base shadow if not using spring for it
+        // styles['project-card'] can be removed if all styling is via Tailwind now
+        // or keep it for base shadow if not using spring for it
         >
             <div className="flex flex-col">
                 {/* Image container with aspect ratio */}
@@ -92,6 +94,7 @@ function ProjectCard({
                             target="_blank"
                             rel="noreferrer"
                             className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+                            onClick={() => trackLogRocketEvent('Project GitHub Click', { project: title })}
                         >
                             <Image
                                 src={project_githubLogo} // Ensure this SVG is styled to inherit color or is a suitable color
@@ -111,6 +114,7 @@ function ProjectCard({
                         target="_blank"
                         rel="noreferrer"
                         className="flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 transition-colors duration-200 font-medium"
+                        onClick={() => trackLogRocketEvent('Project Live Demo Click', { project: title })}
                     >
                         <span>View Live</span>
                         <Image
