@@ -6,6 +6,7 @@ import React from "react";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner"
 import "./globals.css";
+import LogRocketInit from "@/components/common/LogRocketInit";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -64,6 +65,7 @@ export default function RootLayout({ children }) {
         <React.StrictMode>
           {/* <BreakpointProvider> */}
           {/* <Provider store={store}> */}
+          <LogRocketInit />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

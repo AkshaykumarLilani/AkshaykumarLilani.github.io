@@ -16,6 +16,7 @@ import Image from 'next/image';
 import useWindowWidth from '@/lib/hooks/use-window-width'; //
 import { BackgroundBeams } from '../ui/background-beams';   //
 import { motion } from 'framer-motion';
+// import LogRocket from 'logrocket'; // Static import removed
 
 const socialContacts = [
     { img: linkedin_logo, link: 'https://www.linkedin.com/in/akshay-lilani', text: 'LinkedIn', alt: 'LinkedIn Profile' },
@@ -69,6 +70,10 @@ function IndividualContactCard({ img, text, link, alt }) {
             variants={cardHoverVariants}
             initial="rest"
             whileHover="hover"
+            onClick={async () => {
+                const LogRocket = (await import('logrocket')).default;
+                LogRocket.track('Contact Link Optimization', { type: text });
+            }}
         >
             <Image
                 width={iconSize}

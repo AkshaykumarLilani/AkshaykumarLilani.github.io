@@ -30,6 +30,10 @@ function ResumeButton({ id }) {
         });
     };
 
+    /**
+     * @deprecated
+     * downloads from s3 bucket, which is not maintained anymore.
+     */
     const onResumeClick = async () => {
         const s3FileUrl =
             'https://akshaylilani.s3.ap-south-1.amazonaws.com/Akshaykumar+Lilani+Resume.pdf';
