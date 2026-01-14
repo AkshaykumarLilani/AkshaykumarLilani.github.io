@@ -8,7 +8,7 @@ import HeroDesktop from './HeroDesktop';
 import useMediaQuery from '@/lib/hooks/use-media-query';
 
 function HeroSection() {
-    const summedExperience = useMemo(() => calculateSumOfExperiences([experiences[0], experiences[1]]), []);
+    const summedExperience = useMemo(() => calculateSumOfExperiences([experiences[0], experiences[1], experiences[2]]), []);
     const allSummedExperience = useMemo(() => calculateSumOfExperiences([...experiences]), [])
     const heroBio = `With ${allSummedExperience.totalYears} years of IT and nearly ${summedExperience.totalYears + 1} years of Full Stack Developer experience, currently contributing as a Senior Software Engineer (UI) at Kognitos, I specialize in engineering high-performance, user-centric web applications. While I have a strong foundation in backend systems (Python/Django), my true passion and expertise lie in Frontend Engineering. I excel at building complex, interactive UIs using React, Next.js, and TypeScript, with a focus on performance optimization, pixel-perfect design, and seamless UX. At Kognitos and Teson, I've led major frontend initiatives—from architecting RBAC systems and analytics dashboards to migrating legacy codebases—always bridging the gap between sophisticated design and scalable engineering.`;
 
